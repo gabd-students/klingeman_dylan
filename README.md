@@ -5,9 +5,9 @@ Dylan Klingeman
 ### [Here is a link to a youtube video I found recently that I thought was very interesting](https://www.youtube.com/watch?v=2j6Dzwn8Qao). It is of a guy who builds these **crazy** structures out of only sticks, dirt, mud, trees, and with his *bare hands*. 
 
 ### My Top 3 Movies: 
- -Click
- -50 First Dates
- -The Do over
+ - Click
+ - 50 First Dates
+ - The Do over
 
 ### The best three flavors of ice cream in order
  1. Moose tracks
