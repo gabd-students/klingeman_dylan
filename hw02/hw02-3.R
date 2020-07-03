@@ -157,12 +157,6 @@ log(four_diets_ounces)
 
 # should show the log value of each weight
 
-# Apply the count() function
-
-count(four_diets_ounces)
-..................................................
-# should count the total of the matrix
-  
 # Apply the dim() function. 
 
 dim(four_diets_ounces)
