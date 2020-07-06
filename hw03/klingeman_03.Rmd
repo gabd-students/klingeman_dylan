@@ -9,6 +9,8 @@ editor_options:
 
 ```{r}
 library(tidyverse)
+library(knitr)
+library(xtable)
 ```
 ```{r}
 anscombe
@@ -45,3 +47,53 @@ ansc %>%
     )
 ```
 
+```{r}
+ansc %>% ggplot(aes(x, y, color = dataset)) + 
+  geom_point() + 
+  facet_wrap(~dataset, ncol = 2)
+```
+
+```{r}
+head(iris)
+```
+
+```{r}
+kable(head(iris), 
+      allign= c("1", "c", "r", "c", "1"), 
+      col.names = c("Sepal Length", "Sepal Width", "Sepal Length", "Sepal Width", "Species"))
+```
+```{r}
+kable(head(airquality), 
+        align= c("r", "r", "c", "l", "l"), 
+        col.names = c("Ozone (ppb)", "Solar R (lang)", "Wind (mph)", "Temp (F)", "Month", "Day"))
+```
+
+```{r}
+chicks_lm <- lm(weight ~ feed, data = chickwts)
+
+summary(chicks_lm)
+```
+
+```{r}
+kable(head(chicks_lm))
+
+```
+
+### Running kable on "chicks_lm" creates a table of the "chicks_lm" data, with x values for all of the seed types. The data seems all over the place and is difficult to interpret. 
+
+```{r}
+xtable(chicks_lm) %>% kable()
+```
+
+```{r}
+trees_lm <- lm(Girth ~ Height, data = trees)
+
+summary(trees_lm)
+```
+
+```{r}
+
+xtable(trees_lm) %>% kable()
+```
+
+$p + \frac{1}{2}pV^2 + pgh = constant$

@@ -1754,8 +1754,10 @@ summary {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGAifQ== -->
-<pre class="r"><code>library(tidyverse)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5saWJyYXJ5KGtuaXRyKVxubGlicmFyeSh4dGFibGUpXG5gYGAifQ== -->
+<pre class="r"><code>library(tidyverse)
+library(knitr)
+library(xtable)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-chunk-begin -->
@@ -1802,21 +1804,88 @@ summary {
       stdev_y = sd(y)
     )</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiYHN1bW1hcmlzZSgpYCB1bmdyb3VwaW5nIG91dHB1dCAob3ZlcnJpZGUgd2l0aCBgLmdyb3Vwc2AgYXJndW1lbnQpXG4ifQ== -->
-<pre><code>`summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6NCwibmNvbCI6NX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJndHlpVERtaXVCaVlHQmdabUJoWUdKZ1pnVXlHZGljQXd5TlRJMFlHRmlZZ0R4R29Bd25pSzRBcWhJR01rQnFCSUNZQlNyQlZHRUlaeG5CV2Nad2xnbVE1QU9wZDFCaUFBTmNORndkVjBmUjVMLzVKcmhvdURvNWhuY0JmRThaa1dpSWVWQStYQjJEdzdMVDFicTZRUHFxdld6MktnY0dPNzlkOHk2RkFPbjVuNEsrL2tmektHdGVZbTVxTWRTVHJGQkI5cFRFa3NUaTFCSW9seTAzTlRFdnZnSW1XVnlTa2xvRzUwSWtLMUVsSzlGczRTektMOWVEMmNRTENxZ0dJUEgvLy84LzZNNUp6a2tzaGprSEpzZ0ZjbzVlV2hGUVA1RDNEMDBMZTM1QlNXWitIbEFURTNLRXdXT3lDRTJBdnpRUDVKSVUzZVNNMHJ4c1hVT1FCV0JwQ09DRnNsbVEyS3dRSzVuK280VVRXMnBlZW1aZUtzenRPWWxKcVRsUURoL1F4MkFQNnhVVVplYkJRcElMS0Zxc1Y1SmZrZ2hUeDVXY253TVRBZnVONFI4QVA2dHZ0NmdDQUFBPSJ9 -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["dataset"],"name":[1],"type":["chr"],"align":["left"]},{"label":["mean_x"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["stdev_x"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["mean_y"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["stdev_y"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"x1","2":"9","3":"3.316625","4":"7.500909","5":"2.031568"},{"1":"x2","2":"9","3":"3.316625","4":"7.500909","5":"2.031657"},{"1":"x3","2":"9","3":"3.316625","4":"7.500000","5":"2.030424"},{"1":"x4","2":"9","3":"3.316625","4":"7.500909","5":"2.030579"}],"options":{"columns":{"min":{},"max":[10],"total":[5]},"rows":{"min":[10],"max":[10],"total":[4]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYW5zYyAlPiUgZ2dwbG90KGFlcyh4LCB5LCBjb2xvciA9IGRhdGFzZXQpKSArIFxuICBnZW9tX3BvaW50KCkgKyBcbiAgZmFjZXRfd3JhcCh+ZGF0YXNldCwgbmNvbCA9IDIpXG5gYGAifQ== -->
+<pre class="r"><code>ansc %&gt;% ggplot(aes(x, y, color = dataset)) + 
+  geom_point() + 
+  facet_wrap(~dataset, ncol = 2)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaGVhZChpcmlzKVxuYGBgIn0= -->
+<pre class="r"><code>head(iris)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxua2FibGUoaGVhZChpcmlzKSwgXG4gICAgICBhbGxpZ249IGMoXCIxXCIsIFwiY1wiLCBcInJcIiwgXCJjXCIsIFwiMVwiKSwgXG4gICAgICBjb2wubmFtZXMgPSBjKFwiU2VwYWwgTGVuZ3RoXCIsIFwiU2VwYWwgV2lkdGhcIiwgXCJTZXBhbCBMZW5ndGhcIiwgXCJTZXBhbCBXaWR0aFwiLCBcIlNwZWNpZXNcIikpXG5gYGAifQ== -->
+<pre class="r"><code>kable(head(iris), 
+      allign= c(&quot;1&quot;, &quot;c&quot;, &quot;r&quot;, &quot;c&quot;, &quot;1&quot;), 
+      col.names = c(&quot;Sepal Length&quot;, &quot;Sepal Width&quot;, &quot;Sepal Length&quot;, &quot;Sepal Width&quot;, &quot;Species&quot;))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxua2FibGUoaGVhZChhaXJxdWFsaXR5KSwgXG4gICAgICAgIGFsaWduPSBjKFwiclwiLCBcInJcIiwgXCJjXCIsIFwibFwiLCBcImxcIiksIFxuICAgICAgICBjb2wubmFtZXMgPSBjKFwiT3pvbmUgKHBwYilcIiwgXCJTb2xhciBSIChsYW5nKVwiLCBcIldpbmQgKG1waClcIiwgXCJUZW1wIChGKVwiLCBcIk1vbnRoXCIsIFwiRGF5XCIpKVxuYGBgIn0= -->
+<pre class="r"><code>kable(head(airquality), 
+        align= c(&quot;r&quot;, &quot;r&quot;, &quot;c&quot;, &quot;l&quot;, &quot;l&quot;), 
+        col.names = c(&quot;Ozone (ppb)&quot;, &quot;Solar R (lang)&quot;, &quot;Wind (mph)&quot;, &quot;Temp (F)&quot;, &quot;Month&quot;, &quot;Day&quot;))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2hpY2tzX2xtIDwtIGxtKHdlaWdodCB+IGZlZWQsIGRhdGEgPSBjaGlja3d0cylcblxuc3VtbWFyeShjaGlja3NfbG0pXG5gYGAifQ== -->
+<pre class="r"><code>chicks_lm &lt;- lm(weight ~ feed, data = chickwts)
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlVzZWZ1bCBUaXRsZSINCmF1dGhvcjogIkR5bGFuIEtsaW5nZW1hbiINCmRhdGU6ICJyIGZvcm1hdCAoU3lzLnRpbWUoKSwgJyVkICVCICVZJyknIg0Kb3V0cHV0OiBodG1sX25vdGVib29rDQplZGl0b3Jfb3B0aW9uczogDQogIGNodW5rX291dHB1dF90eXBlOiBpbmxpbmUNCi0tLQ0KDQpgYGB7cn0NCmxpYnJhcnkodGlkeXZlcnNlKQ0KYGBgDQpgYGB7cn0NCmFuc2NvbWJlDQpgYGANCg0KYGBge3J9DQphbnNjIDwtIA0KICAgIGJpbmRfY29scygNCiAgICAgICAgYW5zY29tYmUgJT4lDQogICAgICAgICAgICBzZWxlY3QobWF0Y2hlcygieCIpKSAlPiUNCiAgICAgICAgICAgIGdhdGhlcihkYXRhc2V0LCAieCIpLCANCiAgICAgICAgYW5zY29tYmUgJT4lDQogICAgICAgICAgICBzZWxlY3QobWF0Y2hlcygieSIpKSAlPiUNCiAgICAgICAgICAgIGdhdGhlcihrZXksICJ5IikNCiAgKSAlPiUNCiAgc2VsZWN0KC1rZXkpICU+JQ0KICAgICAgICAgICBtdXRhdGUoZGF0YXNzZXQgPSBnc3ViKCJ4IiwgIiIsIGRhdGFzZXQpKSAlPiUNCiAgICAgICAgICAgYXNfdGliYmxlKCkNCiAgICANCmBgYA0KDQpgYGB7cn0NCmFuc2MNCmBgYA0KDQpgYGB7cn0NCmFuc2MgJT4lDQogICAgZ3JvdXBfYnkoZGF0YXNldCkgJT4lDQogICAgc3VtbWFyaXplKA0KICAgICAgbWVhbl94ID0gbWVhbih4KSwgDQogICAgICBzdGRldl94ID0gc2QoeCksIA0KICAgICAgbWVhbl95ID0gbWVhbih5KSwgDQogICAgICBzdGRldl95ID0gc2QoeSkNCiAgICApDQpgYGANCg0K</div>
+summary(chicks_lm)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxua2FibGUoaGVhZChjaGlja3NfbG0pKVxuXG5gYGAifQ== -->
+<pre class="r"><code>kable(head(chicks_lm))
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<div id="running-kable-on-chicks_lm-creates-a-table-of-the-chicks_lm-data-with-x-values-for-all-of-the-seed-types.-the-data-seems-all-over-the-place-and-is-difficult-to-interpret." class="section level3">
+<h3>Running kable on “chicks_lm” creates a table of the “chicks_lm” data, with x values for all of the seed types. The data seems all over the place and is difficult to interpret.</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueHRhYmxlKGNoaWNrc19sbSkgJT4lIGthYmxlKClcbmBgYCJ9 -->
+<pre class="r"><code>xtable(chicks_lm) %&gt;% kable()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudHJlZXNfbG0gPC0gbG0oR2lydGggfiBIZWlnaHQsIGRhdGEgPSB0cmVlcylcblxuc3VtbWFyeSh0cmVlc19sbSlcbmBgYCJ9 -->
+<pre class="r"><code>trees_lm &lt;- lm(Girth ~ Height, data = trees)
+
+summary(trees_lm)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG54dGFibGUodHJlZXNfbG0pICU+JSBrYWJsZSgpXG5gYGAifQ== -->
+<pre class="r"><code>
+xtable(trees_lm) %&gt;% kable()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p><span class="math inline">\(p + \frac{1}{2}pV^2 + pgh = constant\)</span></p>
+<!-- rnb-text-end -->
+</div>
+
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlVzZWZ1bCBUaXRsZSINCmF1dGhvcjogIkR5bGFuIEtsaW5nZW1hbiINCmRhdGU6ICJyIGZvcm1hdCAoU3lzLnRpbWUoKSwgJyVkICVCICVZJyknIg0Kb3V0cHV0OiBodG1sX25vdGVib29rDQplZGl0b3Jfb3B0aW9uczogDQogIGNodW5rX291dHB1dF90eXBlOiBpbmxpbmUNCi0tLQ0KDQpgYGB7cn0NCmxpYnJhcnkodGlkeXZlcnNlKQ0KbGlicmFyeShrbml0cikNCmxpYnJhcnkoeHRhYmxlKQ0KYGBgDQpgYGB7cn0NCmFuc2NvbWJlDQpgYGANCg0KYGBge3J9DQphbnNjIDwtIA0KICAgIGJpbmRfY29scygNCiAgICAgICAgYW5zY29tYmUgJT4lDQogICAgICAgICAgICBzZWxlY3QobWF0Y2hlcygieCIpKSAlPiUNCiAgICAgICAgICAgIGdhdGhlcihkYXRhc2V0LCAieCIpLCANCiAgICAgICAgYW5zY29tYmUgJT4lDQogICAgICAgICAgICBzZWxlY3QobWF0Y2hlcygieSIpKSAlPiUNCiAgICAgICAgICAgIGdhdGhlcihrZXksICJ5IikNCiAgKSAlPiUNCiAgc2VsZWN0KC1rZXkpICU+JQ0KICAgICAgICAgICBtdXRhdGUoZGF0YXNzZXQgPSBnc3ViKCJ4IiwgIiIsIGRhdGFzZXQpKSAlPiUNCiAgICAgICAgICAgYXNfdGliYmxlKCkNCiAgICANCmBgYA0KDQpgYGB7cn0NCmFuc2MNCmBgYA0KDQpgYGB7cn0NCmFuc2MgJT4lDQogICAgZ3JvdXBfYnkoZGF0YXNldCkgJT4lDQogICAgc3VtbWFyaXplKA0KICAgICAgbWVhbl94ID0gbWVhbih4KSwgDQogICAgICBzdGRldl94ID0gc2QoeCksIA0KICAgICAgbWVhbl95ID0gbWVhbih5KSwgDQogICAgICBzdGRldl95ID0gc2QoeSkNCiAgICApDQpgYGANCg0KYGBge3J9DQphbnNjICU+JSBnZ3Bsb3QoYWVzKHgsIHksIGNvbG9yID0gZGF0YXNldCkpICsgDQogIGdlb21fcG9pbnQoKSArIA0KICBmYWNldF93cmFwKH5kYXRhc2V0LCBuY29sID0gMikNCmBgYA0KDQpgYGB7cn0NCmhlYWQoaXJpcykNCmBgYA0KDQpgYGB7cn0NCmthYmxlKGhlYWQoaXJpcyksIA0KICAgICAgYWxsaWduPSBjKCIxIiwgImMiLCAiciIsICJjIiwgIjEiKSwgDQogICAgICBjb2wubmFtZXMgPSBjKCJTZXBhbCBMZW5ndGgiLCAiU2VwYWwgV2lkdGgiLCAiU2VwYWwgTGVuZ3RoIiwgIlNlcGFsIFdpZHRoIiwgIlNwZWNpZXMiKSkNCmBgYA0KYGBge3J9DQprYWJsZShoZWFkKGFpcnF1YWxpdHkpLCANCiAgICAgICAgYWxpZ249IGMoInIiLCAiciIsICJjIiwgImwiLCAibCIpLCANCiAgICAgICAgY29sLm5hbWVzID0gYygiT3pvbmUgKHBwYikiLCAiU29sYXIgUiAobGFuZykiLCAiV2luZCAobXBoKSIsICJUZW1wIChGKSIsICJNb250aCIsICJEYXkiKSkNCmBgYA0KDQpgYGB7cn0NCmNoaWNrc19sbSA8LSBsbSh3ZWlnaHQgfiBmZWVkLCBkYXRhID0gY2hpY2t3dHMpDQoNCnN1bW1hcnkoY2hpY2tzX2xtKQ0KYGBgDQoNCmBgYHtyfQ0Ka2FibGUoaGVhZChjaGlja3NfbG0pKQ0KDQpgYGANCg0KIyMjIFJ1bm5pbmcga2FibGUgb24gImNoaWNrc19sbSIgY3JlYXRlcyBhIHRhYmxlIG9mIHRoZSAiY2hpY2tzX2xtIiBkYXRhLCB3aXRoIHggdmFsdWVzIGZvciBhbGwgb2YgdGhlIHNlZWQgdHlwZXMuIFRoZSBkYXRhIHNlZW1zIGFsbCBvdmVyIHRoZSBwbGFjZSBhbmQgaXMgZGlmZmljdWx0IHRvIGludGVycHJldC4gDQoNCmBgYHtyfQ0KeHRhYmxlKGNoaWNrc19sbSkgJT4lIGthYmxlKCkNCmBgYA0KDQpgYGB7cn0NCnRyZWVzX2xtIDwtIGxtKEdpcnRoIH4gSGVpZ2h0LCBkYXRhID0gdHJlZXMpDQoNCnN1bW1hcnkodHJlZXNfbG0pDQpgYGANCg0KYGBge3J9DQoNCnh0YWJsZSh0cmVlc19sbSkgJT4lIGthYmxlKCkNCmBgYA0KDQokcCArIFxmcmFjezF9ezJ9cFZeMiArIHBnaCA9IGNvbnN0YW50JA==</div>
 
 
 
