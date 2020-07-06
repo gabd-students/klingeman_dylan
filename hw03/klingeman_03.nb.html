@@ -1791,8 +1791,32 @@ summary {
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYW5zYyAlPiVcbiAgICBncm91cF9ieShkYXRhc2V0KSAlPiVcbiAgICBzdW1tYXJpemUoXG4gICAgICBtZWFuX3ggPSBtZWFuKHgpLCBcbiAgICAgIHN0ZGV2X3ggPSBzZCh4KSwgXG4gICAgICBtZWFuX3kgPSBtZWFuKHkpLCBcbiAgICAgIHN0ZGV2X3kgPSBzZCh5KVxuICAgIClcbmBgYCJ9 -->
+<pre class="r"><code>ansc %&gt;%
+    group_by(dataset) %&gt;%
+    summarize(
+      mean_x = mean(x), 
+      stdev_x = sd(x), 
+      mean_y = mean(y), 
+      stdev_y = sd(y)
+    )</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiYHN1bW1hcmlzZSgpYCB1bmdyb3VwaW5nIG91dHB1dCAob3ZlcnJpZGUgd2l0aCBgLmdyb3Vwc2AgYXJndW1lbnQpXG4ifQ== -->
+<pre><code>`summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6NCwibmNvbCI6NX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJndHlpVERtaXVCaVlHQmdabUJoWUdKZ1pnVXlHZGljQXd5TlRJMFlHRmlZZ0R4R29Bd25pSzRBcWhJR01rQnFCSUNZQlNyQlZHRUlaeG5CV2Nad2xnbVE1QU9wZDFCaUFBTmNORndkVjBmUjVMLzVKcmhvdURvNWhuY0JmRThaa1dpSWVWQStYQjJEdzdMVDFicTZRUHFxdld6MktnY0dPNzlkOHk2RkFPbjVuNEsrL2tmektHdGVZbTVxTWRTVHJGQkI5cFRFa3NUaTFCSW9seTAzTlRFdnZnSW1XVnlTa2xvRzUwSWtLMUVsSzlGczRTektMOWVEMmNRTENxZ0dJUEgvLy84LzZNNUp6a2tzaGprSEpzZ0ZjbzVlV2hGUVA1RDNEMDBMZTM1QlNXWitIbEFURTNLRXdXT3lDRTJBdnpRUDVKSVUzZVNNMHJ4c1hVT1FCV0JwQ09DRnNsbVEyS3dRSzVuK280VVRXMnBlZW1aZUtzenRPWWxKcVRsUURoL1F4MkFQNnhVVVplYkJRcElMS0Zxc1Y1SmZrZ2hUeDVXY253TVRBZnVONFI4QVA2dHZ0NmdDQUFBPSJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["dataset"],"name":[1],"type":["chr"],"align":["left"]},{"label":["mean_x"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["stdev_x"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["mean_y"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["stdev_y"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"x1","2":"9","3":"3.316625","4":"7.500909","5":"2.031568"},{"1":"x2","2":"9","3":"3.316625","4":"7.500909","5":"2.031657"},{"1":"x3","2":"9","3":"3.316625","4":"7.500000","5":"2.030424"},{"1":"x4","2":"9","3":"3.316625","4":"7.500909","5":"2.030579"}],"options":{"columns":{"min":{},"max":[10],"total":[5]},"rows":{"min":[10],"max":[10],"total":[4]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlVzZWZ1bCBUaXRsZSINCmF1dGhvcjogIkR5bGFuIEtsaW5nZW1hbiINCmRhdGU6ICJyIGZvcm1hdCAoU3lzLnRpbWUoKSwgJyVkICVCICVZJyknIg0Kb3V0cHV0OiBodG1sX25vdGVib29rDQplZGl0b3Jfb3B0aW9uczogDQogIGNodW5rX291dHB1dF90eXBlOiBpbmxpbmUNCi0tLQ0KDQpgYGB7cn0NCmxpYnJhcnkodGlkeXZlcnNlKQ0KYGBgDQpgYGB7cn0NCmFuc2NvbWJlDQpgYGANCg0KYGBge3J9DQphbnNjIDwtIA0KICAgIGJpbmRfY29scygNCiAgICAgICAgYW5zY29tYmUgJT4lDQogICAgICAgICAgICBzZWxlY3QobWF0Y2hlcygieCIpKSAlPiUNCiAgICAgICAgICAgIGdhdGhlcihkYXRhc2V0LCAieCIpLCANCiAgICAgICAgYW5zY29tYmUgJT4lDQogICAgICAgICAgICBzZWxlY3QobWF0Y2hlcygieSIpKSAlPiUNCiAgICAgICAgICAgIGdhdGhlcihrZXksICJ5IikNCiAgKSAlPiUNCiAgc2VsZWN0KC1rZXkpICU+JQ0KICAgICAgICAgICBtdXRhdGUoZGF0YXNzZXQgPSBnc3ViKCJ4IiwgIiIsIGRhdGFzZXQpKSAlPiUNCiAgICAgICAgICAgYXNfdGliYmxlKCkNCiAgICANCmBgYA0KDQpgYGB7cn0NCmFuc2MNCmBgYA0KDQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlVzZWZ1bCBUaXRsZSINCmF1dGhvcjogIkR5bGFuIEtsaW5nZW1hbiINCmRhdGU6ICJyIGZvcm1hdCAoU3lzLnRpbWUoKSwgJyVkICVCICVZJyknIg0Kb3V0cHV0OiBodG1sX25vdGVib29rDQplZGl0b3Jfb3B0aW9uczogDQogIGNodW5rX291dHB1dF90eXBlOiBpbmxpbmUNCi0tLQ0KDQpgYGB7cn0NCmxpYnJhcnkodGlkeXZlcnNlKQ0KYGBgDQpgYGB7cn0NCmFuc2NvbWJlDQpgYGANCg0KYGBge3J9DQphbnNjIDwtIA0KICAgIGJpbmRfY29scygNCiAgICAgICAgYW5zY29tYmUgJT4lDQogICAgICAgICAgICBzZWxlY3QobWF0Y2hlcygieCIpKSAlPiUNCiAgICAgICAgICAgIGdhdGhlcihkYXRhc2V0LCAieCIpLCANCiAgICAgICAgYW5zY29tYmUgJT4lDQogICAgICAgICAgICBzZWxlY3QobWF0Y2hlcygieSIpKSAlPiUNCiAgICAgICAgICAgIGdhdGhlcihrZXksICJ5IikNCiAgKSAlPiUNCiAgc2VsZWN0KC1rZXkpICU+JQ0KICAgICAgICAgICBtdXRhdGUoZGF0YXNzZXQgPSBnc3ViKCJ4IiwgIiIsIGRhdGFzZXQpKSAlPiUNCiAgICAgICAgICAgYXNfdGliYmxlKCkNCiAgICANCmBgYA0KDQpgYGB7cn0NCmFuc2MNCmBgYA0KDQpgYGB7cn0NCmFuc2MgJT4lDQogICAgZ3JvdXBfYnkoZGF0YXNldCkgJT4lDQogICAgc3VtbWFyaXplKA0KICAgICAgbWVhbl94ID0gbWVhbih4KSwgDQogICAgICBzdGRldl94ID0gc2QoeCksIA0KICAgICAgbWVhbl95ID0gbWVhbih5KSwgDQogICAgICBzdGRldl95ID0gc2QoeSkNCiAgICApDQpgYGANCg0K</div>
 
 
 
