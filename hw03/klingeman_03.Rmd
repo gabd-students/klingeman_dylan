@@ -96,4 +96,4 @@ summary(trees_lm)
 xtable(trees_lm) %>% kable()
 ```
 
-$p + \frac{1}{2}pV^2 + pgh = constant$
+$p + \frac{1}{2}pV^2 + pgh = constant$ 
