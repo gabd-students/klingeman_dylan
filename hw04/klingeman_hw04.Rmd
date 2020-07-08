@@ -31,7 +31,7 @@ If you get an error, then you did not install the `tidyverse` package like you w
 
 Enter your code chunks for Section 3.2 here.
 
-# should display a chart comparing displ adn hwy
+# should display a chart comparing displ and hwy
 ```{r}
 ggplot(data = mpg) + 
     geom_point(mapping = aes(x = displ, y = hwy))
@@ -57,7 +57,7 @@ Answer the questions *completely.* Some answers will require you to write code i
 ggplot(data = mpg)
 ```
 
-Running the above function displays a blank text box. Doing the following instead gives us a completed graph with data.On engine size and fuel efficiency.  
+# Running the above function displays a blank text box. Doing the following instead gives us a completed graph with data.On engine size and fuel efficiency.  
 
 ```{r}
 ggplot(data = mpg) + 
@@ -72,7 +72,7 @@ ggplot(data = mpg) +
 dim(mpg)
 ```
 
-The dim function shows us that there are 234 rows and 11 columns within the mpg data set. 
+# The dim function shows us that there are 234 rows and 11 columns within the mpg data set. 
 
 #
 
@@ -84,7 +84,7 @@ The dim function shows us that there are 234 rows and 11 columns within the mpg 
 
 **4:** Make a scatterplot of `hwy` vs `cyl`.
 
-Below is the scatterplot for hwy vs cyl
+# Below is the scatterplot for hwy vs cyl
 
 ```{r}
 ggplot(data = mpg) + 
@@ -106,14 +106,14 @@ Plotting these two variables against each other shows the type of driving engine
 
 ### Section 3.3: Aesthetic mappings
 
-shows the plot of displ vs hwy, but also plots the class into different color based categories. 
+# shows the plot of displ vs hwy, but also plots the class into different color based categories. 
 ```{r}
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy, color = class))
 ```
 
 
-shows the plot of displ vs hwy, but also plots the class itno different sizes depending on the category
+# shows the plot of displ vs hwy, but also plots the class itno different sizes depending on the category
 
 ```{r}
 ggplot( data = mpg) + 
@@ -121,7 +121,7 @@ ggplot( data = mpg) +
 ```
 
 
-shows the plot of displ vs hwy, but also plots the class into different transparencies by category
+# shows the plot of displ vs hwy, but also plots the class into different transparencies by category
 
 ```{r}
 ggplot(data = mpg) + 
@@ -129,7 +129,7 @@ ggplot(data = mpg) +
 ```
 
 
-shows the plot of displ vs hwy, but also plots the class into different shapes by category
+# shows the plot of displ vs hwy, but also plots the class into different shapes by category
 
 ```{r}
 ggplot(data = mpg) + 
@@ -142,14 +142,14 @@ ggplot(data = mpg) +
 
 **1:** What’s gone wrong with this code? Why are the points not blue?
 
-Below is the code block used in the question: 
+# Below is the code block used in the question: 
 
 ```{r}
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy, color = "blue"))
 ```
 
-THe color function is not working since it is within the same set of parantheses as x and y, meaning it is being compared to those rather than working on. The proper code block would look like the following: 
+# THe color function is not working since it is within the same set of parantheses as x and y, meaning it is being compared to those rather than working on. The proper code block would look like the following: 
 
 ```{r}
 ggplot(data = mpg) + 
@@ -252,30 +252,89 @@ ggplot(data = mpg) +
 
 ### Section 3.5: Facets
 
+# creates facets of the mpg data set
 
+```{r}
+```
+
+
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_wrap(~ class, nrow = 2)
+```
+
+# creates a facet based on two variables using the facet_grid( ~ ) command. 
+  
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_grid(drv ~ cyl)
+```
+  
 
 #### Section 3.5 questions
 
 **1:** What happens if you facet on a continuous variable? **Note:** Write a prediction, then make and run your code chunk.
 
+If you were to run a facet on a continuous variable than it would spread them out on a grid, sorting by value, like in the above. 
+
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_wrap(~ displ, nrow = 2)
+```
 
 
 **2:** What do the empty cells in plot with `facet_grid(drv ~ cyl)` mean? How do they relate to this plot?
 
-
+The empty cells represent categories that happen to not have any data that would align with them. For example, the 5 cylinder-4 wheel drive is empty as there is no data for this, since this would be a strange setup to have in a vehicle. 
 
 **3:** What plots does the following code make? What does `.` do?
 
+The dot in the final line will remove either columns or rows from the data set. It represents the same data, but changes the presentation of it. 
 
+```{r}
+ggplot(data=mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_grid(drv ~ .)
+```
+
+# creates a facet of the dataset mpg, comparing displ and hwy. It is separated into rows comparing drv.
+
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_grid(. ~ cyl)
+```
+
+# creates a facet of the mpg dataset, comparing dipl and hwy. It is then separated into columns comparing cyl. 
 
 **4:** Take the first faceted plot below. What are the advantages to using faceting instead of the colour aesthetic? What are the disadvantages? How might the balance change if you had a larger dataset?
 
+Faceting works to "separate" out differences in the data when presenting it. This makes large data sets easier to see, as it will distribute them out. For a smaller data set I would personally prefer the color aesthetic. As having the data overlap helps to compare between the contrasting variables. 
 
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  facet_wrap(~ class, nrow = 2)
+```
+
+# creates a chart in the mpg data set comparing displ and hwy. Creates a facet of the data with 2 rows. 
 
 **5:** Read `?facet_wrap`. What does `nrow` do? What does `ncol` do? What other options control the layout of the individual panels? Why doesn’t `facet_grid()` have nrow and ncol argument?
 
+Nrow refernces the number of rows that will appear in the facet. The same holds true for ncol in terms of the amount of columns it will produce. 
+
+Some other options that control the layout are: as.table, switch, dir, strip.position, and drop. 
+
+Facet_grid doesnt use nrow/ncol as it has the . function to manage its rows/columns. Facet_grid is managing two variables, so it needs to have both rows and columns to work. Facet_grid also has to display an overlap between x and y, which will require a specific amount of rows/columns. If you were able to change this number it would be removing data past the number of rows/columns.
 
 **6:** When using `facet_grid()` you should usually put the variable with more unique levels in the columns. Why?
+
+This is likely to better map out the data within the grid. Another potential reason is in the dependent/independent variable arrangement. Usually the terms with more "categories" will be the independent variable, which would be represented in the columns. 
+
+ 
 
 ### Section 3.6: Geometric objects
 
@@ -285,39 +344,172 @@ ggplot(data = mpg) +
 
 **1:** What geom would you use to draw a line chart? A boxplot? A histogram? An area chart? **Note:** You will have to make some types of these charts in Part 2 of this assignment.
 
+Line chart: 
+```{r}
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+  geom_point() + 
+  geom_line()
+```
+
+# creates a chart comparing displ and hwy in the mpg dataset, organized into a point and line chart.
+
+Boxplot: 
+```{r}
+ggplot(data = mpg, mapping = aes(x = model, y = hwy)) + 
+  geom_point() + 
+  geom_boxplot()
+```
+
+# creates a chart comparing model and hwy in the mpg dataset, organized into a point and box chart.
+
+Histogram:
+
+```{r}
+ggplot(data = mpg, mapping = aes(x = displ,)) + 
+  geom_histogram()
+```
+
+# creates a chart for displ in the mpg dataset, organized into a histogram
+
+
+Area chart: 
+
+
+```{r}
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+  geom_point() + 
+  geom_area()
+```
+
+# creates a chart for displ and hwy, within the mpg dataset. organizes it into a point and area chart. 
 
 **2:** Run this code in your head and predict what the output will look like. Then, run the code in R and check your predictions.
 
+# This will create a point plot of displ v hwy, with drv shown in color. There will be a line, but the "area overlap" part of the graph will be removed by the line se = FALSE. 
+
+```{r}
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy, color = drv)) + 
+  geom_point() + 
+  geom_smooth(se = FALSE)
+    
+```
 
 
 **3:** What does `show.legend = FALSE` do? What happens if you remove it?
 **Note:** Skip the "Why do you think I used it earlier in the chapter?" question.
 
+This function is used to disable a legend if were in place. As shown in the second plot there is a legend that explains what the colors mean, but with show.legend = FALSE in place it can be removed if so desired, as seen in the first plot. 
+
+```{r}
+ggplot(data = mpg) +
+  geom_smooth(
+    mapping = aes(x = displ, y = hwy, color = drv),
+    show.legend = FALSE)
+```
+
+```{r}
+ggplot(data = mpg) +
+  geom_smooth(mapping = aes(x = displ, y = hwy, color = drv))
+```
+
 
 **4:** What does the `se` argument to `geom_smooth()` do?
+
+se correlates to the shaded area on the graph to show an interval. Most of the data will be comtained within this shaded area, and anything outsid eof it will be an outlier. using the argument "se =FALSE" will remove this shaded area if so desired. 
+
+```{r}
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+  geom_point(mapping = aes(color = class)) + 
+  geom_smooth(data = filter(mpg, class == "subcompact"), se = FALSE)
+```
+
+```{r}
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+  geom_point(mapping = aes(color = class)) + 
+  geom_smooth(data = filter(mpg, class == "subcompact"))
+```
+
 
 
 **5:** Will these two graphs look different? Why/why not?
 
+Graph 1:
+
+```{r}
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+  geom_point() + 
+  geom_smooth()
+```
+
+Graph 2: 
+
+```{r}
+ggplot() + 
+  geom_point(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+  geom_smooth(data = mpg, mapping = aes(x = displ, y = hwy))
+```
+
+These graphs will look identical, but the first one is much easier/faster to type out. The function in the () is exactly the same, but by putting it within the ggplot() it will go to the following geoms. The second one instead lists it in each of the geoms, having the same effect but requiring more work to do the same thing. 
 
 **6:** Recreate the R code necessary to generate the following graphs. **Note:** Enter a separate code chunk for each graph, numbered 1 to 6, starting row-wise at upper left. 
 
 1: upper left.
 
+```{r}
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
+  geom_point() + 
+  geom_smooth(se = FALSE)
+```
+
+# creates a graph comapring displ and hw y, witha  point and smooth line. se is hidden
 
 2: upper right.
 
+```{r}
+ggplot(data = mpg, mapping = aes(x = displ, y =hwy, group = drv)) + 
+  geom_point() + 
+  geom_smooth(se = FALSE)
+```
 
+# creates a graph comparing displ and hwy, with a point and smooth line. Additional lines are placed to compare drv. se is hidden
 3: middle left.
 
+```{r}
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy, color = drv)) + 
+  geom_point() + 
+  geom_smooth(se = FALSE)
+```
+
+# creates a point and smooth line graph comapring dipl and hwy. Drv is also comapred using the color system. se is hidden
 
 4: middle right.
 
+```{r}
+ggplot() + 
+  geom_point(data = mpg, mapping = aes(x = displ, y = hwy, color = drv)) +
+  geom_smooth(data = mpg, mapping = aes(x = displ, y =hwy), se = FALSE)
+```
+
+# creates a graph comparing displ and hwy with a smooth line between them. Also categorizes by drv as displayed by the color. se = false
 
 5: lower left.
 
+```{r}
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy, color = drv, linetype = drv)) + 
+  geom_point() + 
+  geom_smooth(se = FALSE)
+```
+
+# creates a graph comparing displ hwy, and drv in a point graph. Different smooth lines intercept the three different categories of drive, which are also separated by color. se is hidden
 
 6: lower right. *Hint:* Read the help file for `geom_point`. Use `shape = 21`, `stroke = 2`, and `size = 3`.
+
+```{r}
+ggplot(data = mpg, mapping = aes(x = displ, y =hwy, color = drv)) + 
+  geom_point(stroke = 2, size = 3, shape = 21)
+```
+
+# creates a point graph comparing displ, hwy, and drv. The different categories of drv are separated by color. The shape, size, and stroke of teh points are also modified.
 
 ### Section 3.7: Statistical transformations.
 

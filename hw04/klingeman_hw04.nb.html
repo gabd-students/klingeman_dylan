@@ -11,7 +11,7 @@
 
 <meta name="author" content="Dylan Klingeman" />
 
-<meta name="date" content="2020-07-07" />
+<meta name="date" content="2020-07-08" />
 
 <title>HW04 Part 1: Complete Chapter 3</title>
 
@@ -1747,7 +1747,7 @@ summary {
 
 <h1 class="title toc-ignore">HW04 Part 1: Complete Chapter 3</h1>
 <h4 class="author">Dylan Klingeman</h4>
-<h4 class="date">07 July 2020</h4>
+<h4 class="date">08 July 2020</h4>
 
 </div>
 
@@ -1768,20 +1768,6 @@ summary {
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShcInRpZHl2ZXJzZVwiKVxuYGBgIn0= -->
 <pre class="r"><code>library(&quot;tidyverse&quot;)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUmVnaXN0ZXJlZCBTMyBtZXRob2RzIG92ZXJ3cml0dGVuIGJ5ICdkYnBseXInOlxuICBtZXRob2QgICAgICAgICBmcm9tXG4gIHByaW50LnRibF9sYXp5ICAgICBcbiAgcHJpbnQudGJsX3NxbCAgICAgIFxuLS0gQXR0YWNoaW5nIHBhY2thZ2VzIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSB0aWR5dmVyc2UgMS4zLjAgLS1cbnYgZ2dwbG90MiAzLjMuMiAgICAgdiBwdXJyciAgIDAuMy40XG52IHRpYmJsZSAgMy4wLjEgICAgIHYgZHBseXIgICAxLjAuMFxudiB0aWR5ciAgIDEuMS4wICAgICB2IHN0cmluZ3IgMS40LjBcbnYgcmVhZHIgICAxLjMuMSAgICAgdiBmb3JjYXRzIDAuNS4wXG4tLSBDb25mbGljdHMgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tIHRpZHl2ZXJzZV9jb25mbGljdHMoKSAtLVxueCBkcGx5cjo6ZmlsdGVyKCkgbWFza3Mgc3RhdHM6OmZpbHRlcigpXG54IGRwbHlyOjpsYWcoKSAgICBtYXNrcyBzdGF0czo6bGFnKClcbiJ9 -->
-<pre><code>Registered S3 methods overwritten by &#39;dbplyr&#39;:
-  method         from
-  print.tbl_lazy     
-  print.tbl_sql      
--- Attaching packages --------------------------------------- tidyverse 1.3.0 --
-v ggplot2 3.3.2     v purrr   0.3.4
-v tibble  3.0.1     v dplyr   1.0.0
-v tidyr   1.1.0     v stringr 1.4.0
-v readr   1.3.1     v forcats 0.5.0
--- Conflicts ------------------------------------------ tidyverse_conflicts() --
-x dplyr::filter() masks stats::filter()
-x dplyr::lag()    masks stats::lag()</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>If you get an error, then you did not install the <code>tidyverse</code> package like you were supposed to in the previous assignment. Go back to that assignment and complete that step. (This should not be the case, though.)</p>
@@ -1791,8 +1777,8 @@ x dplyr::lag()    masks stats::lag()</code></pre>
 <p>Enter your code chunks for Section 3.2 here.</p>
 </div>
 </div>
-<div id="should-display-a-chart-comparing-displ-adn-hwy" class="section level1">
-<h1>should display a chart comparing displ adn hwy</h1>
+<div id="should-display-a-chart-comparing-displ-and-hwy" class="section level1">
+<h1>should display a chart comparing displ and hwy</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcpICsgXG4gICAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKHggPSBkaXNwbCwgeSA9IGh3eSkpXG5gYGAifQ== -->
@@ -1810,6 +1796,9 @@ x dplyr::lag()    masks stats::lag()</code></pre>
 <pre class="r"><code>ggplot(data = DATA) + 
   GEOM_FUNCTION(mapping = aes(MAPPINGS))</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gZ2dwbG90KGRhdGEgPSBEQVRBKSA6IG9iamVjdCAnREFUQScgbm90IGZvdW5kXG4ifQ== -->
+<pre><code>Error in ggplot(data = DATA) : object &#39;DATA&#39; not found</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Get in the habit of entering a brief description of what each chunk of code does. Enter this above the chunk, like I did in Section 3.1.</p>
@@ -1819,33 +1808,27 @@ x dplyr::lag()    masks stats::lag()</code></pre>
 <p><strong>1:</strong> Run ggplot(data = mpg). What do you see?</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcpXG5gYGAifQ== -->
-<pre class="r"><code>ggplot(data = mpg)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Running the above function displays a blank text box. Doing the following instead gives us a completed graph with data.On engine size and fuel efficiency.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcpICsgXG4gICAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKHggPSBkaXNwbCwgeSA9IGh3eSkpXG5gYGAifQ== -->
-<pre class="r"><code>ggplot(data = mpg) + 
-    geom_point(mapping = aes(x = displ, y = hwy))</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
+</div>
+<div id="running-the-above-function-displays-a-blank-text-box.-doing-the-following-instead-gives-us-a-completed-graph-with-data.on-engine-size-and-fuel-efficiency." class="section level1">
+<h1>Running the above function displays a blank text box. Doing the following instead gives us a completed graph with data.On engine size and fuel efficiency.</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 </div>
 <div id="section" class="section level1">
 <h1></h1>
 <p><strong>2:</strong> How many rows are in <code>mpg</code>? How many columns? <strong>Hint:</strong> Use the <code>dim()</code> function. Type <code>dim()</code> in the console to learn what <code>dim()</code> does.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGltKG1wZylcbmBgYCJ9 -->
-<pre class="r"><code>dim(mpg)</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>The dim function shows us that there are 234 rows and 11 columns within the mpg data set.</p>
+</div>
+<div id="the-dim-function-shows-us-that-there-are-234-rows-and-11-columns-within-the-mpg-data-set." class="section level1">
+<h1>The dim function shows us that there are 234 rows and 11 columns within the mpg data set.</h1>
 </div>
 <div id="section-1" class="section level1">
 <h1></h1>
@@ -1855,13 +1838,11 @@ x dplyr::lag()    masks stats::lag()</code></pre>
 <div id="section-2" class="section level1">
 <h1></h1>
 <p><strong>4:</strong> Make a scatterplot of <code>hwy</code> vs <code>cyl</code>.</p>
-<p>Below is the scatterplot for hwy vs cyl</p>
+</div>
+<div id="below-is-the-scatterplot-for-hwy-vs-cyl" class="section level1">
+<h1>Below is the scatterplot for hwy vs cyl</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcpICsgXG4gICAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKHggPSBod3ksIHkgPSBjeWwpKVxuYGBgIn0= -->
-<pre class="r"><code>ggplot(data = mpg) + 
-    geom_point(mapping = aes(x = hwy, y = cyl))</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -1870,10 +1851,6 @@ x dplyr::lag()    masks stats::lag()</code></pre>
 <p><strong>5:</strong> What happens if you make a scatterplot of <code>class</code> vs <code>drv</code>? Why is the plot not useful?</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcpICsgXG4gICAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKHggPSBjbGFzcywgeSA9IGRydikpXG5gYGAifQ== -->
-<pre class="r"><code>ggplot(data = mpg) + 
-    geom_point(mapping = aes(x = class, y = drv))</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Plotting these two variables against each other shows the type of driving engines in each of the classes of cars. This could be viewed i other more efficient ways within the data set. No new information is really being compared here.</p>
@@ -1882,68 +1859,56 @@ x dplyr::lag()    masks stats::lag()</code></pre>
 <h1></h1>
 <div id="section-3.3-aesthetic-mappings" class="section level3">
 <h3>Section 3.3: Aesthetic mappings</h3>
-<p>shows the plot of displ vs hwy, but also plots the class into different color based categories.</p>
+</div>
+</div>
+<div id="shows-the-plot-of-displ-vs-hwy-but-also-plots-the-class-into-different-color-based-categories." class="section level1">
+<h1>shows the plot of displ vs hwy, but also plots the class into different color based categories.</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcpICsgXG4gIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPSBod3ksIGNvbG9yID0gY2xhc3MpKVxuYGBgIn0= -->
-<pre class="r"><code>ggplot(data = mpg) + 
-  geom_point(mapping = aes(x = displ, y = hwy, color = class))</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>shows the plot of displ vs hwy, but also plots the class itno different sizes depending on the category</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KCBkYXRhID0gbXBnKSArIFxuICAgIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPSBod3ksIHNpemUgPSBjbGFzcykpXG5gYGAifQ== -->
-<pre class="r"><code>ggplot( data = mpg) + 
-    geom_point(mapping = aes(x = displ, y = hwy, size = class))</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>shows the plot of displ vs hwy, but also plots the class into different transparencies by category</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcpICsgXG4gICAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKHggPSBkaXNwbCwgeSA9IGh3eSwgYWxwaGEgPSBjbGFzcykpXG5gYGAifQ== -->
-<pre class="r"><code>ggplot(data = mpg) + 
-    geom_point(mapping = aes(x = displ, y = hwy, alpha = class))</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>shows the plot of displ vs hwy, but also plots the class into different shapes by category</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcpICsgXG4gICAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKHggPSBkaXNwbCwgeSA9IGh3eSwgc2hhcGUgPSBjbGFzcykpXG5gYGAifQ== -->
-<pre class="r"><code>ggplot(data = mpg) + 
-    geom_point(mapping = aes(x = displ, y = hwy, shape = class))</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
+<div id="shows-the-plot-of-displ-vs-hwy-but-also-plots-the-class-itno-different-sizes-depending-on-the-category" class="section level1">
+<h1>shows the plot of displ vs hwy, but also plots the class itno different sizes depending on the category</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="shows-the-plot-of-displ-vs-hwy-but-also-plots-the-class-into-different-transparencies-by-category" class="section level1">
+<h1>shows the plot of displ vs hwy, but also plots the class into different transparencies by category</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="shows-the-plot-of-displ-vs-hwy-but-also-plots-the-class-into-different-shapes-by-category" class="section level1">
+<h1>shows the plot of displ vs hwy, but also plots the class into different shapes by category</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 </div>
 <div id="section-5" class="section level1">
 <h1></h1>
 <div id="section-3.3-questions" class="section level4">
 <h4>Section 3.3 questions</h4>
 <p><strong>1:</strong> What’s gone wrong with this code? Why are the points not blue?</p>
-<p>Below is the code block used in the question:</p>
+</div>
+</div>
+<div id="below-is-the-code-block-used-in-the-question" class="section level1">
+<h1>Below is the code block used in the question:</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcpICsgXG4gIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPSBod3ksIGNvbG9yID0gXCJibHVlXCIpKVxuYGBgIn0= -->
-<pre class="r"><code>ggplot(data = mpg) + 
-  geom_point(mapping = aes(x = displ, y = hwy, color = &quot;blue&quot;))</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>THe color function is not working since it is within the same set of parantheses as x and y, meaning it is being compared to those rather than working on. The proper code block would look like the following:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcpICsgXG4gICAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKHggPSBkaXNwbCwgeSA9IGh3eSksIGNvbG9yID0gXCJibHVlXCIpXG5gYGAifQ== -->
-<pre class="r"><code>ggplot(data = mpg) + 
-    geom_point(mapping = aes(x = displ, y = hwy), color = &quot;blue&quot;)</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
+<div id="the-color-function-is-not-working-since-it-is-within-the-same-set-of-parantheses-as-x-and-y-meaning-it-is-being-compared-to-those-rather-than-working-on.-the-proper-code-block-would-look-like-the-following" class="section level1">
+<h1>THe color function is not working since it is within the same set of parantheses as x and y, meaning it is being compared to those rather than working on. The proper code block would look like the following:</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 </div>
 <div id="section-6" class="section level1">
 <h1></h1>
@@ -1961,19 +1926,11 @@ x dplyr::lag()    masks stats::lag()</code></pre>
 <p>Mapping a continuous variable like “cyl” elow will order the colors into a gradient.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcpICsgXG4gIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPSBod3ksIGNvbG9yID0gY3lsKSlcbmBgYCJ9 -->
-<pre class="r"><code>ggplot(data = mpg) + 
-  geom_point(mapping = aes(x = displ, y = hwy, color = cyl))</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Mapping a categorical variable like “manufacturer” will sort hte data into many different colors.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcpICsgXG4gIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPSBod3ksIGNvbG9yID0gbWFudWZhY3R1cmVyKSlcbmBgYCJ9 -->
-<pre class="r"><code>ggplot(data = mpg) + 
-  geom_point(mapping = aes(x = displ, y = hwy, color = manufacturer))</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -1982,10 +1939,6 @@ x dplyr::lag()    masks stats::lag()</code></pre>
 <p>Mapping the continuous variable like “cty” will change the sizes of different points based on the city. This works correctly.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcpICsgXG4gIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPSBod3ksIHNpemUgPSBjdHkpKVxuYGBgIn0= -->
-<pre class="r"><code>ggplot(data = mpg) + 
-  geom_point(mapping = aes(x = displ, y = hwy, size = cty))</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>When using the “size = x” function, it will give an error message if a categorical/discrete variable is used. The data overlaps each other and is hard to interpret.</p>
@@ -2003,39 +1956,23 @@ x dplyr::lag()    masks stats::lag()</code></pre>
 <p>It is not possible to use teh shape function on a continuous variable. As shown below it will report an error and not complete the graph.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcpICsgXG4gIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPSBod3ksIHNoYXBlID0geWVhcikpXG5gYGAifQ== -->
-<pre class="r"><code>ggplot(data = mpg) + 
-  geom_point(mapping = aes(x = displ, y = hwy, shape = year))</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Mapping a categorical variable works for the shapes, but having this many in the data set leads to errors with running out of shapes.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcpICsgXG4gIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPSBod3ksIHNoYXBlID0gY2xhc3MpKVxuYGBgIn0= -->
-<pre class="r"><code>ggplot(data = mpg) + 
-  geom_point(mapping = aes(x = displ, y = hwy, shape = class))</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p><strong>4:</strong> What happens if you map the same variable to multiple aesthetics?</p>
 <p>Having more than one type of aesthetic will cause them to overlap and show on the same thing, as shown below with “cty”. THere is both a color gradient and a change in size depending on the data point.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcpICsgXG4gIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPSBod3ksIHNpemUgPSBjdHksIGNvbG9yID0gY3R5KSlcbmBgYCJ9 -->
-<pre class="r"><code>ggplot(data = mpg) + 
-  geom_point(mapping = aes(x = displ, y = hwy, size = cty, color = cty))</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p><strong>5:</strong> What does the stroke aesthetic do? What shapes does it work with? (<em>Hint:</em> use <code>?geom_point</code>)</p>
 <p>The stroke aesthetic seems to greatly enlarge the size of certain data points, including other aesthetics applied.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcpICsgXG4gIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPSBod3ksIHN0cm9rZSA9IGN0eSwgc2hhcGUgPSB0cmFucykpXG5gYGAifQ== -->
-<pre class="r"><code>ggplot(data = mpg) + 
-  geom_point(mapping = aes(x = displ, y = hwy, stroke = cty, shape = trans))</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p><strong>6:</strong> What happens if you map an aesthetic to something other than a variable name, like <code>aes(colour = displ &lt; 5)</code>?</p>
@@ -2050,34 +1987,309 @@ x dplyr::lag()    masks stats::lag()</code></pre>
 <!-- rnb-text-begin -->
 <div id="section-3.5-facets" class="section level3">
 <h3>Section 3.5: Facets</h3>
+</div>
+</div>
+<div id="creates-facets-of-the-mpg-data-set" class="section level1">
+<h1>creates facets of the mpg data set</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcpICsgXG4gIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPSBod3kpKSArIFxuICBmYWNldF93cmFwKH4gY2xhc3MsIG5yb3cgPSAyKVxuYGBgIn0= -->
+<pre class="r"><code>ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_wrap(~ class, nrow = 2)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="creates-a-facet-based-on-two-variables-using-the-facet_grid-command." class="section level1">
+<h1>creates a facet based on two variables using the facet_grid( ~ ) command.</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcpICsgXG4gIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPSBod3kpKSArIFxuICBmYWNldF9ncmlkKGRydiB+IGN5bClcbmBgYCJ9 -->
+<pre class="r"><code>ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_grid(drv ~ cyl)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <div id="section-3.5-questions" class="section level4">
 <h4>Section 3.5 questions</h4>
 <p><strong>1:</strong> What happens if you facet on a continuous variable? <strong>Note:</strong> Write a prediction, then make and run your code chunk.</p>
+<p>If you were to run a facet on a continuous variable than it would spread them out on a grid, sorting by value, like in the above.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcpICsgXG4gIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPSBod3kpKSArIFxuICBmYWNldF93cmFwKH4gZGlzcGwsIG5yb3cgPSAyKVxuYGBgIn0= -->
+<pre class="r"><code>ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_wrap(~ displ, nrow = 2)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <p><strong>2:</strong> What do the empty cells in plot with <code>facet_grid(drv ~ cyl)</code> mean? How do they relate to this plot?</p>
+<p>The empty cells represent categories that happen to not have any data that would align with them. For example, the 5 cylinder-4 wheel drive is empty as there is no data for this, since this would be a strange setup to have in a vehicle.</p>
 <p><strong>3:</strong> What plots does the following code make? What does <code>.</code> do?</p>
+<p>The dot in the final line will remove either columns or rows from the data set. It represents the same data, but changes the presentation of it.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGE9bXBnKSArIFxuICBnZW9tX3BvaW50KG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID0gaHd5KSkgKyBcbiAgZmFjZXRfZ3JpZChkcnYgfiAuKVxuYGBgIn0= -->
+<pre class="r"><code>ggplot(data=mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_grid(drv ~ .)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+</div>
+<div id="creates-a-facet-of-the-dataset-mpg-comparing-displ-and-hwy.-it-is-separated-into-rows-comparing-drv." class="section level1">
+<h1>creates a facet of the dataset mpg, comparing displ and hwy. It is separated into rows comparing drv.</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcpICsgXG4gIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPSBod3kpKSArIFxuICBmYWNldF9ncmlkKC4gfiBjeWwpXG5gYGAifQ== -->
+<pre class="r"><code>ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_grid(. ~ cyl)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="creates-a-facet-of-the-mpg-dataset-comparing-dipl-and-hwy.-it-is-then-separated-into-columns-comparing-cyl." class="section level1">
+<h1>creates a facet of the mpg dataset, comparing dipl and hwy. It is then separated into columns comparing cyl.</h1>
 <p><strong>4:</strong> Take the first faceted plot below. What are the advantages to using faceting instead of the colour aesthetic? What are the disadvantages? How might the balance change if you had a larger dataset?</p>
+<p>Faceting works to “separate” out differences in the data when presenting it. This makes large data sets easier to see, as it will distribute them out. For a smaller data set I would personally prefer the color aesthetic. As having the data overlap helps to compare between the contrasting variables.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcpICsgXG4gIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPSBod3kpKSArXG4gIGZhY2V0X3dyYXAofiBjbGFzcywgbnJvdyA9IDIpXG5gYGAifQ== -->
+<pre class="r"><code>ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  facet_wrap(~ class, nrow = 2)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="creates-a-chart-in-the-mpg-data-set-comparing-displ-and-hwy.-creates-a-facet-of-the-data-with-2-rows." class="section level1">
+<h1>creates a chart in the mpg data set comparing displ and hwy. Creates a facet of the data with 2 rows.</h1>
 <p><strong>5:</strong> Read <code>?facet_wrap</code>. What does <code>nrow</code> do? What does <code>ncol</code> do? What other options control the layout of the individual panels? Why doesn’t <code>facet_grid()</code> have nrow and ncol argument?</p>
+<p>Nrow refernces the number of rows that will appear in the facet. The same holds true for ncol in terms of the amount of columns it will produce.</p>
+<p>Some other options that control the layout are: as.table, switch, dir, strip.position, and drop.</p>
+<p>Facet_grid doesnt use nrow/ncol as it has the . function to manage its rows/columns. Facet_grid is managing two variables, so it needs to have both rows and columns to work. Facet_grid also has to display an overlap between x and y, which will require a specific amount of rows/columns. If you were able to change this number it would be removing data past the number of rows/columns.</p>
 <p><strong>6:</strong> When using <code>facet_grid()</code> you should usually put the variable with more unique levels in the columns. Why?</p>
-</div>
-</div>
+<p>This is likely to better map out the data within the grid. Another potential reason is in the dependent/independent variable arrangement. Usually the terms with more “categories” will be the independent variable, which would be represented in the columns.</p>
 <div id="section-3.6-geometric-objects" class="section level3">
 <h3>Section 3.6: Geometric objects</h3>
 <div id="section-3.6.1-questions" class="section level4">
 <h4>Section 3.6.1 Questions</h4>
 <p><strong>1:</strong> What geom would you use to draw a line chart? A boxplot? A histogram? An area chart? <strong>Note:</strong> You will have to make some types of these charts in Part 2 of this assignment.</p>
+<p>Line chart:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcsIG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID0gaHd5KSkgKyBcbiAgZ2VvbV9wb2ludCgpICsgXG4gIGdlb21fbGluZSgpXG5gYGAifQ== -->
+<pre class="r"><code>ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+  geom_point() + 
+  geom_line()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+</div>
+</div>
+<div id="creates-a-chart-comparing-displ-and-hwy-in-the-mpg-dataset-organized-into-a-point-and-line-chart." class="section level1">
+<h1>creates a chart comparing displ and hwy in the mpg dataset, organized into a point and line chart.</h1>
+<p>Boxplot:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcsIG1hcHBpbmcgPSBhZXMoeCA9IG1vZGVsLCB5ID0gaHd5KSkgKyBcbiAgZ2VvbV9wb2ludCgpICsgXG4gIGdlb21fYm94cGxvdCgpXG5gYGAifQ== -->
+<pre class="r"><code>ggplot(data = mpg, mapping = aes(x = model, y = hwy)) + 
+  geom_point() + 
+  geom_boxplot()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="creates-a-chart-comparing-model-and-hwy-in-the-mpg-dataset-organized-into-a-point-and-box-chart." class="section level1">
+<h1>creates a chart comparing model and hwy in the mpg dataset, organized into a point and box chart.</h1>
+<p>Histogram:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcsIG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCkpICsgXG4gIGdlb21faGlzdG9ncmFtKClcbmBgYCJ9 -->
+<pre class="r"><code>ggplot(data = mpg, mapping = aes(x = displ,)) + 
+  geom_histogram()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="creates-a-chart-for-displ-in-the-mpg-dataset-organized-into-a-histogram" class="section level1">
+<h1>creates a chart for displ in the mpg dataset, organized into a histogram</h1>
+<p>Area chart:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcsIG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID0gaHd5KSkgKyBcbiAgZ2VvbV9wb2ludCgpICsgXG4gIGdlb21fYXJlYSgpXG5gYGAifQ== -->
+<pre class="r"><code>ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+  geom_point() + 
+  geom_area()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="creates-a-chart-for-displ-and-hwy-within-the-mpg-dataset.-organizes-it-into-a-point-and-area-chart." class="section level1">
+<h1>creates a chart for displ and hwy, within the mpg dataset. organizes it into a point and area chart.</h1>
 <p><strong>2:</strong> Run this code in your head and predict what the output will look like. Then, run the code in R and check your predictions.</p>
+</div>
+<div id="this-will-create-a-point-plot-of-displ-v-hwy-with-drv-shown-in-color.-there-will-be-a-line-but-the-area-overlap-part-of-the-graph-will-be-removed-by-the-line-se-false." class="section level1">
+<h1>This will create a point plot of displ v hwy, with drv shown in color. There will be a line, but the “area overlap” part of the graph will be removed by the line se = FALSE.</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcsIG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID0gaHd5LCBjb2xvciA9IGRydikpICsgXG4gIGdlb21fcG9pbnQoKSArIFxuICBnZW9tX3Ntb290aChzZSA9IEZBTFNFKVxuICAgIFxuYGBgIn0= -->
+<pre class="r"><code>ggplot(data = mpg, mapping = aes(x = displ, y = hwy, color = drv)) + 
+  geom_point() + 
+  geom_smooth(se = FALSE)
+    </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <p><strong>3:</strong> What does <code>show.legend = FALSE</code> do? What happens if you remove it? <strong>Note:</strong> Skip the “Why do you think I used it earlier in the chapter?” question.</p>
+<p>This function is used to disable a legend if were in place. As shown in the second plot there is a legend that explains what the colors mean, but with show.legend = FALSE in place it can be removed if so desired, as seen in the first plot.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcpICtcbiAgZ2VvbV9zbW9vdGgoXG4gICAgbWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPSBod3ksIGNvbG9yID0gZHJ2KSxcbiAgICBzaG93LmxlZ2VuZCA9IEZBTFNFKVxuYGBgIn0= -->
+<pre class="r"><code>ggplot(data = mpg) +
+  geom_smooth(
+    mapping = aes(x = displ, y = hwy, color = drv),
+    show.legend = FALSE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcpICtcbiAgZ2VvbV9zbW9vdGgobWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPSBod3ksIGNvbG9yID0gZHJ2KSlcbmBgYCJ9 -->
+<pre class="r"><code>ggplot(data = mpg) +
+  geom_smooth(mapping = aes(x = displ, y = hwy, color = drv))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <p><strong>4:</strong> What does the <code>se</code> argument to <code>geom_smooth()</code> do?</p>
+<p>se correlates to the shaded area on the graph to show an interval. Most of the data will be comtained within this shaded area, and anything outsid eof it will be an outlier. using the argument “se =FALSE” will remove this shaded area if so desired.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcsIG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID0gaHd5KSkgKyBcbiAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKGNvbG9yID0gY2xhc3MpKSArIFxuICBnZW9tX3Ntb290aChkYXRhID0gZmlsdGVyKG1wZywgY2xhc3MgPT0gXCJzdWJjb21wYWN0XCIpLCBzZSA9IEZBTFNFKVxuYGBgIn0= -->
+<pre class="r"><code>ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+  geom_point(mapping = aes(color = class)) + 
+  geom_smooth(data = filter(mpg, class == &quot;subcompact&quot;), se = FALSE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcsIG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID0gaHd5KSkgKyBcbiAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKGNvbG9yID0gY2xhc3MpKSArIFxuICBnZW9tX3Ntb290aChkYXRhID0gZmlsdGVyKG1wZywgY2xhc3MgPT0gXCJzdWJjb21wYWN0XCIpKVxuYGBgIn0= -->
+<pre class="r"><code>ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+  geom_point(mapping = aes(color = class)) + 
+  geom_smooth(data = filter(mpg, class == &quot;subcompact&quot;))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <p><strong>5:</strong> Will these two graphs look different? Why/why not?</p>
+<p>Graph 1:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcsIG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID0gaHd5KSkgKyBcbiAgZ2VvbV9wb2ludCgpICsgXG4gIGdlb21fc21vb3RoKClcbmBgYCJ9 -->
+<pre class="r"><code>ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+  geom_point() + 
+  geom_smooth()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Graph 2:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KCkgKyBcbiAgZ2VvbV9wb2ludChkYXRhID0gbXBnLCBtYXBwaW5nID0gYWVzKHggPSBkaXNwbCwgeSA9IGh3eSkpICsgXG4gIGdlb21fc21vb3RoKGRhdGEgPSBtcGcsIG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID0gaHd5KSlcbmBgYCJ9 -->
+<pre class="r"><code>ggplot() + 
+  geom_point(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+  geom_smooth(data = mpg, mapping = aes(x = displ, y = hwy))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>These graphs will look identical, but the first one is much easier/faster to type out. The function in the () is exactly the same, but by putting it within the ggplot() it will go to the following geoms. The second one instead lists it in each of the geoms, having the same effect but requiring more work to do the same thing.</p>
 <p><strong>6:</strong> Recreate the R code necessary to generate the following graphs. <strong>Note:</strong> Enter a separate code chunk for each graph, numbered 1 to 6, starting row-wise at upper left.</p>
 <p>1: upper left.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcsIG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID0gaHd5KSkgK1xuICBnZW9tX3BvaW50KCkgKyBcbiAgZ2VvbV9zbW9vdGgoc2UgPSBGQUxTRSlcbmBgYCJ9 -->
+<pre class="r"><code>ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
+  geom_point() + 
+  geom_smooth(se = FALSE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="creates-a-graph-comapring-displ-and-hw-y-witha-point-and-smooth-line.-se-is-hidden" class="section level1">
+<h1>creates a graph comapring displ and hw y, witha point and smooth line. se is hidden</h1>
 <p>2: upper right.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcsIG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID1od3ksIGdyb3VwID0gZHJ2KSkgKyBcbiAgZ2VvbV9wb2ludCgpICsgXG4gIGdlb21fc21vb3RoKHNlID0gRkFMU0UpXG5gYGAifQ== -->
+<pre class="r"><code>ggplot(data = mpg, mapping = aes(x = displ, y =hwy, group = drv)) + 
+  geom_point() + 
+  geom_smooth(se = FALSE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="creates-a-graph-comparing-displ-and-hwy-with-a-point-and-smooth-line.-additional-lines-are-placed-to-compare-drv.-se-is-hidden" class="section level1">
+<h1>creates a graph comparing displ and hwy, with a point and smooth line. Additional lines are placed to compare drv. se is hidden</h1>
 <p>3: middle left.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcsIG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID0gaHd5LCBjb2xvciA9IGRydikpICsgXG4gIGdlb21fcG9pbnQoKSArIFxuICBnZW9tX3Ntb290aChzZSA9IEZBTFNFKVxuYGBgIn0= -->
+<pre class="r"><code>ggplot(data = mpg, mapping = aes(x = displ, y = hwy, color = drv)) + 
+  geom_point() + 
+  geom_smooth(se = FALSE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="creates-a-point-and-smooth-line-graph-comapring-dipl-and-hwy.-drv-is-also-comapred-using-the-color-system.-se-is-hidden" class="section level1">
+<h1>creates a point and smooth line graph comapring dipl and hwy. Drv is also comapred using the color system. se is hidden</h1>
 <p>4: middle right.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KCkgKyBcbiAgZ2VvbV9wb2ludChkYXRhID0gbXBnLCBtYXBwaW5nID0gYWVzKHggPSBkaXNwbCwgeSA9IGh3eSwgY29sb3IgPSBkcnYpKSArXG4gIGdlb21fc21vb3RoKGRhdGEgPSBtcGcsIG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID1od3kpLCBzZSA9IEZBTFNFKVxuYGBgIn0= -->
+<pre class="r"><code>ggplot() + 
+  geom_point(data = mpg, mapping = aes(x = displ, y = hwy, color = drv)) +
+  geom_smooth(data = mpg, mapping = aes(x = displ, y =hwy), se = FALSE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="creates-a-graph-comparing-displ-and-hwy-with-a-smooth-line-between-them.-also-categorizes-by-drv-as-displayed-by-the-color.-se-false" class="section level1">
+<h1>creates a graph comparing displ and hwy with a smooth line between them. Also categorizes by drv as displayed by the color. se = false</h1>
 <p>5: lower left.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcsIG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID0gaHd5LCBjb2xvciA9IGRydiwgbGluZXR5cGUgPSBkcnYpKSArIFxuICBnZW9tX3BvaW50KCkgKyBcbiAgZ2VvbV9zbW9vdGgoc2UgPSBGQUxTRSlcbmBgYCJ9 -->
+<pre class="r"><code>ggplot(data = mpg, mapping = aes(x = displ, y = hwy, color = drv, linetype = drv)) + 
+  geom_point() + 
+  geom_smooth(se = FALSE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="creates-a-graph-comparing-displ-hwy-and-drv-in-a-point-graph.-different-smooth-lines-intercept-the-three-different-categories-of-drive-which-are-also-separated-by-color.-se-is-hidden" class="section level1">
+<h1>creates a graph comparing displ hwy, and drv in a point graph. Different smooth lines intercept the three different categories of drive, which are also separated by color. se is hidden</h1>
 <p>6: lower right. <em>Hint:</em> Read the help file for <code>geom_point</code>. Use <code>shape = 21</code>, <code>stroke = 2</code>, and <code>size = 3</code>.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtcGcsIG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID1od3ksIGNvbG9yID0gZHJ2KSkgKyBcbiAgZ2VvbV9wb2ludChzdHJva2UgPSAyLCBzaXplID0gMywgc2hhcGUgPSAyMSlcbmBgYCJ9 -->
+<pre class="r"><code>ggplot(data = mpg, mapping = aes(x = displ, y =hwy, color = drv)) + 
+  geom_point(stroke = 2, size = 3, shape = 21)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 </div>
-</div>
+<div id="creates-a-point-graph-comparing-displ-hwy-and-drv.-the-different-categories-of-drv-are-separated-by-color.-the-shape-size-and-stroke-of-teh-points-are-also-modified." class="section level1">
+<h1>creates a point graph comparing displ, hwy, and drv. The different categories of drv are separated by color. The shape, size, and stroke of teh points are also modified.</h1>
 <div id="section-3.7-statistical-transformations." class="section level3">
 <h3>Section 3.7: Statistical transformations.</h3>
 <p><strong>Skip this section.</strong> We may return to it later.</p>
@@ -2103,7 +2315,7 @@ x dplyr::lag()    masks stats::lag()</code></pre>
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkhXMDQgUGFydCAxOiBDb21wbGV0ZSBDaGFwdGVyIDMiDQphdXRob3I6ICJEeWxhbiBLbGluZ2VtYW4iDQpkYXRlOiAiYHIgZm9ybWF0KFN5cy50aW1lKCksICclZCAlQiAlWScpYCINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KZWRpdG9yX29wdGlvbnM6IA0KICBjaHVua19vdXRwdXRfdHlwZTogaW5saW5lDQotLS0NCg0KDQoNCmBgYHtyIHNldHVwLCBpbmNsdWRlPUZBTFNFfQ0Ka25pdHI6Om9wdHNfY2h1bmskc2V0KGVjaG8gPSBUUlVFKQ0KYGBgDQoNCiMjIENoYXB0ZXIgMw0KDQotIENoYW5nZSAieW91ciBuYW1lIiBpbiB0aGUgWUFNTCBoZWFkZXIgYWJvdmUgdG8geW91ciBuYW1lLg0KDQojIyMgU2VjdGlvbiAzLjENCg0KTG9hZCB0aGUgdGlkeXZlcnNlIHBhY2thZ2VzLiBJJ3ZlIGVudGVyZWQgdGhlIGZpcnN0IGNvZGUgY2h1bmsgZm9yIHlvdS4gKipZb3UgbXVzdCBlbnRlciBhbGwgc3Vic2VxdWVudCBjb2RlIGNodW5rcyBhbmQgcnVuIHRoZSBjb2RlLioqIA0KDQpgYGB7cn0NCmxpYnJhcnkoInRpZHl2ZXJzZSIpDQpgYGANCg0KSWYgeW91IGdldCBhbiBlcnJvciwgdGhlbiB5b3UgZGlkIG5vdCBpbnN0YWxsIHRoZSBgdGlkeXZlcnNlYCBwYWNrYWdlIGxpa2UgeW91IHdlcmUgc3VwcG9zZWQgdG8gaW4gdGhlIHByZXZpb3VzIGFzc2lnbm1lbnQuIEdvIGJhY2sgdG8gdGhhdCBhc3NpZ25tZW50IGFuZCBjb21wbGV0ZSB0aGF0IHN0ZXAuIChUaGlzIHNob3VsZCBub3QgYmUgdGhlIGNhc2UsIHRob3VnaC4pDQoNCiMjIyBTZWN0aW9uIDMuMjogRmlyc3Qgc3RlcHMNCg0KRW50ZXIgeW91ciBjb2RlIGNodW5rcyBmb3IgU2VjdGlvbiAzLjIgaGVyZS4NCg0KIyBzaG91bGQgZGlzcGxheSBhIGNoYXJ0IGNvbXBhcmluZyBkaXNwbCBhZG4gaHd5DQpgYGB7cn0NCmdncGxvdChkYXRhID0gbXBnKSArIA0KICAgIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPSBod3kpKQ0KYGBgDQoNCiMgc2hvdWxkIGNyZWF0ZSBhIGdyYXBoIG9mIGRhdGEsIGdlb20gZnVuY3Rpb24sIGFuZCBtYXBwaW5ncyB3aGVuIHJlcGxhY2VkDQoNCmBgYHtyfQ0KZ2dwbG90KGRhdGEgPSBEQVRBKSArIA0KICBHRU9NX0ZVTkNUSU9OKG1hcHBpbmcgPSBhZXMoTUFQUElOR1MpKQ0KYGBgDQoNCg0KR2V0IGluIHRoZSBoYWJpdCBvZiBlbnRlcmluZyBhIGJyaWVmIGRlc2NyaXB0aW9uIG9mIHdoYXQgZWFjaCBjaHVuayBvZiBjb2RlIGRvZXMuIEVudGVyIHRoaXMgYWJvdmUgdGhlIGNodW5rLCBsaWtlIEkgZGlkIGluIFNlY3Rpb24gMy4xLg0KDQojIyMjIFNlY3Rpb24gMy4yIFF1ZXN0aW9ucw0KDQpBbnN3ZXIgdGhlIHF1ZXN0aW9ucyAqY29tcGxldGVseS4qIFNvbWUgYW5zd2VycyB3aWxsIHJlcXVpcmUgeW91IHRvIHdyaXRlIGNvZGUgaW4gYSBjb2RlIGNodW5rIGFuZCBhbHNvIHRvIHR5cGUgdGV4dCBiZWZvcmUgb3IgYWZ0ZXIgdGhlIGNodW5rLiBPdGhlciBhbnN3ZXJzIHdpbGwgcmVxdWlyZSBvbmx5IGNvZGUgb3Igb25seSB0ZXh0LiANCg0KKioxOioqIFJ1biBnZ3Bsb3QoZGF0YSA9IG1wZykuIFdoYXQgZG8geW91IHNlZT8NCg0KYGBge3J9DQpnZ3Bsb3QoZGF0YSA9IG1wZykNCmBgYA0KDQpSdW5uaW5nIHRoZSBhYm92ZSBmdW5jdGlvbiBkaXNwbGF5cyBhIGJsYW5rIHRleHQgYm94LiBEb2luZyB0aGUgZm9sbG93aW5nIGluc3RlYWQgZ2l2ZXMgdXMgYSBjb21wbGV0ZWQgZ3JhcGggd2l0aCBkYXRhLk9uIGVuZ2luZSBzaXplIGFuZCBmdWVsIGVmZmljaWVuY3kuICANCg0KYGBge3J9DQpnZ3Bsb3QoZGF0YSA9IG1wZykgKyANCiAgICBnZW9tX3BvaW50KG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID0gaHd5KSkNCmBgYA0KDQojDQoNCioqMjoqKiBIb3cgbWFueSByb3dzIGFyZSBpbiBgbXBnYD8gSG93IG1hbnkgY29sdW1ucz8gKipIaW50OioqIFVzZSB0aGUgYGRpbSgpYCBmdW5jdGlvbi4gVHlwZSBgZGltKClgIGluIHRoZSBjb25zb2xlIHRvIGxlYXJuIHdoYXQgYGRpbSgpYCBkb2VzLg0KDQpgYGB7cn0NCmRpbShtcGcpDQpgYGANCg0KVGhlIGRpbSBmdW5jdGlvbiBzaG93cyB1cyB0aGF0IHRoZXJlIGFyZSAyMzQgcm93cyBhbmQgMTEgY29sdW1ucyB3aXRoaW4gdGhlIG1wZyBkYXRhIHNldC4gDQoNCiMNCg0KKiozOioqIFdoYXQgZG9lcyB0aGUgYGRydmAgdmFyaWFibGUgZGVzY3JpYmU/IFJlYWQgdGhlIGhlbHAgZm9yIGA/bXBnYCB0byBmaW5kIG91dC4NCg0KIkRydiIgcmVmZXJzIHRvIHRoZSB0eXBlIG9mICJkcml2ZSB0cmFpbiIgd2hpY2ggaXMgaG93IHRoZSBjYXIgb3BlcmF0ZXMuIEZvciBleGFtcGxlIHRoZSB2YXJpYWJsZSAiZiIgcmVmZXJzIHRvIGEgZnJvbnQgd2hlZWwgZHJpdmUsIHdoaWxlICI0IiByZWZlcnMgdG8gYSBmb3VyIHdoZWVsIGRyaXZlLiANCg0KIw0KDQoqKjQ6KiogTWFrZSBhIHNjYXR0ZXJwbG90IG9mIGBod3lgIHZzIGBjeWxgLg0KDQpCZWxvdyBpcyB0aGUgc2NhdHRlcnBsb3QgZm9yIGh3eSB2cyBjeWwNCg0KYGBge3J9DQpnZ3Bsb3QoZGF0YSA9IG1wZykgKyANCiAgICBnZW9tX3BvaW50KG1hcHBpbmcgPSBhZXMoeCA9IGh3eSwgeSA9IGN5bCkpDQpgYGANCg0KIyANCg0KKio1OioqIFdoYXQgaGFwcGVucyBpZiB5b3UgbWFrZSBhIHNjYXR0ZXJwbG90IG9mIGBjbGFzc2AgdnMgYGRydmA/IFdoeSBpcyB0aGUgcGxvdCBub3QgdXNlZnVsPw0KDQpgYGB7cn0NCmdncGxvdChkYXRhID0gbXBnKSArIA0KICAgIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyh4ID0gY2xhc3MsIHkgPSBkcnYpKQ0KYGBgDQoNClBsb3R0aW5nIHRoZXNlIHR3byB2YXJpYWJsZXMgYWdhaW5zdCBlYWNoIG90aGVyIHNob3dzIHRoZSB0eXBlIG9mIGRyaXZpbmcgZW5naW5lcyBpbiBlYWNoIG9mIHRoZSBjbGFzc2VzIG9mIGNhcnMuIFRoaXMgY291bGQgYmUgdmlld2VkIGkgb3RoZXIgbW9yZSBlZmZpY2llbnQgd2F5cyB3aXRoaW4gdGhlIGRhdGEgc2V0LiBObyBuZXcgaW5mb3JtYXRpb24gaXMgcmVhbGx5IGJlaW5nIGNvbXBhcmVkIGhlcmUuIA0KDQojDQoNCiMjIyBTZWN0aW9uIDMuMzogQWVzdGhldGljIG1hcHBpbmdzDQoNCnNob3dzIHRoZSBwbG90IG9mIGRpc3BsIHZzIGh3eSwgYnV0IGFsc28gcGxvdHMgdGhlIGNsYXNzIGludG8gZGlmZmVyZW50IGNvbG9yIGJhc2VkIGNhdGVnb3JpZXMuIA0KYGBge3J9DQpnZ3Bsb3QoZGF0YSA9IG1wZykgKyANCiAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKHggPSBkaXNwbCwgeSA9IGh3eSwgY29sb3IgPSBjbGFzcykpDQpgYGANCg0KDQpzaG93cyB0aGUgcGxvdCBvZiBkaXNwbCB2cyBod3ksIGJ1dCBhbHNvIHBsb3RzIHRoZSBjbGFzcyBpdG5vIGRpZmZlcmVudCBzaXplcyBkZXBlbmRpbmcgb24gdGhlIGNhdGVnb3J5DQoNCmBgYHtyfQ0KZ2dwbG90KCBkYXRhID0gbXBnKSArIA0KICAgIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPSBod3ksIHNpemUgPSBjbGFzcykpDQpgYGANCg0KDQpzaG93cyB0aGUgcGxvdCBvZiBkaXNwbCB2cyBod3ksIGJ1dCBhbHNvIHBsb3RzIHRoZSBjbGFzcyBpbnRvIGRpZmZlcmVudCB0cmFuc3BhcmVuY2llcyBieSBjYXRlZ29yeQ0KDQpgYGB7cn0NCmdncGxvdChkYXRhID0gbXBnKSArIA0KICAgIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPSBod3ksIGFscGhhID0gY2xhc3MpKQ0KYGBgDQoNCg0Kc2hvd3MgdGhlIHBsb3Qgb2YgZGlzcGwgdnMgaHd5LCBidXQgYWxzbyBwbG90cyB0aGUgY2xhc3MgaW50byBkaWZmZXJlbnQgc2hhcGVzIGJ5IGNhdGVnb3J5DQoNCmBgYHtyfQ0KZ2dwbG90KGRhdGEgPSBtcGcpICsgDQogICAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKHggPSBkaXNwbCwgeSA9IGh3eSwgc2hhcGUgPSBjbGFzcykpDQpgYGANCg0KIw0KDQojIyMjIFNlY3Rpb24gMy4zIHF1ZXN0aW9ucw0KDQoqKjE6KiogV2hhdOKAmXMgZ29uZSB3cm9uZyB3aXRoIHRoaXMgY29kZT8gV2h5IGFyZSB0aGUgcG9pbnRzIG5vdCBibHVlPw0KDQpCZWxvdyBpcyB0aGUgY29kZSBibG9jayB1c2VkIGluIHRoZSBxdWVzdGlvbjogDQoNCmBgYHtyfQ0KZ2dwbG90KGRhdGEgPSBtcGcpICsgDQogIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPSBod3ksIGNvbG9yID0gImJsdWUiKSkNCmBgYA0KDQpUSGUgY29sb3IgZnVuY3Rpb24gaXMgbm90IHdvcmtpbmcgc2luY2UgaXQgaXMgd2l0aGluIHRoZSBzYW1lIHNldCBvZiBwYXJhbnRoZXNlcyBhcyB4IGFuZCB5LCBtZWFuaW5nIGl0IGlzIGJlaW5nIGNvbXBhcmVkIHRvIHRob3NlIHJhdGhlciB0aGFuIHdvcmtpbmcgb24uIFRoZSBwcm9wZXIgY29kZSBibG9jayB3b3VsZCBsb29rIGxpa2UgdGhlIGZvbGxvd2luZzogDQoNCmBgYHtyfQ0KZ2dwbG90KGRhdGEgPSBtcGcpICsgDQogICAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKHggPSBkaXNwbCwgeSA9IGh3eSksIGNvbG9yID0gImJsdWUiKQ0KYGBgDQoNCiMgDQoNCioqMjoqKiBXaGljaCB2YXJpYWJsZXMgaW4gYG1wZ2AgYXJlIGNhdGVnb3JpY2FsPyBXaGljaCB2YXJpYWJsZXMgYXJlIGNvbnRpbnVvdXM/ICgqSGludDoqIHR5cGUgYD9tcGdgIHRvIHJlYWQgdGhlIGRvY3VtZW50YXRpb24gZm9yIHRoZSBkYXRhc2V0KS4gSG93IGNhbiB5b3Ugc2VlIHRoaXMgaW5mb3JtYXRpb24gd2hlbiB5b3UgcnVuIG1wZz8NCg0KDQpDYXRlZ29yaWNhbDogIm1hbnVmYWN0dXJlciIsICJtb2RlbCIsICJ0cmFucyIsICJkcnYiLCAiY2xhc3MiLCAgImZsIg0KDQpDb250aW51b3VzOiAiZGlzcGwiLCAieWVhciIsICJjeWwiLCAiY3R5IiwgImh3eSINCg0KV2hlbiB0aGUgdGFibGUgaXMgcmFuIHRoZXJlIGlzIGEgc21hbGwgPD4gYmVuZWF0aCBpdCB0aGF0IGRlc2NyaWJlcyB0aGUgY2xhc3NpZmljYXRpb24NCg0KIw0KDQoqKjM6KiogTWFwIGEgY29udGludW91cyB2YXJpYWJsZSB0byBjb2xvciwgc2l6ZSwgYW5kIHNoYXBlLiBIb3cgZG8gdGhlc2UgYWVzdGhldGljcyBiZWhhdmUgZGlmZmVyZW50bHkgZm9yIGNhdGVnb3JpY2FsIHZzLiBjb250aW51b3VzIHZhcmlhYmxlcz8gKipOb3RlOioqIFlvdSBuZWVkIHNldmVyYWwgY29kZSBjaHVua3MgaGVyZSB0byBhbnN3ZXIgdGhpcyBxdWVzdGlvbi4NCg0KIyBDb2xvcg0KDQpNYXBwaW5nIGEgY29udGludW91cyB2YXJpYWJsZSBsaWtlICJjeWwiIGVsb3cgd2lsbCBvcmRlciB0aGUgY29sb3JzIGludG8gYSBncmFkaWVudC4gDQoNCmBgYHtyfQ0KZ2dwbG90KGRhdGEgPSBtcGcpICsgDQogIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPSBod3ksIGNvbG9yID0gY3lsKSkNCmBgYA0KDQpNYXBwaW5nIGEgY2F0ZWdvcmljYWwgdmFyaWFibGUgbGlrZSAibWFudWZhY3R1cmVyIiB3aWxsIHNvcnQgaHRlIGRhdGEgaW50byBtYW55IGRpZmZlcmVudCBjb2xvcnMuIA0KDQpgYGB7cn0NCmdncGxvdChkYXRhID0gbXBnKSArIA0KICBnZW9tX3BvaW50KG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID0gaHd5LCBjb2xvciA9IG1hbnVmYWN0dXJlcikpDQpgYGANCg0KIyBTaXplDQoNCk1hcHBpbmcgdGhlIGNvbnRpbnVvdXMgdmFyaWFibGUgbGlrZSAiY3R5IiB3aWxsIGNoYW5nZSB0aGUgc2l6ZXMgb2YgZGlmZmVyZW50IHBvaW50cyBiYXNlZCBvbiB0aGUgY2l0eS4gVGhpcyB3b3JrcyBjb3JyZWN0bHkuIA0KDQpgYGB7cn0NCmdncGxvdChkYXRhID0gbXBnKSArIA0KICBnZW9tX3BvaW50KG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID0gaHd5LCBzaXplID0gY3R5KSkNCmBgYA0KDQpXaGVuIHVzaW5nIHRoZSAic2l6ZSA9IHgiIGZ1bmN0aW9uLCBpdCB3aWxsIGdpdmUgYW4gZXJyb3IgbWVzc2FnZSBpZiBhIGNhdGVnb3JpY2FsL2Rpc2NyZXRlIHZhcmlhYmxlIGlzIHVzZWQuIFRoZSBkYXRhIG92ZXJsYXBzIGVhY2ggb3RoZXIgYW5kIGlzIGhhcmQgdG8gaW50ZXJwcmV0LiANCg0KYGBge3J9DQpnZ3Bsb3QoZGF0YSA9IG1wZykgKyANCiAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKHggPSBkaXNwbCwgeSA9IGh3eSwgc2l6ZSA9IGNsYXNzKSkNCmBgYA0KDQojIFNoYXBlDQoNCkl0IGlzIG5vdCBwb3NzaWJsZSB0byB1c2UgdGVoIHNoYXBlIGZ1bmN0aW9uIG9uIGEgY29udGludW91cyB2YXJpYWJsZS4gQXMgc2hvd24gYmVsb3cgaXQgd2lsbCByZXBvcnQgYW4gZXJyb3IgYW5kIG5vdCBjb21wbGV0ZSB0aGUgZ3JhcGguDQoNCmBgYHtyfQ0KZ2dwbG90KGRhdGEgPSBtcGcpICsgDQogIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPSBod3ksIHNoYXBlID0geWVhcikpDQpgYGANCg0KTWFwcGluZyBhIGNhdGVnb3JpY2FsIHZhcmlhYmxlIHdvcmtzIGZvciB0aGUgc2hhcGVzLCBidXQgaGF2aW5nIHRoaXMgbWFueSBpbiB0aGUgZGF0YSBzZXQgbGVhZHMgdG8gZXJyb3JzIHdpdGggcnVubmluZyBvdXQgb2Ygc2hhcGVzLiANCg0KYGBge3J9DQpnZ3Bsb3QoZGF0YSA9IG1wZykgKyANCiAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKHggPSBkaXNwbCwgeSA9IGh3eSwgc2hhcGUgPSBjbGFzcykpDQpgYGANCg0KDQoqKjQ6KiogV2hhdCBoYXBwZW5zIGlmIHlvdSBtYXAgdGhlIHNhbWUgdmFyaWFibGUgdG8gbXVsdGlwbGUgYWVzdGhldGljcz8NCg0KSGF2aW5nIG1vcmUgdGhhbiBvbmUgdHlwZSBvZiBhZXN0aGV0aWMgd2lsbCBjYXVzZSB0aGVtIHRvIG92ZXJsYXAgYW5kIHNob3cgb24gdGhlIHNhbWUgdGhpbmcsIGFzIHNob3duIGJlbG93IHdpdGggImN0eSIuIFRIZXJlIGlzIGJvdGggYSBjb2xvciBncmFkaWVudCBhbmQgYSBjaGFuZ2UgaW4gc2l6ZSBkZXBlbmRpbmcgb24gdGhlIGRhdGEgcG9pbnQuIA0KDQpgYGB7cn0NCmdncGxvdChkYXRhID0gbXBnKSArIA0KICBnZW9tX3BvaW50KG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID0gaHd5LCBzaXplID0gY3R5LCBjb2xvciA9IGN0eSkpDQpgYGANCg0KDQoqKjU6KiogV2hhdCBkb2VzIHRoZSBzdHJva2UgYWVzdGhldGljIGRvPyBXaGF0IHNoYXBlcyBkb2VzIGl0IHdvcmsgd2l0aD8gKCpIaW50OiogdXNlIGA/Z2VvbV9wb2ludGApDQoNClRoZSBzdHJva2UgYWVzdGhldGljIHNlZW1zIHRvIGdyZWF0bHkgZW5sYXJnZSB0aGUgc2l6ZSBvZiBjZXJ0YWluIGRhdGEgcG9pbnRzLCBpbmNsdWRpbmcgb3RoZXIgYWVzdGhldGljcyBhcHBsaWVkLiANCg0KYGBge3J9DQpnZ3Bsb3QoZGF0YSA9IG1wZykgKyANCiAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKHggPSBkaXNwbCwgeSA9IGh3eSwgc3Ryb2tlID0gY3R5LCBzaGFwZSA9IHRyYW5zKSkNCmBgYA0KDQoNCioqNjoqKiBXaGF0IGhhcHBlbnMgaWYgeW91IG1hcCBhbiBhZXN0aGV0aWMgdG8gc29tZXRoaW5nIG90aGVyIHRoYW4gYSB2YXJpYWJsZSBuYW1lLCBsaWtlIGBhZXMoY29sb3VyID0gZGlzcGwgPCA1KWA/DQoNClVzaW5nIGEgZnVuY3Rpb24gbGlrZSB0aGUgb25lIGxpc3RlZCBhYm92ZSB3aWxsIGFwcGx5IGEgY29sb3IgKGJsdWUpLCB3aGVuIHRoZSBjb25kaXRpb24gaXMgbWV0IHRoYXQgaXQgaXMgc2V0IHRvLiBJbiB0aGlzIGNhc2UgYmVpbmcgYmVsb3cgNSB3aWxsIGNvbG9yIHRoZSB2YXJpYWJsZSBibHVlLiANCg0KYGBge3J9DQpnZ3Bsb3QoZGF0YSA9IG1wZykgKyANCiAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKHggPSBkaXNwbCwgeSA9IGh3eSwgY29sb3IgPSBkaXNwbCA8IDUpKQ0KYGBgDQoNCg0KIyMjIFNlY3Rpb24gMy41OiBGYWNldHMNCg0KDQoNCiMjIyMgU2VjdGlvbiAzLjUgcXVlc3Rpb25zDQoNCioqMToqKiBXaGF0IGhhcHBlbnMgaWYgeW91IGZhY2V0IG9uIGEgY29udGludW91cyB2YXJpYWJsZT8gKipOb3RlOioqIFdyaXRlIGEgcHJlZGljdGlvbiwgdGhlbiBtYWtlIGFuZCBydW4geW91ciBjb2RlIGNodW5rLg0KDQoNCg0KKioyOioqIFdoYXQgZG8gdGhlIGVtcHR5IGNlbGxzIGluIHBsb3Qgd2l0aCBgZmFjZXRfZ3JpZChkcnYgfiBjeWwpYCBtZWFuPyBIb3cgZG8gdGhleSByZWxhdGUgdG8gdGhpcyBwbG90Pw0KDQoNCg0KKiozOioqIFdoYXQgcGxvdHMgZG9lcyB0aGUgZm9sbG93aW5nIGNvZGUgbWFrZT8gV2hhdCBkb2VzIGAuYCBkbz8NCg0KDQoNCioqNDoqKiBUYWtlIHRoZSBmaXJzdCBmYWNldGVkIHBsb3QgYmVsb3cuIFdoYXQgYXJlIHRoZSBhZHZhbnRhZ2VzIHRvIHVzaW5nIGZhY2V0aW5nIGluc3RlYWQgb2YgdGhlIGNvbG91ciBhZXN0aGV0aWM/IFdoYXQgYXJlIHRoZSBkaXNhZHZhbnRhZ2VzPyBIb3cgbWlnaHQgdGhlIGJhbGFuY2UgY2hhbmdlIGlmIHlvdSBoYWQgYSBsYXJnZXIgZGF0YXNldD8NCg0KDQoNCioqNToqKiBSZWFkIGA/ZmFjZXRfd3JhcGAuIFdoYXQgZG9lcyBgbnJvd2AgZG8/IFdoYXQgZG9lcyBgbmNvbGAgZG8/IFdoYXQgb3RoZXIgb3B0aW9ucyBjb250cm9sIHRoZSBsYXlvdXQgb2YgdGhlIGluZGl2aWR1YWwgcGFuZWxzPyBXaHkgZG9lc27igJl0IGBmYWNldF9ncmlkKClgIGhhdmUgbnJvdyBhbmQgbmNvbCBhcmd1bWVudD8NCg0KDQoqKjY6KiogV2hlbiB1c2luZyBgZmFjZXRfZ3JpZCgpYCB5b3Ugc2hvdWxkIHVzdWFsbHkgcHV0IHRoZSB2YXJpYWJsZSB3aXRoIG1vcmUgdW5pcXVlIGxldmVscyBpbiB0aGUgY29sdW1ucy4gV2h5Pw0KDQojIyMgU2VjdGlvbiAzLjY6IEdlb21ldHJpYyBvYmplY3RzDQoNCg0KDQojIyMjIFNlY3Rpb24gMy42LjEgUXVlc3Rpb25zDQoNCioqMToqKiBXaGF0IGdlb20gd291bGQgeW91IHVzZSB0byBkcmF3IGEgbGluZSBjaGFydD8gQSBib3hwbG90PyBBIGhpc3RvZ3JhbT8gQW4gYXJlYSBjaGFydD8gKipOb3RlOioqIFlvdSB3aWxsIGhhdmUgdG8gbWFrZSBzb21lIHR5cGVzIG9mIHRoZXNlIGNoYXJ0cyBpbiBQYXJ0IDIgb2YgdGhpcyBhc3NpZ25tZW50Lg0KDQoNCioqMjoqKiBSdW4gdGhpcyBjb2RlIGluIHlvdXIgaGVhZCBhbmQgcHJlZGljdCB3aGF0IHRoZSBvdXRwdXQgd2lsbCBsb29rIGxpa2UuIFRoZW4sIHJ1biB0aGUgY29kZSBpbiBSIGFuZCBjaGVjayB5b3VyIHByZWRpY3Rpb25zLg0KDQoNCg0KKiozOioqIFdoYXQgZG9lcyBgc2hvdy5sZWdlbmQgPSBGQUxTRWAgZG8/IFdoYXQgaGFwcGVucyBpZiB5b3UgcmVtb3ZlIGl0Pw0KKipOb3RlOioqIFNraXAgdGhlICJXaHkgZG8geW91IHRoaW5rIEkgdXNlZCBpdCBlYXJsaWVyIGluIHRoZSBjaGFwdGVyPyIgcXVlc3Rpb24uDQoNCg0KKio0OioqIFdoYXQgZG9lcyB0aGUgYHNlYCBhcmd1bWVudCB0byBgZ2VvbV9zbW9vdGgoKWAgZG8/DQoNCg0KKio1OioqIFdpbGwgdGhlc2UgdHdvIGdyYXBocyBsb29rIGRpZmZlcmVudD8gV2h5L3doeSBub3Q/DQoNCg0KKio2OioqIFJlY3JlYXRlIHRoZSBSIGNvZGUgbmVjZXNzYXJ5IHRvIGdlbmVyYXRlIHRoZSBmb2xsb3dpbmcgZ3JhcGhzLiAqKk5vdGU6KiogRW50ZXIgYSBzZXBhcmF0ZSBjb2RlIGNodW5rIGZvciBlYWNoIGdyYXBoLCBudW1iZXJlZCAxIHRvIDYsIHN0YXJ0aW5nIHJvdy13aXNlIGF0IHVwcGVyIGxlZnQuIA0KDQoxOiB1cHBlciBsZWZ0Lg0KDQoNCjI6IHVwcGVyIHJpZ2h0Lg0KDQoNCjM6IG1pZGRsZSBsZWZ0Lg0KDQoNCjQ6IG1pZGRsZSByaWdodC4NCg0KDQo1OiBsb3dlciBsZWZ0Lg0KDQoNCjY6IGxvd2VyIHJpZ2h0LiAqSGludDoqIFJlYWQgdGhlIGhlbHAgZmlsZSBmb3IgYGdlb21fcG9pbnRgLiBVc2UgYHNoYXBlID0gMjFgLCBgc3Ryb2tlID0gMmAsIGFuZCBgc2l6ZSA9IDNgLg0KDQojIyMgU2VjdGlvbiAzLjc6IFN0YXRpc3RpY2FsIHRyYW5zZm9ybWF0aW9ucy4NCg0KKipTa2lwIHRoaXMgc2VjdGlvbi4qKiBXZSBtYXkgcmV0dXJuIHRvIGl0IGxhdGVyLg0KDQoNCiMjIyBTZWN0aW9uIDMuOCBQb3NpdGlvbiBhZGp1c3RtZW50cw0KDQoNCiMjIyMgU2VjdGlvbiAzLjggUXVlc3Rpb25zDQoNCioqMToqKiBXaGF0IGlzIHRoZSBwcm9ibGVtIHdpdGggdGhpcyBwbG90PyBIb3cgY291bGQgeW91IGltcHJvdmUgaXQuICpIaW50OiogUmVtZW1iZXIgdGhlIHNpemUgb2YgdGhlIGBtcGdgIGRhdGEgc2V0IGZyb20gZWFybGllciBpbiB0aGlzIGV4ZXJjaXNlLiBEb2VzIHRoZSBudW1iZXIgb2YgcG9pbnRzIHNlZW0gY29ycmVjdD8gKipOb3RlOioqIFdyaXRlIHRoZSBjb2RlIHRvIGltcHJvdmUgaXQuIA0KDQoNCioqMjoqKiBXaGF0IHBhcmFtZXRlcnMgdG8gYGdlb21faml0dGVyKClgIGNvbnRyb2wgdGhlIGFtb3VudCBvZiBqaXR0ZXJpbmc/DQoNCg0KKiozOioqIENvbXBhcmUgYW5kIGNvbnRyYWN0cyBgZ2VvbV9qaXR0ZXIoKWAgd2l0aCBgZ2VvbV9jb3VudCgpYC4NCg0KDQoqKjQ6KiogV2hhdCBpcyB0aGUgZGVmYXVsdCBwb3NpdGlvbiBhZGp1c3RlbWVudCBmb3IgYGdlb21fYm94cGxvdCgpYD8gQ3JlYXRlIGEgdmlzdWFsaXphdGlvbiBvZiB0aGUgYG1wZ2AgZGF0YXNldCB0aGF0IGRlbW9uc3RyYXRlcyBpdC4NCg0KDQojIyMgU2VjdGlvbiAzLjk6IENvb3JkaW5hdGUgc3lzdGVtcw0KDQoqKk5vdGU6KiogUmVhZCBhYm91dCBhbmQgZG8gb25seSB0aGUgY29kZSBjaHVuayBhc3NvY2lhdGVkIHdpdGggYGNvb3JkX2ZsaXAoKWAuIGBjb29yZF9mbGlwKClgIGlzIGEgZ3JlYXQgbGF5ZXIgdG8gdXNlIHdoZW4geW91IGhhdmUgY2F0ZWdvcmljYWwgZGF0YSB3aXRoIGxvbmdpc2ggbmFtZXMgYXMgaXQgbWFrZXMgdGhlIHRleHQgZWFzaWVyIHRvIHJlYWQuDQoNCiMjIyBTZWN0aW9uIDMuMTA6IFRoZSBsYXllcmVkIGdyYW1tYXIgb2YgZ3JhcGhpY3MNCg0KSnVzdCByZWFkIHRoaXMgc2VjdGlvbiBhcyBhIGNvbnRleHR1YWwgcmV2aWV3IG9mIGV2ZXJ5dGhpbmcgeW91IGp1c3QgbGVhcm5lZC4NCg0K</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkhXMDQgUGFydCAxOiBDb21wbGV0ZSBDaGFwdGVyIDMiDQphdXRob3I6ICJEeWxhbiBLbGluZ2VtYW4iDQpkYXRlOiAiYHIgZm9ybWF0KFN5cy50aW1lKCksICclZCAlQiAlWScpYCINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KZWRpdG9yX29wdGlvbnM6IA0KICBjaHVua19vdXRwdXRfdHlwZTogaW5saW5lDQotLS0NCg0KDQoNCmBgYHtyIHNldHVwLCBpbmNsdWRlPUZBTFNFfQ0Ka25pdHI6Om9wdHNfY2h1bmskc2V0KGVjaG8gPSBUUlVFKQ0KYGBgDQoNCiMjIENoYXB0ZXIgMw0KDQotIENoYW5nZSAieW91ciBuYW1lIiBpbiB0aGUgWUFNTCBoZWFkZXIgYWJvdmUgdG8geW91ciBuYW1lLg0KDQojIyMgU2VjdGlvbiAzLjENCg0KTG9hZCB0aGUgdGlkeXZlcnNlIHBhY2thZ2VzLiBJJ3ZlIGVudGVyZWQgdGhlIGZpcnN0IGNvZGUgY2h1bmsgZm9yIHlvdS4gKipZb3UgbXVzdCBlbnRlciBhbGwgc3Vic2VxdWVudCBjb2RlIGNodW5rcyBhbmQgcnVuIHRoZSBjb2RlLioqIA0KDQpgYGB7cn0NCmxpYnJhcnkoInRpZHl2ZXJzZSIpDQpgYGANCg0KSWYgeW91IGdldCBhbiBlcnJvciwgdGhlbiB5b3UgZGlkIG5vdCBpbnN0YWxsIHRoZSBgdGlkeXZlcnNlYCBwYWNrYWdlIGxpa2UgeW91IHdlcmUgc3VwcG9zZWQgdG8gaW4gdGhlIHByZXZpb3VzIGFzc2lnbm1lbnQuIEdvIGJhY2sgdG8gdGhhdCBhc3NpZ25tZW50IGFuZCBjb21wbGV0ZSB0aGF0IHN0ZXAuIChUaGlzIHNob3VsZCBub3QgYmUgdGhlIGNhc2UsIHRob3VnaC4pDQoNCiMjIyBTZWN0aW9uIDMuMjogRmlyc3Qgc3RlcHMNCg0KRW50ZXIgeW91ciBjb2RlIGNodW5rcyBmb3IgU2VjdGlvbiAzLjIgaGVyZS4NCg0KIyBzaG91bGQgZGlzcGxheSBhIGNoYXJ0IGNvbXBhcmluZyBkaXNwbCBhbmQgaHd5DQpgYGB7cn0NCmdncGxvdChkYXRhID0gbXBnKSArIA0KICAgIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPSBod3kpKQ0KYGBgDQoNCiMgc2hvdWxkIGNyZWF0ZSBhIGdyYXBoIG9mIGRhdGEsIGdlb20gZnVuY3Rpb24sIGFuZCBtYXBwaW5ncyB3aGVuIHJlcGxhY2VkDQoNCmBgYHtyfQ0KZ2dwbG90KGRhdGEgPSBEQVRBKSArIA0KICBHRU9NX0ZVTkNUSU9OKG1hcHBpbmcgPSBhZXMoTUFQUElOR1MpKQ0KYGBgDQoNCg0KR2V0IGluIHRoZSBoYWJpdCBvZiBlbnRlcmluZyBhIGJyaWVmIGRlc2NyaXB0aW9uIG9mIHdoYXQgZWFjaCBjaHVuayBvZiBjb2RlIGRvZXMuIEVudGVyIHRoaXMgYWJvdmUgdGhlIGNodW5rLCBsaWtlIEkgZGlkIGluIFNlY3Rpb24gMy4xLg0KDQojIyMjIFNlY3Rpb24gMy4yIFF1ZXN0aW9ucw0KDQpBbnN3ZXIgdGhlIHF1ZXN0aW9ucyAqY29tcGxldGVseS4qIFNvbWUgYW5zd2VycyB3aWxsIHJlcXVpcmUgeW91IHRvIHdyaXRlIGNvZGUgaW4gYSBjb2RlIGNodW5rIGFuZCBhbHNvIHRvIHR5cGUgdGV4dCBiZWZvcmUgb3IgYWZ0ZXIgdGhlIGNodW5rLiBPdGhlciBhbnN3ZXJzIHdpbGwgcmVxdWlyZSBvbmx5IGNvZGUgb3Igb25seSB0ZXh0LiANCg0KKioxOioqIFJ1biBnZ3Bsb3QoZGF0YSA9IG1wZykuIFdoYXQgZG8geW91IHNlZT8NCg0KYGBge3J9DQpnZ3Bsb3QoZGF0YSA9IG1wZykNCmBgYA0KDQojIFJ1bm5pbmcgdGhlIGFib3ZlIGZ1bmN0aW9uIGRpc3BsYXlzIGEgYmxhbmsgdGV4dCBib3guIERvaW5nIHRoZSBmb2xsb3dpbmcgaW5zdGVhZCBnaXZlcyB1cyBhIGNvbXBsZXRlZCBncmFwaCB3aXRoIGRhdGEuT24gZW5naW5lIHNpemUgYW5kIGZ1ZWwgZWZmaWNpZW5jeS4gIA0KDQpgYGB7cn0NCmdncGxvdChkYXRhID0gbXBnKSArIA0KICAgIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPSBod3kpKQ0KYGBgDQoNCiMNCg0KKioyOioqIEhvdyBtYW55IHJvd3MgYXJlIGluIGBtcGdgPyBIb3cgbWFueSBjb2x1bW5zPyAqKkhpbnQ6KiogVXNlIHRoZSBgZGltKClgIGZ1bmN0aW9uLiBUeXBlIGBkaW0oKWAgaW4gdGhlIGNvbnNvbGUgdG8gbGVhcm4gd2hhdCBgZGltKClgIGRvZXMuDQoNCmBgYHtyfQ0KZGltKG1wZykNCmBgYA0KDQojIFRoZSBkaW0gZnVuY3Rpb24gc2hvd3MgdXMgdGhhdCB0aGVyZSBhcmUgMjM0IHJvd3MgYW5kIDExIGNvbHVtbnMgd2l0aGluIHRoZSBtcGcgZGF0YSBzZXQuIA0KDQojDQoNCioqMzoqKiBXaGF0IGRvZXMgdGhlIGBkcnZgIHZhcmlhYmxlIGRlc2NyaWJlPyBSZWFkIHRoZSBoZWxwIGZvciBgP21wZ2AgdG8gZmluZCBvdXQuDQoNCiJEcnYiIHJlZmVycyB0byB0aGUgdHlwZSBvZiAiZHJpdmUgdHJhaW4iIHdoaWNoIGlzIGhvdyB0aGUgY2FyIG9wZXJhdGVzLiBGb3IgZXhhbXBsZSB0aGUgdmFyaWFibGUgImYiIHJlZmVycyB0byBhIGZyb250IHdoZWVsIGRyaXZlLCB3aGlsZSAiNCIgcmVmZXJzIHRvIGEgZm91ciB3aGVlbCBkcml2ZS4gDQoNCiMNCg0KKio0OioqIE1ha2UgYSBzY2F0dGVycGxvdCBvZiBgaHd5YCB2cyBgY3lsYC4NCg0KIyBCZWxvdyBpcyB0aGUgc2NhdHRlcnBsb3QgZm9yIGh3eSB2cyBjeWwNCg0KYGBge3J9DQpnZ3Bsb3QoZGF0YSA9IG1wZykgKyANCiAgICBnZW9tX3BvaW50KG1hcHBpbmcgPSBhZXMoeCA9IGh3eSwgeSA9IGN5bCkpDQpgYGANCg0KIyANCg0KKio1OioqIFdoYXQgaGFwcGVucyBpZiB5b3UgbWFrZSBhIHNjYXR0ZXJwbG90IG9mIGBjbGFzc2AgdnMgYGRydmA/IFdoeSBpcyB0aGUgcGxvdCBub3QgdXNlZnVsPw0KDQpgYGB7cn0NCmdncGxvdChkYXRhID0gbXBnKSArIA0KICAgIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyh4ID0gY2xhc3MsIHkgPSBkcnYpKQ0KYGBgDQoNClBsb3R0aW5nIHRoZXNlIHR3byB2YXJpYWJsZXMgYWdhaW5zdCBlYWNoIG90aGVyIHNob3dzIHRoZSB0eXBlIG9mIGRyaXZpbmcgZW5naW5lcyBpbiBlYWNoIG9mIHRoZSBjbGFzc2VzIG9mIGNhcnMuIFRoaXMgY291bGQgYmUgdmlld2VkIGkgb3RoZXIgbW9yZSBlZmZpY2llbnQgd2F5cyB3aXRoaW4gdGhlIGRhdGEgc2V0LiBObyBuZXcgaW5mb3JtYXRpb24gaXMgcmVhbGx5IGJlaW5nIGNvbXBhcmVkIGhlcmUuIA0KDQojDQoNCiMjIyBTZWN0aW9uIDMuMzogQWVzdGhldGljIG1hcHBpbmdzDQoNCiMgc2hvd3MgdGhlIHBsb3Qgb2YgZGlzcGwgdnMgaHd5LCBidXQgYWxzbyBwbG90cyB0aGUgY2xhc3MgaW50byBkaWZmZXJlbnQgY29sb3IgYmFzZWQgY2F0ZWdvcmllcy4gDQpgYGB7cn0NCmdncGxvdChkYXRhID0gbXBnKSArIA0KICBnZW9tX3BvaW50KG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID0gaHd5LCBjb2xvciA9IGNsYXNzKSkNCmBgYA0KDQoNCiMgc2hvd3MgdGhlIHBsb3Qgb2YgZGlzcGwgdnMgaHd5LCBidXQgYWxzbyBwbG90cyB0aGUgY2xhc3MgaXRubyBkaWZmZXJlbnQgc2l6ZXMgZGVwZW5kaW5nIG9uIHRoZSBjYXRlZ29yeQ0KDQpgYGB7cn0NCmdncGxvdCggZGF0YSA9IG1wZykgKyANCiAgICBnZW9tX3BvaW50KG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID0gaHd5LCBzaXplID0gY2xhc3MpKQ0KYGBgDQoNCg0KIyBzaG93cyB0aGUgcGxvdCBvZiBkaXNwbCB2cyBod3ksIGJ1dCBhbHNvIHBsb3RzIHRoZSBjbGFzcyBpbnRvIGRpZmZlcmVudCB0cmFuc3BhcmVuY2llcyBieSBjYXRlZ29yeQ0KDQpgYGB7cn0NCmdncGxvdChkYXRhID0gbXBnKSArIA0KICAgIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPSBod3ksIGFscGhhID0gY2xhc3MpKQ0KYGBgDQoNCg0KIyBzaG93cyB0aGUgcGxvdCBvZiBkaXNwbCB2cyBod3ksIGJ1dCBhbHNvIHBsb3RzIHRoZSBjbGFzcyBpbnRvIGRpZmZlcmVudCBzaGFwZXMgYnkgY2F0ZWdvcnkNCg0KYGBge3J9DQpnZ3Bsb3QoZGF0YSA9IG1wZykgKyANCiAgICBnZW9tX3BvaW50KG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID0gaHd5LCBzaGFwZSA9IGNsYXNzKSkNCmBgYA0KDQojDQoNCiMjIyMgU2VjdGlvbiAzLjMgcXVlc3Rpb25zDQoNCioqMToqKiBXaGF04oCZcyBnb25lIHdyb25nIHdpdGggdGhpcyBjb2RlPyBXaHkgYXJlIHRoZSBwb2ludHMgbm90IGJsdWU/DQoNCiMgQmVsb3cgaXMgdGhlIGNvZGUgYmxvY2sgdXNlZCBpbiB0aGUgcXVlc3Rpb246IA0KDQpgYGB7cn0NCmdncGxvdChkYXRhID0gbXBnKSArIA0KICBnZW9tX3BvaW50KG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID0gaHd5LCBjb2xvciA9ICJibHVlIikpDQpgYGANCg0KIyBUSGUgY29sb3IgZnVuY3Rpb24gaXMgbm90IHdvcmtpbmcgc2luY2UgaXQgaXMgd2l0aGluIHRoZSBzYW1lIHNldCBvZiBwYXJhbnRoZXNlcyBhcyB4IGFuZCB5LCBtZWFuaW5nIGl0IGlzIGJlaW5nIGNvbXBhcmVkIHRvIHRob3NlIHJhdGhlciB0aGFuIHdvcmtpbmcgb24uIFRoZSBwcm9wZXIgY29kZSBibG9jayB3b3VsZCBsb29rIGxpa2UgdGhlIGZvbGxvd2luZzogDQoNCmBgYHtyfQ0KZ2dwbG90KGRhdGEgPSBtcGcpICsgDQogICAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKHggPSBkaXNwbCwgeSA9IGh3eSksIGNvbG9yID0gImJsdWUiKQ0KYGBgDQoNCiMgDQoNCioqMjoqKiBXaGljaCB2YXJpYWJsZXMgaW4gYG1wZ2AgYXJlIGNhdGVnb3JpY2FsPyBXaGljaCB2YXJpYWJsZXMgYXJlIGNvbnRpbnVvdXM/ICgqSGludDoqIHR5cGUgYD9tcGdgIHRvIHJlYWQgdGhlIGRvY3VtZW50YXRpb24gZm9yIHRoZSBkYXRhc2V0KS4gSG93IGNhbiB5b3Ugc2VlIHRoaXMgaW5mb3JtYXRpb24gd2hlbiB5b3UgcnVuIG1wZz8NCg0KDQpDYXRlZ29yaWNhbDogIm1hbnVmYWN0dXJlciIsICJtb2RlbCIsICJ0cmFucyIsICJkcnYiLCAiY2xhc3MiLCAgImZsIg0KDQpDb250aW51b3VzOiAiZGlzcGwiLCAieWVhciIsICJjeWwiLCAiY3R5IiwgImh3eSINCg0KV2hlbiB0aGUgdGFibGUgaXMgcmFuIHRoZXJlIGlzIGEgc21hbGwgPD4gYmVuZWF0aCBpdCB0aGF0IGRlc2NyaWJlcyB0aGUgY2xhc3NpZmljYXRpb24NCg0KIw0KDQoqKjM6KiogTWFwIGEgY29udGludW91cyB2YXJpYWJsZSB0byBjb2xvciwgc2l6ZSwgYW5kIHNoYXBlLiBIb3cgZG8gdGhlc2UgYWVzdGhldGljcyBiZWhhdmUgZGlmZmVyZW50bHkgZm9yIGNhdGVnb3JpY2FsIHZzLiBjb250aW51b3VzIHZhcmlhYmxlcz8gKipOb3RlOioqIFlvdSBuZWVkIHNldmVyYWwgY29kZSBjaHVua3MgaGVyZSB0byBhbnN3ZXIgdGhpcyBxdWVzdGlvbi4NCg0KIyBDb2xvcg0KDQpNYXBwaW5nIGEgY29udGludW91cyB2YXJpYWJsZSBsaWtlICJjeWwiIGVsb3cgd2lsbCBvcmRlciB0aGUgY29sb3JzIGludG8gYSBncmFkaWVudC4gDQoNCmBgYHtyfQ0KZ2dwbG90KGRhdGEgPSBtcGcpICsgDQogIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPSBod3ksIGNvbG9yID0gY3lsKSkNCmBgYA0KDQpNYXBwaW5nIGEgY2F0ZWdvcmljYWwgdmFyaWFibGUgbGlrZSAibWFudWZhY3R1cmVyIiB3aWxsIHNvcnQgaHRlIGRhdGEgaW50byBtYW55IGRpZmZlcmVudCBjb2xvcnMuIA0KDQpgYGB7cn0NCmdncGxvdChkYXRhID0gbXBnKSArIA0KICBnZW9tX3BvaW50KG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID0gaHd5LCBjb2xvciA9IG1hbnVmYWN0dXJlcikpDQpgYGANCg0KIyBTaXplDQoNCk1hcHBpbmcgdGhlIGNvbnRpbnVvdXMgdmFyaWFibGUgbGlrZSAiY3R5IiB3aWxsIGNoYW5nZSB0aGUgc2l6ZXMgb2YgZGlmZmVyZW50IHBvaW50cyBiYXNlZCBvbiB0aGUgY2l0eS4gVGhpcyB3b3JrcyBjb3JyZWN0bHkuIA0KDQpgYGB7cn0NCmdncGxvdChkYXRhID0gbXBnKSArIA0KICBnZW9tX3BvaW50KG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID0gaHd5LCBzaXplID0gY3R5KSkNCmBgYA0KDQpXaGVuIHVzaW5nIHRoZSAic2l6ZSA9IHgiIGZ1bmN0aW9uLCBpdCB3aWxsIGdpdmUgYW4gZXJyb3IgbWVzc2FnZSBpZiBhIGNhdGVnb3JpY2FsL2Rpc2NyZXRlIHZhcmlhYmxlIGlzIHVzZWQuIFRoZSBkYXRhIG92ZXJsYXBzIGVhY2ggb3RoZXIgYW5kIGlzIGhhcmQgdG8gaW50ZXJwcmV0LiANCg0KYGBge3J9DQpnZ3Bsb3QoZGF0YSA9IG1wZykgKyANCiAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKHggPSBkaXNwbCwgeSA9IGh3eSwgc2l6ZSA9IGNsYXNzKSkNCmBgYA0KDQojIFNoYXBlDQoNCkl0IGlzIG5vdCBwb3NzaWJsZSB0byB1c2UgdGVoIHNoYXBlIGZ1bmN0aW9uIG9uIGEgY29udGludW91cyB2YXJpYWJsZS4gQXMgc2hvd24gYmVsb3cgaXQgd2lsbCByZXBvcnQgYW4gZXJyb3IgYW5kIG5vdCBjb21wbGV0ZSB0aGUgZ3JhcGguDQoNCmBgYHtyfQ0KZ2dwbG90KGRhdGEgPSBtcGcpICsgDQogIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPSBod3ksIHNoYXBlID0geWVhcikpDQpgYGANCg0KTWFwcGluZyBhIGNhdGVnb3JpY2FsIHZhcmlhYmxlIHdvcmtzIGZvciB0aGUgc2hhcGVzLCBidXQgaGF2aW5nIHRoaXMgbWFueSBpbiB0aGUgZGF0YSBzZXQgbGVhZHMgdG8gZXJyb3JzIHdpdGggcnVubmluZyBvdXQgb2Ygc2hhcGVzLiANCg0KYGBge3J9DQpnZ3Bsb3QoZGF0YSA9IG1wZykgKyANCiAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKHggPSBkaXNwbCwgeSA9IGh3eSwgc2hhcGUgPSBjbGFzcykpDQpgYGANCg0KDQoqKjQ6KiogV2hhdCBoYXBwZW5zIGlmIHlvdSBtYXAgdGhlIHNhbWUgdmFyaWFibGUgdG8gbXVsdGlwbGUgYWVzdGhldGljcz8NCg0KSGF2aW5nIG1vcmUgdGhhbiBvbmUgdHlwZSBvZiBhZXN0aGV0aWMgd2lsbCBjYXVzZSB0aGVtIHRvIG92ZXJsYXAgYW5kIHNob3cgb24gdGhlIHNhbWUgdGhpbmcsIGFzIHNob3duIGJlbG93IHdpdGggImN0eSIuIFRIZXJlIGlzIGJvdGggYSBjb2xvciBncmFkaWVudCBhbmQgYSBjaGFuZ2UgaW4gc2l6ZSBkZXBlbmRpbmcgb24gdGhlIGRhdGEgcG9pbnQuIA0KDQpgYGB7cn0NCmdncGxvdChkYXRhID0gbXBnKSArIA0KICBnZW9tX3BvaW50KG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID0gaHd5LCBzaXplID0gY3R5LCBjb2xvciA9IGN0eSkpDQpgYGANCg0KDQoqKjU6KiogV2hhdCBkb2VzIHRoZSBzdHJva2UgYWVzdGhldGljIGRvPyBXaGF0IHNoYXBlcyBkb2VzIGl0IHdvcmsgd2l0aD8gKCpIaW50OiogdXNlIGA/Z2VvbV9wb2ludGApDQoNClRoZSBzdHJva2UgYWVzdGhldGljIHNlZW1zIHRvIGdyZWF0bHkgZW5sYXJnZSB0aGUgc2l6ZSBvZiBjZXJ0YWluIGRhdGEgcG9pbnRzLCBpbmNsdWRpbmcgb3RoZXIgYWVzdGhldGljcyBhcHBsaWVkLiANCg0KYGBge3J9DQpnZ3Bsb3QoZGF0YSA9IG1wZykgKyANCiAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKHggPSBkaXNwbCwgeSA9IGh3eSwgc3Ryb2tlID0gY3R5LCBzaGFwZSA9IHRyYW5zKSkNCmBgYA0KDQoNCioqNjoqKiBXaGF0IGhhcHBlbnMgaWYgeW91IG1hcCBhbiBhZXN0aGV0aWMgdG8gc29tZXRoaW5nIG90aGVyIHRoYW4gYSB2YXJpYWJsZSBuYW1lLCBsaWtlIGBhZXMoY29sb3VyID0gZGlzcGwgPCA1KWA/DQoNClVzaW5nIGEgZnVuY3Rpb24gbGlrZSB0aGUgb25lIGxpc3RlZCBhYm92ZSB3aWxsIGFwcGx5IGEgY29sb3IgKGJsdWUpLCB3aGVuIHRoZSBjb25kaXRpb24gaXMgbWV0IHRoYXQgaXQgaXMgc2V0IHRvLiBJbiB0aGlzIGNhc2UgYmVpbmcgYmVsb3cgNSB3aWxsIGNvbG9yIHRoZSB2YXJpYWJsZSBibHVlLiANCg0KYGBge3J9DQpnZ3Bsb3QoZGF0YSA9IG1wZykgKyANCiAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKHggPSBkaXNwbCwgeSA9IGh3eSwgY29sb3IgPSBkaXNwbCA8IDUpKQ0KYGBgDQoNCg0KIyMjIFNlY3Rpb24gMy41OiBGYWNldHMNCg0KIyBjcmVhdGVzIGZhY2V0cyBvZiB0aGUgbXBnIGRhdGEgc2V0DQoNCmBgYHtyfQ0KYGBgDQoNCg0KYGBge3J9DQpnZ3Bsb3QoZGF0YSA9IG1wZykgKyANCiAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKHggPSBkaXNwbCwgeSA9IGh3eSkpICsgDQogIGZhY2V0X3dyYXAofiBjbGFzcywgbnJvdyA9IDIpDQpgYGANCg0KIyBjcmVhdGVzIGEgZmFjZXQgYmFzZWQgb24gdHdvIHZhcmlhYmxlcyB1c2luZyB0aGUgZmFjZXRfZ3JpZCggfiApIGNvbW1hbmQuIA0KICANCmBgYHtyfQ0KZ2dwbG90KGRhdGEgPSBtcGcpICsgDQogIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPSBod3kpKSArIA0KICBmYWNldF9ncmlkKGRydiB+IGN5bCkNCmBgYA0KICANCg0KIyMjIyBTZWN0aW9uIDMuNSBxdWVzdGlvbnMNCg0KKioxOioqIFdoYXQgaGFwcGVucyBpZiB5b3UgZmFjZXQgb24gYSBjb250aW51b3VzIHZhcmlhYmxlPyAqKk5vdGU6KiogV3JpdGUgYSBwcmVkaWN0aW9uLCB0aGVuIG1ha2UgYW5kIHJ1biB5b3VyIGNvZGUgY2h1bmsuDQoNCklmIHlvdSB3ZXJlIHRvIHJ1biBhIGZhY2V0IG9uIGEgY29udGludW91cyB2YXJpYWJsZSB0aGFuIGl0IHdvdWxkIHNwcmVhZCB0aGVtIG91dCBvbiBhIGdyaWQsIHNvcnRpbmcgYnkgdmFsdWUsIGxpa2UgaW4gdGhlIGFib3ZlLiANCg0KYGBge3J9DQpnZ3Bsb3QoZGF0YSA9IG1wZykgKyANCiAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKHggPSBkaXNwbCwgeSA9IGh3eSkpICsgDQogIGZhY2V0X3dyYXAofiBkaXNwbCwgbnJvdyA9IDIpDQpgYGANCg0KDQoqKjI6KiogV2hhdCBkbyB0aGUgZW1wdHkgY2VsbHMgaW4gcGxvdCB3aXRoIGBmYWNldF9ncmlkKGRydiB+IGN5bClgIG1lYW4/IEhvdyBkbyB0aGV5IHJlbGF0ZSB0byB0aGlzIHBsb3Q/DQoNClRoZSBlbXB0eSBjZWxscyByZXByZXNlbnQgY2F0ZWdvcmllcyB0aGF0IGhhcHBlbiB0byBub3QgaGF2ZSBhbnkgZGF0YSB0aGF0IHdvdWxkIGFsaWduIHdpdGggdGhlbS4gRm9yIGV4YW1wbGUsIHRoZSA1IGN5bGluZGVyLTQgd2hlZWwgZHJpdmUgaXMgZW1wdHkgYXMgdGhlcmUgaXMgbm8gZGF0YSBmb3IgdGhpcywgc2luY2UgdGhpcyB3b3VsZCBiZSBhIHN0cmFuZ2Ugc2V0dXAgdG8gaGF2ZSBpbiBhIHZlaGljbGUuIA0KDQoqKjM6KiogV2hhdCBwbG90cyBkb2VzIHRoZSBmb2xsb3dpbmcgY29kZSBtYWtlPyBXaGF0IGRvZXMgYC5gIGRvPw0KDQpUaGUgZG90IGluIHRoZSBmaW5hbCBsaW5lIHdpbGwgcmVtb3ZlIGVpdGhlciBjb2x1bW5zIG9yIHJvd3MgZnJvbSB0aGUgZGF0YSBzZXQuIEl0IHJlcHJlc2VudHMgdGhlIHNhbWUgZGF0YSwgYnV0IGNoYW5nZXMgdGhlIHByZXNlbnRhdGlvbiBvZiBpdC4gDQoNCmBgYHtyfQ0KZ2dwbG90KGRhdGE9bXBnKSArIA0KICBnZW9tX3BvaW50KG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID0gaHd5KSkgKyANCiAgZmFjZXRfZ3JpZChkcnYgfiAuKQ0KYGBgDQoNCiMgY3JlYXRlcyBhIGZhY2V0IG9mIHRoZSBkYXRhc2V0IG1wZywgY29tcGFyaW5nIGRpc3BsIGFuZCBod3kuIEl0IGlzIHNlcGFyYXRlZCBpbnRvIHJvd3MgY29tcGFyaW5nIGRydi4NCg0KYGBge3J9DQpnZ3Bsb3QoZGF0YSA9IG1wZykgKyANCiAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKHggPSBkaXNwbCwgeSA9IGh3eSkpICsgDQogIGZhY2V0X2dyaWQoLiB+IGN5bCkNCmBgYA0KDQojIGNyZWF0ZXMgYSBmYWNldCBvZiB0aGUgbXBnIGRhdGFzZXQsIGNvbXBhcmluZyBkaXBsIGFuZCBod3kuIEl0IGlzIHRoZW4gc2VwYXJhdGVkIGludG8gY29sdW1ucyBjb21wYXJpbmcgY3lsLiANCg0KKio0OioqIFRha2UgdGhlIGZpcnN0IGZhY2V0ZWQgcGxvdCBiZWxvdy4gV2hhdCBhcmUgdGhlIGFkdmFudGFnZXMgdG8gdXNpbmcgZmFjZXRpbmcgaW5zdGVhZCBvZiB0aGUgY29sb3VyIGFlc3RoZXRpYz8gV2hhdCBhcmUgdGhlIGRpc2FkdmFudGFnZXM/IEhvdyBtaWdodCB0aGUgYmFsYW5jZSBjaGFuZ2UgaWYgeW91IGhhZCBhIGxhcmdlciBkYXRhc2V0Pw0KDQpGYWNldGluZyB3b3JrcyB0byAic2VwYXJhdGUiIG91dCBkaWZmZXJlbmNlcyBpbiB0aGUgZGF0YSB3aGVuIHByZXNlbnRpbmcgaXQuIFRoaXMgbWFrZXMgbGFyZ2UgZGF0YSBzZXRzIGVhc2llciB0byBzZWUsIGFzIGl0IHdpbGwgZGlzdHJpYnV0ZSB0aGVtIG91dC4gRm9yIGEgc21hbGxlciBkYXRhIHNldCBJIHdvdWxkIHBlcnNvbmFsbHkgcHJlZmVyIHRoZSBjb2xvciBhZXN0aGV0aWMuIEFzIGhhdmluZyB0aGUgZGF0YSBvdmVybGFwIGhlbHBzIHRvIGNvbXBhcmUgYmV0d2VlbiB0aGUgY29udHJhc3RpbmcgdmFyaWFibGVzLiANCg0KYGBge3J9DQpnZ3Bsb3QoZGF0YSA9IG1wZykgKyANCiAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKHggPSBkaXNwbCwgeSA9IGh3eSkpICsNCiAgZmFjZXRfd3JhcCh+IGNsYXNzLCBucm93ID0gMikNCmBgYA0KDQojIGNyZWF0ZXMgYSBjaGFydCBpbiB0aGUgbXBnIGRhdGEgc2V0IGNvbXBhcmluZyBkaXNwbCBhbmQgaHd5LiBDcmVhdGVzIGEgZmFjZXQgb2YgdGhlIGRhdGEgd2l0aCAyIHJvd3MuIA0KDQoqKjU6KiogUmVhZCBgP2ZhY2V0X3dyYXBgLiBXaGF0IGRvZXMgYG5yb3dgIGRvPyBXaGF0IGRvZXMgYG5jb2xgIGRvPyBXaGF0IG90aGVyIG9wdGlvbnMgY29udHJvbCB0aGUgbGF5b3V0IG9mIHRoZSBpbmRpdmlkdWFsIHBhbmVscz8gV2h5IGRvZXNu4oCZdCBgZmFjZXRfZ3JpZCgpYCBoYXZlIG5yb3cgYW5kIG5jb2wgYXJndW1lbnQ/DQoNCk5yb3cgcmVmZXJuY2VzIHRoZSBudW1iZXIgb2Ygcm93cyB0aGF0IHdpbGwgYXBwZWFyIGluIHRoZSBmYWNldC4gVGhlIHNhbWUgaG9sZHMgdHJ1ZSBmb3IgbmNvbCBpbiB0ZXJtcyBvZiB0aGUgYW1vdW50IG9mIGNvbHVtbnMgaXQgd2lsbCBwcm9kdWNlLiANCg0KU29tZSBvdGhlciBvcHRpb25zIHRoYXQgY29udHJvbCB0aGUgbGF5b3V0IGFyZTogYXMudGFibGUsIHN3aXRjaCwgZGlyLCBzdHJpcC5wb3NpdGlvbiwgYW5kIGRyb3AuIA0KDQpGYWNldF9ncmlkIGRvZXNudCB1c2UgbnJvdy9uY29sIGFzIGl0IGhhcyB0aGUgLiBmdW5jdGlvbiB0byBtYW5hZ2UgaXRzIHJvd3MvY29sdW1ucy4gRmFjZXRfZ3JpZCBpcyBtYW5hZ2luZyB0d28gdmFyaWFibGVzLCBzbyBpdCBuZWVkcyB0byBoYXZlIGJvdGggcm93cyBhbmQgY29sdW1ucyB0byB3b3JrLiBGYWNldF9ncmlkIGFsc28gaGFzIHRvIGRpc3BsYXkgYW4gb3ZlcmxhcCBiZXR3ZWVuIHggYW5kIHksIHdoaWNoIHdpbGwgcmVxdWlyZSBhIHNwZWNpZmljIGFtb3VudCBvZiByb3dzL2NvbHVtbnMuIElmIHlvdSB3ZXJlIGFibGUgdG8gY2hhbmdlIHRoaXMgbnVtYmVyIGl0IHdvdWxkIGJlIHJlbW92aW5nIGRhdGEgcGFzdCB0aGUgbnVtYmVyIG9mIHJvd3MvY29sdW1ucy4NCg0KKio2OioqIFdoZW4gdXNpbmcgYGZhY2V0X2dyaWQoKWAgeW91IHNob3VsZCB1c3VhbGx5IHB1dCB0aGUgdmFyaWFibGUgd2l0aCBtb3JlIHVuaXF1ZSBsZXZlbHMgaW4gdGhlIGNvbHVtbnMuIFdoeT8NCg0KVGhpcyBpcyBsaWtlbHkgdG8gYmV0dGVyIG1hcCBvdXQgdGhlIGRhdGEgd2l0aGluIHRoZSBncmlkLiBBbm90aGVyIHBvdGVudGlhbCByZWFzb24gaXMgaW4gdGhlIGRlcGVuZGVudC9pbmRlcGVuZGVudCB2YXJpYWJsZSBhcnJhbmdlbWVudC4gVXN1YWxseSB0aGUgdGVybXMgd2l0aCBtb3JlICJjYXRlZ29yaWVzIiB3aWxsIGJlIHRoZSBpbmRlcGVuZGVudCB2YXJpYWJsZSwgd2hpY2ggd291bGQgYmUgcmVwcmVzZW50ZWQgaW4gdGhlIGNvbHVtbnMuIA0KDQogDQoNCiMjIyBTZWN0aW9uIDMuNjogR2VvbWV0cmljIG9iamVjdHMNCg0KDQoNCiMjIyMgU2VjdGlvbiAzLjYuMSBRdWVzdGlvbnMNCg0KKioxOioqIFdoYXQgZ2VvbSB3b3VsZCB5b3UgdXNlIHRvIGRyYXcgYSBsaW5lIGNoYXJ0PyBBIGJveHBsb3Q/IEEgaGlzdG9ncmFtPyBBbiBhcmVhIGNoYXJ0PyAqKk5vdGU6KiogWW91IHdpbGwgaGF2ZSB0byBtYWtlIHNvbWUgdHlwZXMgb2YgdGhlc2UgY2hhcnRzIGluIFBhcnQgMiBvZiB0aGlzIGFzc2lnbm1lbnQuDQoNCkxpbmUgY2hhcnQ6IA0KYGBge3J9DQpnZ3Bsb3QoZGF0YSA9IG1wZywgbWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPSBod3kpKSArIA0KICBnZW9tX3BvaW50KCkgKyANCiAgZ2VvbV9saW5lKCkNCmBgYA0KDQojIGNyZWF0ZXMgYSBjaGFydCBjb21wYXJpbmcgZGlzcGwgYW5kIGh3eSBpbiB0aGUgbXBnIGRhdGFzZXQsIG9yZ2FuaXplZCBpbnRvIGEgcG9pbnQgYW5kIGxpbmUgY2hhcnQuDQoNCkJveHBsb3Q6IA0KYGBge3J9DQpnZ3Bsb3QoZGF0YSA9IG1wZywgbWFwcGluZyA9IGFlcyh4ID0gbW9kZWwsIHkgPSBod3kpKSArIA0KICBnZW9tX3BvaW50KCkgKyANCiAgZ2VvbV9ib3hwbG90KCkNCmBgYA0KDQojIGNyZWF0ZXMgYSBjaGFydCBjb21wYXJpbmcgbW9kZWwgYW5kIGh3eSBpbiB0aGUgbXBnIGRhdGFzZXQsIG9yZ2FuaXplZCBpbnRvIGEgcG9pbnQgYW5kIGJveCBjaGFydC4NCg0KSGlzdG9ncmFtOg0KDQpgYGB7cn0NCmdncGxvdChkYXRhID0gbXBnLCBtYXBwaW5nID0gYWVzKHggPSBkaXNwbCwpKSArIA0KICBnZW9tX2hpc3RvZ3JhbSgpDQpgYGANCg0KIyBjcmVhdGVzIGEgY2hhcnQgZm9yIGRpc3BsIGluIHRoZSBtcGcgZGF0YXNldCwgb3JnYW5pemVkIGludG8gYSBoaXN0b2dyYW0NCg0KDQpBcmVhIGNoYXJ0OiANCg0KDQpgYGB7cn0NCmdncGxvdChkYXRhID0gbXBnLCBtYXBwaW5nID0gYWVzKHggPSBkaXNwbCwgeSA9IGh3eSkpICsgDQogIGdlb21fcG9pbnQoKSArIA0KICBnZW9tX2FyZWEoKQ0KYGBgDQoNCiMgY3JlYXRlcyBhIGNoYXJ0IGZvciBkaXNwbCBhbmQgaHd5LCB3aXRoaW4gdGhlIG1wZyBkYXRhc2V0LiBvcmdhbml6ZXMgaXQgaW50byBhIHBvaW50IGFuZCBhcmVhIGNoYXJ0LiANCg0KKioyOioqIFJ1biB0aGlzIGNvZGUgaW4geW91ciBoZWFkIGFuZCBwcmVkaWN0IHdoYXQgdGhlIG91dHB1dCB3aWxsIGxvb2sgbGlrZS4gVGhlbiwgcnVuIHRoZSBjb2RlIGluIFIgYW5kIGNoZWNrIHlvdXIgcHJlZGljdGlvbnMuDQoNCiMgVGhpcyB3aWxsIGNyZWF0ZSBhIHBvaW50IHBsb3Qgb2YgZGlzcGwgdiBod3ksIHdpdGggZHJ2IHNob3duIGluIGNvbG9yLiBUaGVyZSB3aWxsIGJlIGEgbGluZSwgYnV0IHRoZSAiYXJlYSBvdmVybGFwIiBwYXJ0IG9mIHRoZSBncmFwaCB3aWxsIGJlIHJlbW92ZWQgYnkgdGhlIGxpbmUgc2UgPSBGQUxTRS4gDQoNCmBgYHtyfQ0KZ2dwbG90KGRhdGEgPSBtcGcsIG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID0gaHd5LCBjb2xvciA9IGRydikpICsgDQogIGdlb21fcG9pbnQoKSArIA0KICBnZW9tX3Ntb290aChzZSA9IEZBTFNFKQ0KICAgIA0KYGBgDQoNCg0KKiozOioqIFdoYXQgZG9lcyBgc2hvdy5sZWdlbmQgPSBGQUxTRWAgZG8/IFdoYXQgaGFwcGVucyBpZiB5b3UgcmVtb3ZlIGl0Pw0KKipOb3RlOioqIFNraXAgdGhlICJXaHkgZG8geW91IHRoaW5rIEkgdXNlZCBpdCBlYXJsaWVyIGluIHRoZSBjaGFwdGVyPyIgcXVlc3Rpb24uDQoNClRoaXMgZnVuY3Rpb24gaXMgdXNlZCB0byBkaXNhYmxlIGEgbGVnZW5kIGlmIHdlcmUgaW4gcGxhY2UuIEFzIHNob3duIGluIHRoZSBzZWNvbmQgcGxvdCB0aGVyZSBpcyBhIGxlZ2VuZCB0aGF0IGV4cGxhaW5zIHdoYXQgdGhlIGNvbG9ycyBtZWFuLCBidXQgd2l0aCBzaG93LmxlZ2VuZCA9IEZBTFNFIGluIHBsYWNlIGl0IGNhbiBiZSByZW1vdmVkIGlmIHNvIGRlc2lyZWQsIGFzIHNlZW4gaW4gdGhlIGZpcnN0IHBsb3QuIA0KDQpgYGB7cn0NCmdncGxvdChkYXRhID0gbXBnKSArDQogIGdlb21fc21vb3RoKA0KICAgIG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID0gaHd5LCBjb2xvciA9IGRydiksDQogICAgc2hvdy5sZWdlbmQgPSBGQUxTRSkNCmBgYA0KDQpgYGB7cn0NCmdncGxvdChkYXRhID0gbXBnKSArDQogIGdlb21fc21vb3RoKG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID0gaHd5LCBjb2xvciA9IGRydikpDQpgYGANCg0KDQoqKjQ6KiogV2hhdCBkb2VzIHRoZSBgc2VgIGFyZ3VtZW50IHRvIGBnZW9tX3Ntb290aCgpYCBkbz8NCg0Kc2UgY29ycmVsYXRlcyB0byB0aGUgc2hhZGVkIGFyZWEgb24gdGhlIGdyYXBoIHRvIHNob3cgYW4gaW50ZXJ2YWwuIE1vc3Qgb2YgdGhlIGRhdGEgd2lsbCBiZSBjb210YWluZWQgd2l0aGluIHRoaXMgc2hhZGVkIGFyZWEsIGFuZCBhbnl0aGluZyBvdXRzaWQgZW9mIGl0IHdpbGwgYmUgYW4gb3V0bGllci4gdXNpbmcgdGhlIGFyZ3VtZW50ICJzZSA9RkFMU0UiIHdpbGwgcmVtb3ZlIHRoaXMgc2hhZGVkIGFyZWEgaWYgc28gZGVzaXJlZC4gDQoNCmBgYHtyfQ0KZ2dwbG90KGRhdGEgPSBtcGcsIG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID0gaHd5KSkgKyANCiAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKGNvbG9yID0gY2xhc3MpKSArIA0KICBnZW9tX3Ntb290aChkYXRhID0gZmlsdGVyKG1wZywgY2xhc3MgPT0gInN1YmNvbXBhY3QiKSwgc2UgPSBGQUxTRSkNCmBgYA0KDQpgYGB7cn0NCmdncGxvdChkYXRhID0gbXBnLCBtYXBwaW5nID0gYWVzKHggPSBkaXNwbCwgeSA9IGh3eSkpICsgDQogIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyhjb2xvciA9IGNsYXNzKSkgKyANCiAgZ2VvbV9zbW9vdGgoZGF0YSA9IGZpbHRlcihtcGcsIGNsYXNzID09ICJzdWJjb21wYWN0IikpDQpgYGANCg0KDQoNCioqNToqKiBXaWxsIHRoZXNlIHR3byBncmFwaHMgbG9vayBkaWZmZXJlbnQ/IFdoeS93aHkgbm90Pw0KDQpHcmFwaCAxOg0KDQpgYGB7cn0NCmdncGxvdChkYXRhID0gbXBnLCBtYXBwaW5nID0gYWVzKHggPSBkaXNwbCwgeSA9IGh3eSkpICsgDQogIGdlb21fcG9pbnQoKSArIA0KICBnZW9tX3Ntb290aCgpDQpgYGANCg0KR3JhcGggMjogDQoNCmBgYHtyfQ0KZ2dwbG90KCkgKyANCiAgZ2VvbV9wb2ludChkYXRhID0gbXBnLCBtYXBwaW5nID0gYWVzKHggPSBkaXNwbCwgeSA9IGh3eSkpICsgDQogIGdlb21fc21vb3RoKGRhdGEgPSBtcGcsIG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID0gaHd5KSkNCmBgYA0KDQpUaGVzZSBncmFwaHMgd2lsbCBsb29rIGlkZW50aWNhbCwgYnV0IHRoZSBmaXJzdCBvbmUgaXMgbXVjaCBlYXNpZXIvZmFzdGVyIHRvIHR5cGUgb3V0LiBUaGUgZnVuY3Rpb24gaW4gdGhlICgpIGlzIGV4YWN0bHkgdGhlIHNhbWUsIGJ1dCBieSBwdXR0aW5nIGl0IHdpdGhpbiB0aGUgZ2dwbG90KCkgaXQgd2lsbCBnbyB0byB0aGUgZm9sbG93aW5nIGdlb21zLiBUaGUgc2Vjb25kIG9uZSBpbnN0ZWFkIGxpc3RzIGl0IGluIGVhY2ggb2YgdGhlIGdlb21zLCBoYXZpbmcgdGhlIHNhbWUgZWZmZWN0IGJ1dCByZXF1aXJpbmcgbW9yZSB3b3JrIHRvIGRvIHRoZSBzYW1lIHRoaW5nLiANCg0KKio2OioqIFJlY3JlYXRlIHRoZSBSIGNvZGUgbmVjZXNzYXJ5IHRvIGdlbmVyYXRlIHRoZSBmb2xsb3dpbmcgZ3JhcGhzLiAqKk5vdGU6KiogRW50ZXIgYSBzZXBhcmF0ZSBjb2RlIGNodW5rIGZvciBlYWNoIGdyYXBoLCBudW1iZXJlZCAxIHRvIDYsIHN0YXJ0aW5nIHJvdy13aXNlIGF0IHVwcGVyIGxlZnQuIA0KDQoxOiB1cHBlciBsZWZ0Lg0KDQpgYGB7cn0NCmdncGxvdChkYXRhID0gbXBnLCBtYXBwaW5nID0gYWVzKHggPSBkaXNwbCwgeSA9IGh3eSkpICsNCiAgZ2VvbV9wb2ludCgpICsgDQogIGdlb21fc21vb3RoKHNlID0gRkFMU0UpDQpgYGANCg0KIyBjcmVhdGVzIGEgZ3JhcGggY29tYXByaW5nIGRpc3BsIGFuZCBodyB5LCB3aXRoYSAgcG9pbnQgYW5kIHNtb290aCBsaW5lLiBzZSBpcyBoaWRkZW4NCg0KMjogdXBwZXIgcmlnaHQuDQoNCmBgYHtyfQ0KZ2dwbG90KGRhdGEgPSBtcGcsIG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID1od3ksIGdyb3VwID0gZHJ2KSkgKyANCiAgZ2VvbV9wb2ludCgpICsgDQogIGdlb21fc21vb3RoKHNlID0gRkFMU0UpDQpgYGANCg0KIyBjcmVhdGVzIGEgZ3JhcGggY29tcGFyaW5nIGRpc3BsIGFuZCBod3ksIHdpdGggYSBwb2ludCBhbmQgc21vb3RoIGxpbmUuIEFkZGl0aW9uYWwgbGluZXMgYXJlIHBsYWNlZCB0byBjb21wYXJlIGRydi4gc2UgaXMgaGlkZGVuDQozOiBtaWRkbGUgbGVmdC4NCg0KYGBge3J9DQpnZ3Bsb3QoZGF0YSA9IG1wZywgbWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPSBod3ksIGNvbG9yID0gZHJ2KSkgKyANCiAgZ2VvbV9wb2ludCgpICsgDQogIGdlb21fc21vb3RoKHNlID0gRkFMU0UpDQpgYGANCg0KIyBjcmVhdGVzIGEgcG9pbnQgYW5kIHNtb290aCBsaW5lIGdyYXBoIGNvbWFwcmluZyBkaXBsIGFuZCBod3kuIERydiBpcyBhbHNvIGNvbWFwcmVkIHVzaW5nIHRoZSBjb2xvciBzeXN0ZW0uIHNlIGlzIGhpZGRlbg0KDQo0OiBtaWRkbGUgcmlnaHQuDQoNCmBgYHtyfQ0KZ2dwbG90KCkgKyANCiAgZ2VvbV9wb2ludChkYXRhID0gbXBnLCBtYXBwaW5nID0gYWVzKHggPSBkaXNwbCwgeSA9IGh3eSwgY29sb3IgPSBkcnYpKSArDQogIGdlb21fc21vb3RoKGRhdGEgPSBtcGcsIG1hcHBpbmcgPSBhZXMoeCA9IGRpc3BsLCB5ID1od3kpLCBzZSA9IEZBTFNFKQ0KYGBgDQoNCiMgY3JlYXRlcyBhIGdyYXBoIGNvbXBhcmluZyBkaXNwbCBhbmQgaHd5IHdpdGggYSBzbW9vdGggbGluZSBiZXR3ZWVuIHRoZW0uIEFsc28gY2F0ZWdvcml6ZXMgYnkgZHJ2IGFzIGRpc3BsYXllZCBieSB0aGUgY29sb3IuIHNlID0gZmFsc2UNCg0KNTogbG93ZXIgbGVmdC4NCg0KYGBge3J9DQpnZ3Bsb3QoZGF0YSA9IG1wZywgbWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPSBod3ksIGNvbG9yID0gZHJ2LCBsaW5ldHlwZSA9IGRydikpICsgDQogIGdlb21fcG9pbnQoKSArIA0KICBnZW9tX3Ntb290aChzZSA9IEZBTFNFKQ0KYGBgDQoNCiMgY3JlYXRlcyBhIGdyYXBoIGNvbXBhcmluZyBkaXNwbCBod3ksIGFuZCBkcnYgaW4gYSBwb2ludCBncmFwaC4gRGlmZmVyZW50IHNtb290aCBsaW5lcyBpbnRlcmNlcHQgdGhlIHRocmVlIGRpZmZlcmVudCBjYXRlZ29yaWVzIG9mIGRyaXZlLCB3aGljaCBhcmUgYWxzbyBzZXBhcmF0ZWQgYnkgY29sb3IuIHNlIGlzIGhpZGRlbg0KDQo2OiBsb3dlciByaWdodC4gKkhpbnQ6KiBSZWFkIHRoZSBoZWxwIGZpbGUgZm9yIGBnZW9tX3BvaW50YC4gVXNlIGBzaGFwZSA9IDIxYCwgYHN0cm9rZSA9IDJgLCBhbmQgYHNpemUgPSAzYC4NCg0KYGBge3J9DQpnZ3Bsb3QoZGF0YSA9IG1wZywgbWFwcGluZyA9IGFlcyh4ID0gZGlzcGwsIHkgPWh3eSwgY29sb3IgPSBkcnYpKSArIA0KICBnZW9tX3BvaW50KHN0cm9rZSA9IDIsIHNpemUgPSAzLCBzaGFwZSA9IDIxKQ0KYGBgDQoNCiMgY3JlYXRlcyBhIHBvaW50IGdyYXBoIGNvbXBhcmluZyBkaXNwbCwgaHd5LCBhbmQgZHJ2LiBUaGUgZGlmZmVyZW50IGNhdGVnb3JpZXMgb2YgZHJ2IGFyZSBzZXBhcmF0ZWQgYnkgY29sb3IuIFRoZSBzaGFwZSwgc2l6ZSwgYW5kIHN0cm9rZSBvZiB0ZWggcG9pbnRzIGFyZSBhbHNvIG1vZGlmaWVkLg0KDQojIyMgU2VjdGlvbiAzLjc6IFN0YXRpc3RpY2FsIHRyYW5zZm9ybWF0aW9ucy4NCg0KKipTa2lwIHRoaXMgc2VjdGlvbi4qKiBXZSBtYXkgcmV0dXJuIHRvIGl0IGxhdGVyLg0KDQoNCiMjIyBTZWN0aW9uIDMuOCBQb3NpdGlvbiBhZGp1c3RtZW50cw0KDQoNCiMjIyMgU2VjdGlvbiAzLjggUXVlc3Rpb25zDQoNCioqMToqKiBXaGF0IGlzIHRoZSBwcm9ibGVtIHdpdGggdGhpcyBwbG90PyBIb3cgY291bGQgeW91IGltcHJvdmUgaXQuICpIaW50OiogUmVtZW1iZXIgdGhlIHNpemUgb2YgdGhlIGBtcGdgIGRhdGEgc2V0IGZyb20gZWFybGllciBpbiB0aGlzIGV4ZXJjaXNlLiBEb2VzIHRoZSBudW1iZXIgb2YgcG9pbnRzIHNlZW0gY29ycmVjdD8gKipOb3RlOioqIFdyaXRlIHRoZSBjb2RlIHRvIGltcHJvdmUgaXQuIA0KDQoNCioqMjoqKiBXaGF0IHBhcmFtZXRlcnMgdG8gYGdlb21faml0dGVyKClgIGNvbnRyb2wgdGhlIGFtb3VudCBvZiBqaXR0ZXJpbmc/DQoNCg0KKiozOioqIENvbXBhcmUgYW5kIGNvbnRyYWN0cyBgZ2VvbV9qaXR0ZXIoKWAgd2l0aCBgZ2VvbV9jb3VudCgpYC4NCg0KDQoqKjQ6KiogV2hhdCBpcyB0aGUgZGVmYXVsdCBwb3NpdGlvbiBhZGp1c3RlbWVudCBmb3IgYGdlb21fYm94cGxvdCgpYD8gQ3JlYXRlIGEgdmlzdWFsaXphdGlvbiBvZiB0aGUgYG1wZ2AgZGF0YXNldCB0aGF0IGRlbW9uc3RyYXRlcyBpdC4NCg0KDQojIyMgU2VjdGlvbiAzLjk6IENvb3JkaW5hdGUgc3lzdGVtcw0KDQoqKk5vdGU6KiogUmVhZCBhYm91dCBhbmQgZG8gb25seSB0aGUgY29kZSBjaHVuayBhc3NvY2lhdGVkIHdpdGggYGNvb3JkX2ZsaXAoKWAuIGBjb29yZF9mbGlwKClgIGlzIGEgZ3JlYXQgbGF5ZXIgdG8gdXNlIHdoZW4geW91IGhhdmUgY2F0ZWdvcmljYWwgZGF0YSB3aXRoIGxvbmdpc2ggbmFtZXMgYXMgaXQgbWFrZXMgdGhlIHRleHQgZWFzaWVyIHRvIHJlYWQuDQoNCiMjIyBTZWN0aW9uIDMuMTA6IFRoZSBsYXllcmVkIGdyYW1tYXIgb2YgZ3JhcGhpY3MNCg0KSnVzdCByZWFkIHRoaXMgc2VjdGlvbiBhcyBhIGNvbnRleHR1YWwgcmV2aWV3IG9mIGV2ZXJ5dGhpbmcgeW91IGp1c3QgbGVhcm5lZC4NCg0K</div>
 
 
 
