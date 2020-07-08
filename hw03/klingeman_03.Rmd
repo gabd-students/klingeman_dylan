@@ -1,5 +1,5 @@
 ---
-title: "Useful Title"
+title: "Homework 3, R Markdown"
 author: "Dylan Klingeman"
 date: "r format (Sys.time(), '%d %B %Y')'"
 output: html_notebook
