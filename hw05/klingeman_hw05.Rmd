@@ -1,0 +1,50 @@
+---
+title: "HW05"
+author: "Dylan Klingeman"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+
+```{r}
+library("tidyverse")
+```
+
+
+### Plot 1
+
+```{r}
+data(trees)
+?trees
+```
+
+# acquires the dataset for "trees' and examines the properties of the data set. 
+
+```{r}
+ggplot(data = trees, mapping = aes(x = Height, y =Girth)) +
+geom_point()
+```
+
+# creates a scatterplot comapring Height vs Girth from the trees data set. 
+
+#
+
+
+### Plot 2 
+
+```{r}
+year <- c(1821:1934)
+year
+```
+
+# creates a vector namecd "year" which contains the numbers 1821-1934. The data iwthin the vector is then displayed
+
+```{r}
+pelts <- as.vector(lynx)
+lynx_pelts <- pelts
+time(lynx_pelts) <- year
+
+```
+
