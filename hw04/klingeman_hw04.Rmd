@@ -524,18 +524,77 @@ ggplot(data = mpg, mapping = aes(x = displ, y =hwy, color = drv)) +
 **1:** What is the problem with this plot? How could you improve it. *Hint:* Remember the size of the `mpg` data set from earlier in this exercise. Does the number of points seem correct? **Note:** Write the code to improve it. 
 
 
+
+The mpg dataset is too large and is not able to fit all of the data points onto a graph setup like this. As seen below, by adding the jitter function to the graph we can greatly increase the amount of data that is able to show. Adding a trend line also helps to show the average distribution of cty vs hwy milage. 
+
+
+```{r}
+ggplot(data = mpg, mapping = aes(x = cty, y = hwy)) +
+  geom_point() 
+```
+
+# should display the example graph
+
+```{r}
+ggplot(data = mpg, mapping = aes(x = cty, y = hwy)) + 
+  geom_point(position = "jitter") + 
+  geom_smooth()
+
+```
+
+# adds the jitter function and a trend line to the example graph
+
 **2:** What parameters to `geom_jitter()` control the amount of jittering?
+
+There are two arguments that directly control the amount of jitter in the geom_jitter function. These are the "width" and "height" arguments, which control how far in a direction the points are able to jitter. A smaller width would allow less rooms for points to jitter horizontally. A smaller height will thus limit the vertical movement. There is also a third argument called "seed" which helps to recreate an exact jitter, but it does not control its mapping. 
+
 
 
 **3:** Compare and contracts `geom_jitter()` with `geom_count()`.
 
+Geom_count differs from geom_jitter by "counting" the number of points in a location and listing out that value. Jitter instead spreads out these points so they can be seen in the original format. They are both ways to deal with overplotting, but work slightly differently. 
 
 **4:** What is the default position adjustement for `geom_boxplot()`? Create a visualization of the `mpg` dataset that demonstrates it.
+
+The default position adjustment for boxplot would be position_dodge(). As shown below, adding the line does not change anythign within the graph. If the value were to be modified from this, then we would see a change in the positioning. 
+
+```{r}
+ggplot(data = mpg, mapping = aes(x = class, y = cty, color = drv)) + 
+   geom_boxplot() 
+```
+
+# shows a "default" boxplot for the mpg dataset, comparing class and cty. 
+
+```{r}
+ggplot(data = mpg, mapping = aes(x = class, y = cty, color = drv)) + 
+   geom_boxplot(position = "dodge")
+```
+
+# adds the position_dodge line, showing that it does not chang the graph.
+
 
 
 ### Section 3.9: Coordinate systems
 
 **Note:** Read about and do only the code chunk associated with `coord_flip()`. `coord_flip()` is a great layer to use when you have categorical data with longish names as it makes the text easier to read.
+
+```{r}
+ggplot(data = mpg, mapping = aes(x = class, y =hwy)) +
+  geom_boxplot()
+
+```
+
+# should produce the normal class v hwy boxplot graph
+
+```{r}
+ggplot(data = mpg, mapping = aes(x = class, y = hwy)) + 
+  geom_boxplot() + 
+  coord_flip()
+```
+
+# should flip the boxplot graph of class v hwy, onto the y axis instead of the x axis.
+
+
 
 ### Section 3.10: The layered grammar of graphics
 
