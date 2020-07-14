@@ -96,5 +96,117 @@ Creates a scatterplot of the iris data set that compares the "Petal.Length" to "
 
 #
 
-### Plot 4 and 5: 
+### Plot 4 and 5: Violinplot of the msleep data set
 
+
+```{r}
+data(msleep)
+?msleep
+```
+
+acquires the data for "msleep" and examines the properties of the data set. 
+
+# Plot 4
+
+```{r}
+ggplot(data=msleep) + 
+  geom_violin(mapping = aes(x = vore, y = sleep_rem), fill  = "gray30")
+```
+
+Creates a violin plot of the "msleep' data set that compares "Vore" to "sleep_rem". The fill color is then changed to gray30. 
+
+# Plot 5
+
+```{r}
+ggplot(data = msleep) + 
+  geom_violin(mapping = aes(x = vore, y = sleep_rem), fill = "gray70")
+```
+
+Creates a violin plot similar to the one above, but the fill color is changed from "gray 30" to "gray 70" which is a lighter shade of gray. The data points are still the same with x = vore and y = sleep_rem, within the "msleep" data set. 
+
+# A violin plot is a type of plot that represents the range and density of a data set. Like a cat and whiskers plot, there is a box on a line that displays where the points are, and show interquartile ranges. However, there is also a shape around this "whisker" that shows the density of the data set at these points. The wider the shape gets, the more dense the data points are in that range. The "whisker" shapes like a string on the shape, which resembles a violin, hence the name. 
+
+#
+
+### Plot 6: Matrix clip
+
+I saw this movie for the first time ~1 month ago while on quarantine. Great movie!
+
+#
+
+### Plot 7: Boxplot of the msleep data set
+
+```{r}
+data(msleep)
+?msleep
+```
+
+Acquires the data for "msleep" and examines the properties of the data set. 
+
+```{r}
+ggplot(data = msleep, mapping = aes(x = order, y = sleep_total)) +
+  geom_boxplot() + 
+  coord_flip()
+```
+
+Creates a boxplot of the msleep data set comparing "order" to "sleep_total". Since the x-variable lists many words for the order of mammal described, we use the coord_flip to switch it to y-axis so that it is much easier to read. In addition this changes the boxplots from vertical to horizontal, which can be easier to interpret. 
+
+#
+
+### Plot 8: Boxplot with points of the msleep data set
+
+```{r}
+data(msleep)
+?msleep
+```
+
+Acquires the data for "msleep' and examines the properties of the data set. 
+
+```{r}
+ggplot(data = msleep, mapping = aes(x = conservation, y = awake, color = conservation, )) + 
+  labs( x = "Conservation", y = "Awake", color = "Conservation") + 
+  geom_boxplot() +
+  geom_point() + 
+  geom_jitter() 
+  
+```
+
+Creates a boxpot with points for the msleep data set comparing "conservation" and "awake". Conservation is the conservation status of the animal, and awake is the time spent awake (in hours) for the animal. This graph stacks a boxplot, the point graph, as well as a jitter to the points to better represent the data. Color is also added to "conservation" to better bring out the differences for easier interpretation. The x, y, and legend are relabeled so to be capitalized. There was an option to coord_flip() this data, but i think it looks much better when presented vertically. 
+
+# 
+
+### Plot 9 and 10: Your choice of scatter plots within msleep data set
+
+```{r}
+data(msleep)
+?msleep
+```
+
+Acquires the data for "msleep" and examines the properties of the data set. 
+
+# Plot 9
+
+```{r}
+ggplot(data = msleep, mapping = aes(x = awake, y = bodywt)) + 
+  geom_point(mapping = aes(color = order)) 
+```
+
+Creates a scatterplot of the msleep data set comparing "awake" and "bodyweight". The order that the mammal is in is then presented in color. 
+
+# Trends between the time spent awake and the bodyweight can be seen between a few o the orders. Most of the Chroptera order trend to be low in bodyweight and spend little time awake. The Rodentia order are all very low in bodyweight, but have a wide range of sleeping hours from ~7 hours to upwards of ~17 hours. A third trend that can be seen is in the Perissodactyla order; which tend to be awake for 17+ hours and have higher body weights of atleast ~200 pounds to upwards of ~600 pounds. 
+
+#
+
+# Plot 10 
+
+```{r}
+ggplot(data = msleep, mapping = aes(x = sleep_total, y = brainwt)) + 
+  geom_point(mapping = aes(color = vore)) + 
+  facet_wrap(~ vore, ncol = 3)
+```
+
+Creates a scatter plot of the msleep data set comparing "sleep_total" and "branwt". The "vore" status of the animal, (carnivore, omnivore, herbivore, insectivore), is also shown in categories of color. A facet wrap was applied to separate out the different classes and separated into 3 columns. 
+
+# Trends can be seen between the different classes of vore. Most omnivores are found to sleep around ~10 hours and have a brain wt lower than 1 pound. Most herbivores sleep for less than 5 hours and have brainweights around ~0.5 pounds. I chose to apply 3 columns to the facet wrap, as it makes it easiest for me to compare the graphs personally. 
+
+#

@@ -1881,13 +1881,164 @@ lynx_pelts</code></pre>
 </div>
 <div id="section-2" class="section level1">
 <h1></h1>
-<div id="plot-4-and-5" class="section level3">
-<h3>Plot 4 and 5:</h3>
+<div id="plot-4-and-5-violinplot-of-the-msleep-data-set" class="section level3">
+<h3>Plot 4 and 5: Violinplot of the msleep data set</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YShtc2xlZXApXG4/bXNsZWVwXG5gYGAifQ== -->
+<pre class="r"><code>data(msleep)
+?msleep</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>acquires the data for “msleep” and examines the properties of the data set.</p>
+</div>
+</div>
+<div id="plot-4" class="section level1">
+<h1>Plot 4</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGE9bXNsZWVwKSArIFxuICBnZW9tX3Zpb2xpbihtYXBwaW5nID0gYWVzKHggPSB2b3JlLCB5ID0gc2xlZXBfcmVtKSwgZmlsbCAgPSBcImdyYXkzMFwiKVxuYGBgIn0= -->
+<pre class="r"><code>ggplot(data=msleep) + 
+  geom_violin(mapping = aes(x = vore, y = sleep_rem), fill  = &quot;gray30&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Creates a violin plot of the “msleep’ data set that compares”Vore&quot; to “sleep_rem”. The fill color is then changed to gray30.</p>
+</div>
+<div id="plot-5" class="section level1">
+<h1>Plot 5</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtc2xlZXApICsgXG4gIGdlb21fdmlvbGluKG1hcHBpbmcgPSBhZXMoeCA9IHZvcmUsIHkgPSBzbGVlcF9yZW0pLCBmaWxsID0gXCJncmF5NzBcIilcbmBgYCJ9 -->
+<pre class="r"><code>ggplot(data = msleep) + 
+  geom_violin(mapping = aes(x = vore, y = sleep_rem), fill = &quot;gray70&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Creates a violin plot similar to the one above, but the fill color is changed from “gray 30” to “gray 70” which is a lighter shade of gray. The data points are still the same with x = vore and y = sleep_rem, within the “msleep” data set.</p>
+</div>
+<div id="a-violin-plot-is-a-type-of-plot-that-represents-the-range-and-density-of-a-data-set.-like-a-cat-and-whiskers-plot-there-is-a-box-on-a-line-that-displays-where-the-points-are-and-show-interquartile-ranges.-however-there-is-also-a-shape-around-this-whisker-that-shows-the-density-of-the-data-set-at-these-points.-the-wider-the-shape-gets-the-more-dense-the-data-points-are-in-that-range.-the-whisker-shapes-like-a-string-on-the-shape-which-resembles-a-violin-hence-the-name." class="section level1">
+<h1>A violin plot is a type of plot that represents the range and density of a data set. Like a cat and whiskers plot, there is a box on a line that displays where the points are, and show interquartile ranges. However, there is also a shape around this “whisker” that shows the density of the data set at these points. The wider the shape gets, the more dense the data points are in that range. The “whisker” shapes like a string on the shape, which resembles a violin, hence the name.</h1>
+</div>
+<div id="section-3" class="section level1">
+<h1></h1>
+<div id="plot-6-matrix-clip" class="section level3">
+<h3>Plot 6: Matrix clip</h3>
+<p>I saw this movie for the first time ~1 month ago while on quarantine. Great movie!</p>
+</div>
+</div>
+<div id="section-4" class="section level1">
+<h1></h1>
+<div id="plot-7-boxplot-of-the-msleep-data-set" class="section level3">
+<h3>Plot 7: Boxplot of the msleep data set</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YShtc2xlZXApXG4/bXNsZWVwXG5gYGAifQ== -->
+<pre class="r"><code>data(msleep)
+?msleep</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Acquires the data for “msleep” and examines the properties of the data set.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtc2xlZXAsIG1hcHBpbmcgPSBhZXMoeCA9IG9yZGVyLCB5ID0gc2xlZXBfdG90YWwpKSArXG4gIGdlb21fYm94cGxvdCgpICsgXG4gIGNvb3JkX2ZsaXAoKVxuYGBgIn0= -->
+<pre class="r"><code>ggplot(data = msleep, mapping = aes(x = order, y = sleep_total)) +
+  geom_boxplot() + 
+  coord_flip()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Creates a boxplot of the msleep data set comparing “order” to “sleep_total”. Since the x-variable lists many words for the order of mammal described, we use the coord_flip to switch it to y-axis so that it is much easier to read. In addition this changes the boxplots from vertical to horizontal, which can be easier to interpret.</p>
+</div>
+</div>
+<div id="section-5" class="section level1">
+<h1></h1>
+<div id="plot-8-boxplot-with-points-of-the-msleep-data-set" class="section level3">
+<h3>Plot 8: Boxplot with points of the msleep data set</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YShtc2xlZXApXG4/bXNsZWVwXG5gYGAifQ== -->
+<pre class="r"><code>data(msleep)
+?msleep</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Acquires the data for &quot;msleep’ and examines the properties of the data set.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtc2xlZXAsIG1hcHBpbmcgPSBhZXMoeCA9IGNvbnNlcnZhdGlvbiwgeSA9IGF3YWtlLCBjb2xvciA9IGNvbnNlcnZhdGlvbiwgKSkgKyBcbiAgbGFicyggeCA9IFwiQ29uc2VydmF0aW9uXCIsIHkgPSBcIkF3YWtlXCIsIGNvbG9yID0gXCJDb25zZXJ2YXRpb25cIikgKyBcbiAgZ2VvbV9ib3hwbG90KCkgK1xuICBnZW9tX3BvaW50KCkgKyBcbiAgZ2VvbV9qaXR0ZXIoKSBcbiAgXG5gYGAifQ== -->
+<pre class="r"><code>ggplot(data = msleep, mapping = aes(x = conservation, y = awake, color = conservation, )) + 
+  labs( x = &quot;Conservation&quot;, y = &quot;Awake&quot;, color = &quot;Conservation&quot;) + 
+  geom_boxplot() +
+  geom_point() + 
+  geom_jitter() 
+  </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Creates a boxpot with points for the msleep data set comparing “conservation” and “awake”. Conservation is the conservation status of the animal, and awake is the time spent awake (in hours) for the animal. This graph stacks a boxplot, the point graph, as well as a jitter to the points to better represent the data. Color is also added to “conservation” to better bring out the differences for easier interpretation. The x, y, and legend are relabeled so to be capitalized. There was an option to coord_flip() this data, but i think it looks much better when presented vertically.</p>
+</div>
+</div>
+<div id="section-6" class="section level1">
+<h1></h1>
+<div id="plot-9-and-10-your-choice-of-scatter-plots-within-msleep-data-set" class="section level3">
+<h3>Plot 9 and 10: Your choice of scatter plots within msleep data set</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YShtc2xlZXApXG4/bXNsZWVwXG5gYGAifQ== -->
+<pre class="r"><code>data(msleep)
+?msleep</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Acquires the data for “msleep” and examines the properties of the data set.</p>
+</div>
+</div>
+<div id="plot-9" class="section level1">
+<h1>Plot 9</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtc2xlZXAsIG1hcHBpbmcgPSBhZXMoeCA9IGF3YWtlLCB5ID0gYm9keXd0KSkgKyBcbiAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKGNvbG9yID0gb3JkZXIpKSBcbmBgYCJ9 -->
+<pre class="r"><code>ggplot(data = msleep, mapping = aes(x = awake, y = bodywt)) + 
+  geom_point(mapping = aes(color = order)) </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Creates a scatterplot of the msleep data set comparing “awake” and “bodyweight”. The order that the mammal is in is then presented in color.</p>
+</div>
+<div id="trends-between-the-time-spent-awake-and-the-bodyweight-can-be-seen-between-a-few-o-the-orders.-most-of-the-chroptera-order-trend-to-be-low-in-bodyweight-and-spend-little-time-awake.-the-rodentia-order-are-all-very-low-in-bodyweight-but-have-a-wide-range-of-sleeping-hours-from-7-hours-to-upwards-of-17-hours.-a-third-trend-that-can-be-seen-is-in-the-perissodactyla-order-which-tend-to-be-awake-for-17-hours-and-have-higher-body-weights-of-atleast-200-pounds-to-upwards-of-600-pounds." class="section level1">
+<h1>Trends between the time spent awake and the bodyweight can be seen between a few o the orders. Most of the Chroptera order trend to be low in bodyweight and spend little time awake. The Rodentia order are all very low in bodyweight, but have a wide range of sleeping hours from ~7 hours to upwards of ~17 hours. A third trend that can be seen is in the Perissodactyla order; which tend to be awake for 17+ hours and have higher body weights of atleast ~200 pounds to upwards of ~600 pounds.</h1>
+</div>
+<div id="section-7" class="section level1">
+<h1></h1>
+</div>
+<div id="plot-10" class="section level1">
+<h1>Plot 10</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBtc2xlZXAsIG1hcHBpbmcgPSBhZXMoeCA9IHNsZWVwX3RvdGFsLCB5ID0gYnJhaW53dCkpICsgXG4gIGdlb21fcG9pbnQobWFwcGluZyA9IGFlcyhjb2xvciA9IHZvcmUpKSArIFxuICBmYWNldF93cmFwKH4gdm9yZSwgbmNvbCA9IDMpXG5gYGAifQ== -->
+<pre class="r"><code>ggplot(data = msleep, mapping = aes(x = sleep_total, y = brainwt)) + 
+  geom_point(mapping = aes(color = vore)) + 
+  facet_wrap(~ vore, ncol = 3)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-plot-begin eyJoZWlnaHQiOjQzMi42MzI5LCJ3aWR0aCI6NzAwLCJzaXplX2JlaGF2aW9yIjowLCJjb25kaXRpb25zIjpbWzEsIlJlbW92ZWQgMjcgcm93cyBjb250YWluaW5nIG1pc3NpbmcgdmFsdWVzIChnZW9tX3BvaW50KS4iXV19 -->
+<p><img src="data:image/png;base64,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" /></p>
+<!-- rnb-plot-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Creates a scatter plot of the msleep data set comparing “sleep_total” and “branwt”. The “vore” status of the animal, (carnivore, omnivore, herbivore, insectivore), is also shown in categories of color. A facet wrap was applied to separate out the different classes and separated into 3 columns.</p>
+</div>
+<div id="trends-can-be-seen-between-the-different-classes-of-vore.-most-omnivores-are-found-to-sleep-around-10-hours-and-have-a-brain-wt-lower-than-1-pound.-most-herbivores-sleep-for-less-than-5-hours-and-have-brainweights-around-0.5-pounds.-i-chose-to-apply-3-columns-to-the-facet-wrap-as-it-makes-it-easiest-for-me-to-compare-the-graphs-personally." class="section level1">
+<h1>Trends can be seen between the different classes of vore. Most omnivores are found to sleep around ~10 hours and have a brain wt lower than 1 pound. Most herbivores sleep for less than 5 hours and have brainweights around ~0.5 pounds. I chose to apply 3 columns to the facet wrap, as it makes it easiest for me to compare the graphs personally.</h1>
+</div>
+<div id="section-8" class="section level1">
+<h1></h1>
 <!-- rnb-text-end -->
 </div>
-</div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkhXMDUiDQphdXRob3I6ICJEeWxhbiBLbGluZ2VtYW4iDQpkYXRlOiAiYHIgZm9ybWF0KFN5cy50aW1lKCksICclZCAlQiAlWScpYCINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KZWRpdG9yX29wdGlvbnM6IA0KICBjaHVua19vdXRwdXRfdHlwZTogaW5saW5lDQotLS0NCg0KDQpgYGB7cn0NCmxpYnJhcnkoInRpZHl2ZXJzZSIpDQpgYGANCg0KDQojIyMgUGxvdCAxOiBTY2F0dGVycGxvdCBvZiB0aGUgdHJlZXMgZGF0YSBzZXQNCg0KYGBge3J9DQpkYXRhKHRyZWVzKQ0KP3RyZWVzDQpgYGANCg0KYWNxdWlyZXMgdGhlIGRhdGEgc2V0IGZvciAidHJlZXMnIGFuZCBleGFtaW5lcyB0aGUgcHJvcGVydGllcyBvZiB0aGUgZGF0YSBzZXQuIA0KDQpgYGB7cn0NCmdncGxvdChkYXRhID0gdHJlZXMsIG1hcHBpbmcgPSBhZXMoeCA9IEhlaWdodCwgeSA9R2lydGgpKSArDQpnZW9tX3BvaW50KCkNCmBgYA0KDQpjcmVhdGVzIGEgc2NhdHRlcnBsb3QgY29tcGFyaW5nIEhlaWdodCB2cyBHaXJ0aCBmcm9tIHRoZSB0cmVlcyBkYXRhIHNldC4gDQoNCiMNCg0KDQojIyMgUGxvdCAyOiBMaW5lZ3JhcGggb2YgdGhlIGx5bnggZGF0YXNldA0KDQpgYGB7cn0NCmRhdGEobHlueCkNCj9seW54DQpgYGANCg0KYWNxdWlyZSB0aGUgZGF0YSBzZXQgZm9yICJseW54IiBhbmQgZXhhbWluZXMgdGhlIHByb3BlcnRpZXMgb2YgdGhlIGRhdGEgc2V0LiANCg0KYGBge3J9DQp5ZWFyIDwtIGMoMTgyMToxOTM0KQ0KeWVhcg0KYGBgDQoNCmNyZWF0ZXMgYSB2ZWN0b3IgbmFtZWQgInllYXIiIHdoaWNoIGNvbnRhaW5zIHRoZSBudW1iZXJzIDE4MjEtMTkzNC4gVGhlIGRhdGEgd2l0aGluIHRoZSB2ZWN0b3IgaXMgdGhlbiBkaXNwbGF5ZWQNCg0KYGBge3J9DQpjbGFzcyhseW54KQ0KYGBgDQpkaXNwbGF5cyB0aGUgY2xhc3Mgb2YgZGF0YSB0aGF0IHRoZSAibHlueCIgZGF0YXNldCBpcywgd2hpY2ggaXMgYSBUaW1lIFNlcmllcyAodHMpDQoNCmBgYHtyfQ0KcGVsdHMgPWFzLnZlY3RvcihseW54KQ0KcGVsdHMNCmBgYA0KDQpjb252ZXJ0cyB0aGUgbHlueCBkYXRhIHNldCBpbnRvIGEgdmVjdG9yLiANCg0KYGBge3J9DQpseW54X3BlbHRzIDwtIGRhdGEuZnJhbWUoeWVhciwgcGVsdHMpDQpseW54X3BlbHRzDQpgYGANCg0KQ3JlYXRlcyBhIGRhdGFmcmFtZSBjb21wYXJpbmcgdGhlIHZlY3RvcnMgInllYXIiIGFuZCAicGVsdHMiDQoNCmBgYHtyfQ0KZ2dwbG90KGRhdGE9bHlueF9wZWx0cykgKyANCiAgZ2VvbV9saW5lKG1hcHBpbmcgPSBhZXMoeCA9IHllYXIsIHkgPSBwZWx0cyksY29sb3I9Im1hcm9vbiIpDQpgYGANCg0KQ3JlYXRlcyBhIGxpbmUgZ3JhcGggY29tcGFyaW5nIHRoZSAieWVhciIgdmVjdG9yIHRvIHRoZSAicGVsdHMiIHZlY3RvciB3aXRoaW4gdGhlIGRhdGEgc2V0ICJseW54X3BlbHRzIi4gVGhlIGNvbG9yIG9mIHRoZSBsaW5lIGlzIHRoZW4gY2hhbmdlZCB0byBtYXJvb24uIA0KDQojDQoNCiMjIyBQbG90IDM6IFNjYXR0ZXJwbG90IG9mIHRoZSBpcmlzIGRhdGEgc2V0DQoNCg0KYGBge3J9DQpkYXRhKGlyaXMpDQo/aXJpcw0KYGBgDQoNCmFjcXVpcmUgdGhlIGRhdGEgZm9yICJpcmlzIiBhbmQgZXhhbWluZXMgdGhlIHByb3BlcnRpZXMgb2YgdGhlIGRhdGEgc2V0Lg0KDQpgYGB7cn0NCmdncGxvdChkYXRhID0gaXJpcywgbWFwcGluZz1hZXMoeCA9IFBldGFsLkxlbmd0aCwgeSA9IFBldGFsLldpZHRoKSkgKyANCiAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKGNvbG9yID0gU3BlY2llcywgc2hhcGUgPSBTcGVjaWVzLCBzaXplPTIpKSArDQogIGxhYnMoeCA9ICJQZXRhbCBMZW5ndGgiLCB5ID0gIlBldGFsIFdpZHRoIikNCmBgYA0KDQpDcmVhdGVzIGEgc2NhdHRlcnBsb3Qgb2YgdGhlIGlyaXMgZGF0YSBzZXQgdGhhdCBjb21wYXJlcyB0aGUgIlBldGFsLkxlbmd0aCIgdG8gIlBldGFsLldpZHRoIi4gVGhlcmUgaXMgYWxzbyBhIHRoaXJkIHZhcmlhYmxlLCAiU3BlY2llcyIsIHdoaWNoIGlzIHNob3duIGJ5IHRoZSBkaWZmZXJlbmNlcyBpbiBjb2xvciBhbmQgc2hhcGUuIFRoZSBzaXplIG9mIHRoZSBwb2ludHMgaXMgdGhlbiBjaGFuZ2VkIHRvIDIuIA0KDQojDQoNCiMjIyBQbG90IDQgYW5kIDU6IA0KDQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkhXMDUiDQphdXRob3I6ICJEeWxhbiBLbGluZ2VtYW4iDQpkYXRlOiAiYHIgZm9ybWF0KFN5cy50aW1lKCksICclZCAlQiAlWScpYCINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KZWRpdG9yX29wdGlvbnM6IA0KICBjaHVua19vdXRwdXRfdHlwZTogaW5saW5lDQotLS0NCg0KDQpgYGB7cn0NCmxpYnJhcnkoInRpZHl2ZXJzZSIpDQpgYGANCg0KDQojIyMgUGxvdCAxOiBTY2F0dGVycGxvdCBvZiB0aGUgdHJlZXMgZGF0YSBzZXQNCg0KYGBge3J9DQpkYXRhKHRyZWVzKQ0KP3RyZWVzDQpgYGANCg0KYWNxdWlyZXMgdGhlIGRhdGEgc2V0IGZvciAidHJlZXMnIGFuZCBleGFtaW5lcyB0aGUgcHJvcGVydGllcyBvZiB0aGUgZGF0YSBzZXQuIA0KDQpgYGB7cn0NCmdncGxvdChkYXRhID0gdHJlZXMsIG1hcHBpbmcgPSBhZXMoeCA9IEhlaWdodCwgeSA9R2lydGgpKSArDQpnZW9tX3BvaW50KCkNCmBgYA0KDQpjcmVhdGVzIGEgc2NhdHRlcnBsb3QgY29tcGFyaW5nIEhlaWdodCB2cyBHaXJ0aCBmcm9tIHRoZSB0cmVlcyBkYXRhIHNldC4gDQoNCiMNCg0KDQojIyMgUGxvdCAyOiBMaW5lZ3JhcGggb2YgdGhlIGx5bnggZGF0YXNldA0KDQpgYGB7cn0NCmRhdGEobHlueCkNCj9seW54DQpgYGANCg0KYWNxdWlyZSB0aGUgZGF0YSBzZXQgZm9yICJseW54IiBhbmQgZXhhbWluZXMgdGhlIHByb3BlcnRpZXMgb2YgdGhlIGRhdGEgc2V0LiANCg0KYGBge3J9DQp5ZWFyIDwtIGMoMTgyMToxOTM0KQ0KeWVhcg0KYGBgDQoNCmNyZWF0ZXMgYSB2ZWN0b3IgbmFtZWQgInllYXIiIHdoaWNoIGNvbnRhaW5zIHRoZSBudW1iZXJzIDE4MjEtMTkzNC4gVGhlIGRhdGEgd2l0aGluIHRoZSB2ZWN0b3IgaXMgdGhlbiBkaXNwbGF5ZWQNCg0KYGBge3J9DQpjbGFzcyhseW54KQ0KYGBgDQpkaXNwbGF5cyB0aGUgY2xhc3Mgb2YgZGF0YSB0aGF0IHRoZSAibHlueCIgZGF0YXNldCBpcywgd2hpY2ggaXMgYSBUaW1lIFNlcmllcyAodHMpDQoNCmBgYHtyfQ0KcGVsdHMgPWFzLnZlY3RvcihseW54KQ0KcGVsdHMNCmBgYA0KDQpjb252ZXJ0cyB0aGUgbHlueCBkYXRhIHNldCBpbnRvIGEgdmVjdG9yLiANCg0KYGBge3J9DQpseW54X3BlbHRzIDwtIGRhdGEuZnJhbWUoeWVhciwgcGVsdHMpDQpseW54X3BlbHRzDQpgYGANCg0KQ3JlYXRlcyBhIGRhdGFmcmFtZSBjb21wYXJpbmcgdGhlIHZlY3RvcnMgInllYXIiIGFuZCAicGVsdHMiDQoNCmBgYHtyfQ0KZ2dwbG90KGRhdGE9bHlueF9wZWx0cykgKyANCiAgZ2VvbV9saW5lKG1hcHBpbmcgPSBhZXMoeCA9IHllYXIsIHkgPSBwZWx0cyksY29sb3I9Im1hcm9vbiIpDQpgYGANCg0KQ3JlYXRlcyBhIGxpbmUgZ3JhcGggY29tcGFyaW5nIHRoZSAieWVhciIgdmVjdG9yIHRvIHRoZSAicGVsdHMiIHZlY3RvciB3aXRoaW4gdGhlIGRhdGEgc2V0ICJseW54X3BlbHRzIi4gVGhlIGNvbG9yIG9mIHRoZSBsaW5lIGlzIHRoZW4gY2hhbmdlZCB0byBtYXJvb24uIA0KDQojDQoNCiMjIyBQbG90IDM6IFNjYXR0ZXJwbG90IG9mIHRoZSBpcmlzIGRhdGEgc2V0DQoNCg0KYGBge3J9DQpkYXRhKGlyaXMpDQo/aXJpcw0KYGBgDQoNCmFjcXVpcmUgdGhlIGRhdGEgZm9yICJpcmlzIiBhbmQgZXhhbWluZXMgdGhlIHByb3BlcnRpZXMgb2YgdGhlIGRhdGEgc2V0Lg0KDQpgYGB7cn0NCmdncGxvdChkYXRhID0gaXJpcywgbWFwcGluZz1hZXMoeCA9IFBldGFsLkxlbmd0aCwgeSA9IFBldGFsLldpZHRoKSkgKyANCiAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKGNvbG9yID0gU3BlY2llcywgc2hhcGUgPSBTcGVjaWVzLCBzaXplPTIpKSArDQogIGxhYnMoeCA9ICJQZXRhbCBMZW5ndGgiLCB5ID0gIlBldGFsIFdpZHRoIikNCmBgYA0KDQpDcmVhdGVzIGEgc2NhdHRlcnBsb3Qgb2YgdGhlIGlyaXMgZGF0YSBzZXQgdGhhdCBjb21wYXJlcyB0aGUgIlBldGFsLkxlbmd0aCIgdG8gIlBldGFsLldpZHRoIi4gVGhlcmUgaXMgYWxzbyBhIHRoaXJkIHZhcmlhYmxlLCAiU3BlY2llcyIsIHdoaWNoIGlzIHNob3duIGJ5IHRoZSBkaWZmZXJlbmNlcyBpbiBjb2xvciBhbmQgc2hhcGUuIFRoZSBzaXplIG9mIHRoZSBwb2ludHMgaXMgdGhlbiBjaGFuZ2VkIHRvIDIuIA0KDQojDQoNCiMjIyBQbG90IDQgYW5kIDU6IFZpb2xpbnBsb3Qgb2YgdGhlIG1zbGVlcCBkYXRhIHNldA0KDQoNCmBgYHtyfQ0KZGF0YShtc2xlZXApDQo/bXNsZWVwDQpgYGANCg0KYWNxdWlyZXMgdGhlIGRhdGEgZm9yICJtc2xlZXAiIGFuZCBleGFtaW5lcyB0aGUgcHJvcGVydGllcyBvZiB0aGUgZGF0YSBzZXQuIA0KDQojIFBsb3QgNA0KDQpgYGB7cn0NCmdncGxvdChkYXRhPW1zbGVlcCkgKyANCiAgZ2VvbV92aW9saW4obWFwcGluZyA9IGFlcyh4ID0gdm9yZSwgeSA9IHNsZWVwX3JlbSksIGZpbGwgID0gImdyYXkzMCIpDQpgYGANCg0KQ3JlYXRlcyBhIHZpb2xpbiBwbG90IG9mIHRoZSAibXNsZWVwJyBkYXRhIHNldCB0aGF0IGNvbXBhcmVzICJWb3JlIiB0byAic2xlZXBfcmVtIi4gVGhlIGZpbGwgY29sb3IgaXMgdGhlbiBjaGFuZ2VkIHRvIGdyYXkzMC4gDQoNCiMgUGxvdCA1DQoNCmBgYHtyfQ0KZ2dwbG90KGRhdGEgPSBtc2xlZXApICsgDQogIGdlb21fdmlvbGluKG1hcHBpbmcgPSBhZXMoeCA9IHZvcmUsIHkgPSBzbGVlcF9yZW0pLCBmaWxsID0gImdyYXk3MCIpDQpgYGANCg0KQ3JlYXRlcyBhIHZpb2xpbiBwbG90IHNpbWlsYXIgdG8gdGhlIG9uZSBhYm92ZSwgYnV0IHRoZSBmaWxsIGNvbG9yIGlzIGNoYW5nZWQgZnJvbSAiZ3JheSAzMCIgdG8gImdyYXkgNzAiIHdoaWNoIGlzIGEgbGlnaHRlciBzaGFkZSBvZiBncmF5LiBUaGUgZGF0YSBwb2ludHMgYXJlIHN0aWxsIHRoZSBzYW1lIHdpdGggeCA9IHZvcmUgYW5kIHkgPSBzbGVlcF9yZW0sIHdpdGhpbiB0aGUgIm1zbGVlcCIgZGF0YSBzZXQuIA0KDQojIEEgdmlvbGluIHBsb3QgaXMgYSB0eXBlIG9mIHBsb3QgdGhhdCByZXByZXNlbnRzIHRoZSByYW5nZSBhbmQgZGVuc2l0eSBvZiBhIGRhdGEgc2V0LiBMaWtlIGEgY2F0IGFuZCB3aGlza2VycyBwbG90LCB0aGVyZSBpcyBhIGJveCBvbiBhIGxpbmUgdGhhdCBkaXNwbGF5cyB3aGVyZSB0aGUgcG9pbnRzIGFyZSwgYW5kIHNob3cgaW50ZXJxdWFydGlsZSByYW5nZXMuIEhvd2V2ZXIsIHRoZXJlIGlzIGFsc28gYSBzaGFwZSBhcm91bmQgdGhpcyAid2hpc2tlciIgdGhhdCBzaG93cyB0aGUgZGVuc2l0eSBvZiB0aGUgZGF0YSBzZXQgYXQgdGhlc2UgcG9pbnRzLiBUaGUgd2lkZXIgdGhlIHNoYXBlIGdldHMsIHRoZSBtb3JlIGRlbnNlIHRoZSBkYXRhIHBvaW50cyBhcmUgaW4gdGhhdCByYW5nZS4gVGhlICJ3aGlza2VyIiBzaGFwZXMgbGlrZSBhIHN0cmluZyBvbiB0aGUgc2hhcGUsIHdoaWNoIHJlc2VtYmxlcyBhIHZpb2xpbiwgaGVuY2UgdGhlIG5hbWUuIA0KDQojDQoNCiMjIyBQbG90IDY6IE1hdHJpeCBjbGlwDQoNCkkgc2F3IHRoaXMgbW92aWUgZm9yIHRoZSBmaXJzdCB0aW1lIH4xIG1vbnRoIGFnbyB3aGlsZSBvbiBxdWFyYW50aW5lLiBHcmVhdCBtb3ZpZSENCg0KIw0KDQojIyMgUGxvdCA3OiBCb3hwbG90IG9mIHRoZSBtc2xlZXAgZGF0YSBzZXQNCg0KYGBge3J9DQpkYXRhKG1zbGVlcCkNCj9tc2xlZXANCmBgYA0KDQpBY3F1aXJlcyB0aGUgZGF0YSBmb3IgIm1zbGVlcCIgYW5kIGV4YW1pbmVzIHRoZSBwcm9wZXJ0aWVzIG9mIHRoZSBkYXRhIHNldC4gDQoNCmBgYHtyfQ0KZ2dwbG90KGRhdGEgPSBtc2xlZXAsIG1hcHBpbmcgPSBhZXMoeCA9IG9yZGVyLCB5ID0gc2xlZXBfdG90YWwpKSArDQogIGdlb21fYm94cGxvdCgpICsgDQogIGNvb3JkX2ZsaXAoKQ0KYGBgDQoNCkNyZWF0ZXMgYSBib3hwbG90IG9mIHRoZSBtc2xlZXAgZGF0YSBzZXQgY29tcGFyaW5nICJvcmRlciIgdG8gInNsZWVwX3RvdGFsIi4gU2luY2UgdGhlIHgtdmFyaWFibGUgbGlzdHMgbWFueSB3b3JkcyBmb3IgdGhlIG9yZGVyIG9mIG1hbW1hbCBkZXNjcmliZWQsIHdlIHVzZSB0aGUgY29vcmRfZmxpcCB0byBzd2l0Y2ggaXQgdG8geS1heGlzIHNvIHRoYXQgaXQgaXMgbXVjaCBlYXNpZXIgdG8gcmVhZC4gSW4gYWRkaXRpb24gdGhpcyBjaGFuZ2VzIHRoZSBib3hwbG90cyBmcm9tIHZlcnRpY2FsIHRvIGhvcml6b250YWwsIHdoaWNoIGNhbiBiZSBlYXNpZXIgdG8gaW50ZXJwcmV0LiANCg0KIw0KDQojIyMgUGxvdCA4OiBCb3hwbG90IHdpdGggcG9pbnRzIG9mIHRoZSBtc2xlZXAgZGF0YSBzZXQNCg0KYGBge3J9DQpkYXRhKG1zbGVlcCkNCj9tc2xlZXANCmBgYA0KDQpBY3F1aXJlcyB0aGUgZGF0YSBmb3IgIm1zbGVlcCcgYW5kIGV4YW1pbmVzIHRoZSBwcm9wZXJ0aWVzIG9mIHRoZSBkYXRhIHNldC4gDQoNCmBgYHtyfQ0KZ2dwbG90KGRhdGEgPSBtc2xlZXAsIG1hcHBpbmcgPSBhZXMoeCA9IGNvbnNlcnZhdGlvbiwgeSA9IGF3YWtlLCBjb2xvciA9IGNvbnNlcnZhdGlvbiwgKSkgKyANCiAgbGFicyggeCA9ICJDb25zZXJ2YXRpb24iLCB5ID0gIkF3YWtlIiwgY29sb3IgPSAiQ29uc2VydmF0aW9uIikgKyANCiAgZ2VvbV9ib3hwbG90KCkgKw0KICBnZW9tX3BvaW50KCkgKyANCiAgZ2VvbV9qaXR0ZXIoKSANCiAgDQpgYGANCg0KQ3JlYXRlcyBhIGJveHBvdCB3aXRoIHBvaW50cyBmb3IgdGhlIG1zbGVlcCBkYXRhIHNldCBjb21wYXJpbmcgImNvbnNlcnZhdGlvbiIgYW5kICJhd2FrZSIuIENvbnNlcnZhdGlvbiBpcyB0aGUgY29uc2VydmF0aW9uIHN0YXR1cyBvZiB0aGUgYW5pbWFsLCBhbmQgYXdha2UgaXMgdGhlIHRpbWUgc3BlbnQgYXdha2UgKGluIGhvdXJzKSBmb3IgdGhlIGFuaW1hbC4gVGhpcyBncmFwaCBzdGFja3MgYSBib3hwbG90LCB0aGUgcG9pbnQgZ3JhcGgsIGFzIHdlbGwgYXMgYSBqaXR0ZXIgdG8gdGhlIHBvaW50cyB0byBiZXR0ZXIgcmVwcmVzZW50IHRoZSBkYXRhLiBDb2xvciBpcyBhbHNvIGFkZGVkIHRvICJjb25zZXJ2YXRpb24iIHRvIGJldHRlciBicmluZyBvdXQgdGhlIGRpZmZlcmVuY2VzIGZvciBlYXNpZXIgaW50ZXJwcmV0YXRpb24uIFRoZSB4LCB5LCBhbmQgbGVnZW5kIGFyZSByZWxhYmVsZWQgc28gdG8gYmUgY2FwaXRhbGl6ZWQuIFRoZXJlIHdhcyBhbiBvcHRpb24gdG8gY29vcmRfZmxpcCgpIHRoaXMgZGF0YSwgYnV0IGkgdGhpbmsgaXQgbG9va3MgbXVjaCBiZXR0ZXIgd2hlbiBwcmVzZW50ZWQgdmVydGljYWxseS4gDQoNCiMgDQoNCiMjIyBQbG90IDkgYW5kIDEwOiBZb3VyIGNob2ljZSBvZiBzY2F0dGVyIHBsb3RzIHdpdGhpbiBtc2xlZXAgZGF0YSBzZXQNCg0KYGBge3J9DQpkYXRhKG1zbGVlcCkNCj9tc2xlZXANCmBgYA0KDQpBY3F1aXJlcyB0aGUgZGF0YSBmb3IgIm1zbGVlcCIgYW5kIGV4YW1pbmVzIHRoZSBwcm9wZXJ0aWVzIG9mIHRoZSBkYXRhIHNldC4gDQoNCiMgUGxvdCA5DQoNCmBgYHtyfQ0KZ2dwbG90KGRhdGEgPSBtc2xlZXAsIG1hcHBpbmcgPSBhZXMoeCA9IGF3YWtlLCB5ID0gYm9keXd0KSkgKyANCiAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKGNvbG9yID0gb3JkZXIpKSANCmBgYA0KDQpDcmVhdGVzIGEgc2NhdHRlcnBsb3Qgb2YgdGhlIG1zbGVlcCBkYXRhIHNldCBjb21wYXJpbmcgImF3YWtlIiBhbmQgImJvZHl3ZWlnaHQiLiBUaGUgb3JkZXIgdGhhdCB0aGUgbWFtbWFsIGlzIGluIGlzIHRoZW4gcHJlc2VudGVkIGluIGNvbG9yLiANCg0KIyBUcmVuZHMgYmV0d2VlbiB0aGUgdGltZSBzcGVudCBhd2FrZSBhbmQgdGhlIGJvZHl3ZWlnaHQgY2FuIGJlIHNlZW4gYmV0d2VlbiBhIGZldyBvIHRoZSBvcmRlcnMuIE1vc3Qgb2YgdGhlIENocm9wdGVyYSBvcmRlciB0cmVuZCB0byBiZSBsb3cgaW4gYm9keXdlaWdodCBhbmQgc3BlbmQgbGl0dGxlIHRpbWUgYXdha2UuIFRoZSBSb2RlbnRpYSBvcmRlciBhcmUgYWxsIHZlcnkgbG93IGluIGJvZHl3ZWlnaHQsIGJ1dCBoYXZlIGEgd2lkZSByYW5nZSBvZiBzbGVlcGluZyBob3VycyBmcm9tIH43IGhvdXJzIHRvIHVwd2FyZHMgb2YgfjE3IGhvdXJzLiBBIHRoaXJkIHRyZW5kIHRoYXQgY2FuIGJlIHNlZW4gaXMgaW4gdGhlIFBlcmlzc29kYWN0eWxhIG9yZGVyOyB3aGljaCB0ZW5kIHRvIGJlIGF3YWtlIGZvciAxNysgaG91cnMgYW5kIGhhdmUgaGlnaGVyIGJvZHkgd2VpZ2h0cyBvZiBhdGxlYXN0IH4yMDAgcG91bmRzIHRvIHVwd2FyZHMgb2YgfjYwMCBwb3VuZHMuIA0KDQojDQoNCiMgUGxvdCAxMCANCg0KYGBge3J9DQpnZ3Bsb3QoZGF0YSA9IG1zbGVlcCwgbWFwcGluZyA9IGFlcyh4ID0gc2xlZXBfdG90YWwsIHkgPSBicmFpbnd0KSkgKyANCiAgZ2VvbV9wb2ludChtYXBwaW5nID0gYWVzKGNvbG9yID0gdm9yZSkpICsgDQogIGZhY2V0X3dyYXAofiB2b3JlLCBuY29sID0gMykNCmBgYA0KDQpDcmVhdGVzIGEgc2NhdHRlciBwbG90IG9mIHRoZSBtc2xlZXAgZGF0YSBzZXQgY29tcGFyaW5nICJzbGVlcF90b3RhbCIgYW5kICJicmFud3QiLiBUaGUgInZvcmUiIHN0YXR1cyBvZiB0aGUgYW5pbWFsLCAoY2Fybml2b3JlLCBvbW5pdm9yZSwgaGVyYml2b3JlLCBpbnNlY3Rpdm9yZSksIGlzIGFsc28gc2hvd24gaW4gY2F0ZWdvcmllcyBvZiBjb2xvci4gQSBmYWNldCB3cmFwIHdhcyBhcHBsaWVkIHRvIHNlcGFyYXRlIG91dCB0aGUgZGlmZmVyZW50IGNsYXNzZXMgYW5kIHNlcGFyYXRlZCBpbnRvIDMgY29sdW1ucy4gDQoNCiMgVHJlbmRzIGNhbiBiZSBzZWVuIGJldHdlZW4gdGhlIGRpZmZlcmVudCBjbGFzc2VzIG9mIHZvcmUuIE1vc3Qgb21uaXZvcmVzIGFyZSBmb3VuZCB0byBzbGVlcCBhcm91bmQgfjEwIGhvdXJzIGFuZCBoYXZlIGEgYnJhaW4gd3QgbG93ZXIgdGhhbiAxIHBvdW5kLiBNb3N0IGhlcmJpdm9yZXMgc2xlZXAgZm9yIGxlc3MgdGhhbiA1IGhvdXJzIGFuZCBoYXZlIGJyYWlud2VpZ2h0cyBhcm91bmQgfjAuNSBwb3VuZHMuIEkgY2hvc2UgdG8gYXBwbHkgMyBjb2x1bW5zIHRvIHRoZSBmYWNldCB3cmFwLCBhcyBpdCBtYWtlcyBpdCBlYXNpZXN0IGZvciBtZSB0byBjb21wYXJlIHRoZSBncmFwaHMgcGVyc29uYWxseS4gDQoNCiM=</div>
 
 
 
