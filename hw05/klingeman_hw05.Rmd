@@ -13,38 +13,88 @@ library("tidyverse")
 ```
 
 
-### Plot 1
+### Plot 1: Scatterplot of the trees data set
 
 ```{r}
 data(trees)
 ?trees
 ```
 
-# acquires the dataset for "trees' and examines the properties of the data set. 
+acquires the data set for "trees' and examines the properties of the data set. 
 
 ```{r}
 ggplot(data = trees, mapping = aes(x = Height, y =Girth)) +
 geom_point()
 ```
 
-# creates a scatterplot comapring Height vs Girth from the trees data set. 
+creates a scatterplot comparing Height vs Girth from the trees data set. 
 
 #
 
 
-### Plot 2 
+### Plot 2: Linegraph of the lynx dataset
+
+```{r}
+data(lynx)
+?lynx
+```
+
+acquire the data set for "lynx" and examines the properties of the data set. 
 
 ```{r}
 year <- c(1821:1934)
 year
 ```
 
-# creates a vector namecd "year" which contains the numbers 1821-1934. The data iwthin the vector is then displayed
+creates a vector named "year" which contains the numbers 1821-1934. The data within the vector is then displayed
 
 ```{r}
-pelts <- as.vector(lynx)
-lynx_pelts <- pelts
-time(lynx_pelts) <- year
-
+class(lynx)
 ```
+displays the class of data that the "lynx" dataset is, which is a Time Series (ts)
+
+```{r}
+pelts =as.vector(lynx)
+pelts
+```
+
+converts the lynx data set into a vector. 
+
+```{r}
+lynx_pelts <- data.frame(year, pelts)
+lynx_pelts
+```
+
+Creates a dataframe comparing the vectors "year" and "pelts"
+
+```{r}
+ggplot(data=lynx_pelts) + 
+  geom_line(mapping = aes(x = year, y = pelts),color="maroon")
+```
+
+Creates a line graph comparing the "year" vector to the "pelts" vector within the data set "lynx_pelts". The color of the line is then changed to maroon. 
+
+#
+
+### Plot 3: Scatterplot of the iris data set
+
+
+```{r}
+data(iris)
+?iris
+```
+
+acquire the data for "iris" and examines the properties of the data set.
+
+```{r}
+ggplot(data = iris, mapping=aes(x = Petal.Length, y = Petal.Width)) + 
+  geom_point(mapping = aes(color = Species, shape = Species, size=2)) +
+  labs(x = "Petal Length", y = "Petal Width")
+```
+
+Creates a scatterplot of the iris data set that compares the "Petal.Length" to "Petal.Width". There is also a third variable, "Species", which is shown by the differences in color and shape. The size of the points is then changed to 2. 
+
+#
+
+### Plot 4 and 5: 
 
