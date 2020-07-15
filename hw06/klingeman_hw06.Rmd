@@ -147,29 +147,68 @@ Read [R4ds Chapter 11: Data Import](https://r4ds.had.co.nz/data-import.html), se
 
 Nothing to do here unless you took a break and need to reload `tidyverse`.
 
+```{r}
+library(tidyverse)
+```
+
 ### 11.2 Getting started.
 
 Do *not* run the first code chunk of this section, which begins with `heights <- read_csv("data/heights.csv")`. You do not have that data file so the code will not run.
 
 Enter and run the remaining chunks in this section.
 
+```{r}
+read_csv("a, b, c
+         1, 2, 3
+         4, 5, 6")
+```
+
+# An example tibble that shows how the read_csv function works. Uses the first line to title the column names with each "," separating the names. 
+
+```{r}
+read_csv("The first line of metadata
+         The second line of metadata
+         x, y, z
+         1, 2, 3", skip=2)
+```
+
+# An example tibble that shows off the "skip = n" function. This function will skip "n" lines before it reads the line to pick a title. In this case it skips the two lines of text and uses "x, y, z" as the names. 
+
+```{r}
+read_csv("1,2,3\n4,5,6", col_names = FALSE)
+```
+
+# This example creates a tibble, but prevents the read_csv from takign the column names. Instead they are given "Xn" column names, and the first line iwll instead be listed as a row. 
+
+```{r}
+read_csv("1,2,3\n4,5, 6", col_names = c("x", "y", "z"))
+```
+
+# This example shows how to use col_names within a tibble to list the column name, and have the first line become the first row. 
 
 #### 11.2 Questions
 
 **1:** What function would you use to read a file where fields were separated with "|"?
+
+To read a file with pipes we sould use the "read_delim(). 
 
 
 
 **2:** (This question is modified from the text.) Finish the two lines of `read_delim` code so that the first one would read a comma-separated file and the second would read a tab-separated file. You only need to worry about the delimiter. Do not worry about other arguments. Replace the dots in each line with the rest of your code. 
 
 # Comma-separated
-`file <- read_delim("file.csv", ...)`
+`file <- read_delim("file.csv", delim = ",")'`
 
 # Tab-separated
-`file <- read_delim("file.csv", ...)`
+`file <- read_delim("file.csv", "   ")`
+
 
 
 **3:** What are the two most important arguments to `read_fwf()`? Why?
+
+file.csv: Provides data for read_fwf to extract, needed for any function. 
+fwf_width/fwf_position: Used to specifiy points and positions in the table to work with. 
+
 
 
 **4:** Skip this question
@@ -184,6 +223,26 @@ read_csv("a,b\n\"1")
 read_csv("a,b\n1,2\na,b")
 read_csv("a;b\n1;3")
 ```
+
+Line 1: A column is missing as well as two data points: 3 and 6. This happens because there is no name in the first line. 
+  Potential fix:  read_csv("a,b, c\n1, 2, 3\n4, 5, 6")
+  
+Line2: There is a missing input on line 2 as well as an extra input on line 4. 
+  Potential fix 1: read_csv("a,b,c\n1,2, 3\n1,2,3")
+  Potential fix 2: read_csv("a,b,c,d\n1,2\n1,2,3,4")
+  
+Line3: There are two columns, but only 1 point of data. This gives a null on the 2nd row 2nd position. Either adding a point to this position or removing a column would fix the issue. There is also separated backticks on the lines. 
+  Potential fix1: read_csv("a\n\"1")
+  Potential fix2: read_csv("a, b\n1, 2")
+  
+Line4: This one is strange as it lists letters in teh data frame. These are usually used to refer to points/positions and placed inside of "". Having these here seems completely unintuitive. 
+  Potential fix1: read_csv("a,b\n1,2")
+  
+Line5: The data is being separated by semicolons instead of commas, which causes the data to not separate properly. Either changing read_csv to read_csv2 or changing the semicolons out for commas would fix the issue. 
+  Potential fix 1: read_csv2("a;b\n1;3")
+  Potential fix 2: read_csv("a, b\n1,3")
+
+#
 
 ### 11.3 and 11.4: Not required
 
