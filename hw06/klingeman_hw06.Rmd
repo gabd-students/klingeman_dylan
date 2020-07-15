@@ -278,6 +278,49 @@ You do not have to run any of the examples in this section.
 
 Read and run the examples through section 12.3.1 (gathering), including the example with `left_join()`. We'll cover joins later.
 
+```{r}
+table4a
+```
+
+example table that shows a layout of a tibble. 
+
+```{r}
+table4a %>% 
+  pivot_longer(c('1999', '2000'), names_to = "year", values_to = "cases")
+```
+
+modifies the table above by pivoting the data around. In this case it takes the 2 columns above and merges them while applying the name "year" to them. In addition it moves the values given into their own columns and assigns the name "cases". 
+
+```{r}
+table4b %>% 
+  pivot_longer(c('1999', '2000'), names_to = "year", values_to = "population")
+```
+
+Similar to the example above, this modifies the table4b and arranges the data so that the value is separated from it's description (years to population in this case).
+
+```{r}
+tidy4a <- table4a %>% 
+  pivot_longer(c('1999', '2000'), names_to = "year", values_to = "cases")
+tidy4b <- table4b %>% 
+  pivot_longer(c('1999', '2000'), names_to = "year", values_to = "population")
+left_join(tidy4a, tidy4b)
+```
+
+This example does everything all in one! It repeats the modifications in the two examples above, but also introduces the joining argument, which combines data sets together. By doing "left_join" it attaches the two vectors together and makes a combined table. 
+
+```{r}
+table2
+```
+
+An example table from the data base, showing TB cases around the world. 
+
+```{r}
+table2 %>% 
+  pivot_wider(names_from = type, values_from = count)
+```
+
+This example introduces us to "pivot_wider" which is an argument like pivot_longer from above. Pivot_wider works to combine data within a column, and use it to create new columns to reduce the length of the data set. In this example it cuts the armount of rows necessary in half. 
+
 #### 12.3 Questions
 
 **2:** Why does this code fail? Fix it so it works.
@@ -287,6 +330,20 @@ table4a %>%
   gather(1999, 2000, key = "year", value = "cases")
 #> Error in inds_combine(.vars, ind_list): Position must be between 0 and n
 ```
+
+When comparing it to the code from above, we can see several changes that cause this code to not work. The numvers 1999 and 2000 need to be within "" to be recognized as variables. In addition the pivot_longer has been changed to "gather", which will not work in this context. The other change is names_to into "key" which should be reverted. Doing these steps will give a functional tibble as shown below. 
+
+```{r}
+table4a %>% 
+  gather("1999, 2000", key = "year", value = "cases")
+```
+
+```{r}
+table4a %>% 
+  pivot_longer(c("1999", "2000"), names_to = "year", values_to = "cases")
+```
+
+Example fix to problem above. 
 
 That is all for Chapter 12. On to the last chapter.
 
