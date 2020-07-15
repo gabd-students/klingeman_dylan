@@ -1,6 +1,6 @@
 ---
 title: "HW06 Part 1: Complete the sections"
-author: "your name"
+author: "Dylan Klingeman"
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output: html_notebook
 editor_options: 
@@ -23,12 +23,60 @@ Read [R4ds Chapter 10: Tibbles](https://r4ds.had.co.nz/tibbles.html), sections 1
 
 Load the tidyverse package. 
 
+
+```{r}
+library(tidyverse)
+```
+
+Loads the tidyverse package, to be used in later sections. 
+
+#
+
 ### 10.2: Creating tibbles
 
 Enter your code chunks for Section 10.2 here.
 
 Describe what each chunk code does. 
 
+
+```{r}
+as_tibble(iris)
+```
+
+Creates a tible for the iris dataset. A tible is similar to a data frame, but with some notable differences in it's execution. 
+
+```{r}
+tibble(
+  x = 1:5, 
+  y = 1, 
+  z = x ^ 2 + y
+)
+```
+
+Creates a simple table with 5 rows, showing some math for example. 
+
+```{r}
+tb <- tibble(
+  ':)' = "smile", 
+  ' ' = "space", 
+  '2000' = "number"
+)
+tb
+```
+
+Creates "tb" which is a table with some smalls ample information, within a tibble. 
+
+```{r}
+tribble( 
+  ~x, ~y, ~z, 
+  #--/--/----
+  "a", 2, 3.6, 
+  "b", 1, 8.5
+  )
+```
+Creates a table and assigns values to an x, y, and z axis. 
+
+#
 
 ### 10.3: Tibbles vs data.frame
 
@@ -37,6 +85,23 @@ Enter your code chunks for Section 10.2 here.
 Describe what each chunk code does. 
 
 
+```{r}
+df <- tibble(
+  x = runif(5), 
+  y = rnorm(5)
+)
+df$x
+
+df[["x"]]
+
+df[[1]]
+```
+
+
+This step creates a tibble and then shows how to pull out specific pieces within it. In this example it shows how to get differnet places in the x variable. 
+
+#
+
 ### 10.4: Not required
 
 #### Section 10.5 Questions
@@ -44,6 +109,9 @@ Describe what each chunk code does.
 Answer the questions *completely.* Use code chunks, text, or both, as necessary.
 
 **1:** How can you tell if an object is a tibble? (Hint: try printing `mtcars`, which is a regular data frame). Identify at least two ways to tell if an object is a tibble. *Hint:* What does `as_tibble()` do? What does `class()` do? What does `str()` do?
+
+
+The easiest way to tell if an object is a tibble is looking at the number of rows that appear when looking at the data. A tibble will only show the 1st 10 rows out of the data set, but a normal data set will show all of the rows. Another feature of tibble is that it doesnt change: input type, names of variables, or create names for rows. 
 
 
 
@@ -56,6 +124,20 @@ df[, "xyz"]
 df[, c("abc", "xyz")]
 ```
 
+
+```{r}
+dt <- tibble( 
+  "abc" = 1, 
+  "xyz" = "a"
+  )
+dt$xyz
+dt[["xyz"]]
+dt[[2]]
+```
+
+# Creates a tibble for the above data frame and saves it to a variable "dt". Then displays the 2nd variable in 3 differant ways for example. 
+
+Between the two, when searching for a specific variable it is much easier to do on a tibble. For a data frame you have to state the specific row or column that the variable is in, then name it or state the x/y axis point. With a tibble it is much easier to state the variable that you want at that time with $. The data frame is still able to acquire this information, but is more complex to have the same result. 
 
 ## Chapter 11: Importing data
 
