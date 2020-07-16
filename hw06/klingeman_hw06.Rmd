@@ -578,18 +578,87 @@ This arranges flights in ascending order of how many miles they traveled.
 
 ### 5.4 Select columns with `select()`
 
+```{r}
+select(flights, year, month, day)
+```
+
+Only shows the data on year, month, and day for flights data set. 
+
+```{r}
+select(flights, year:day)
+```
+
+Only shows data that is between the two columns year and day in the flights data set. Since month is the only column between year and day, it stays the same as the above. 
+
+```{r}
+select(flights, -(year:day))
+```
+
+Shows every column except those between year and day in the flights data set. 
+
+```{r}
+rename(flights, tail_num = tailnum)
+```
+
+Changes the name of teh "tail_num" column to "tailnum". This is usefult o change the column name without affecting anything else within the data set. 
+
+```{r}
+select(flights, time_hour, air_time, everything())
+```
+
+This code chunk selects the time_hour and air_time, but then also selects everything afterwards. This effectively moves the first two into the front of the column order. 
+
 #### 5.4 Questions
 
 **1:** Brainstorm as many ways as possible to select `dep_time`, `dep_delay`, `arr_time`, and `arr_delay` from flights. Find at least three ways.
 
+```{r}
+select(flights, dep_time, dep_delay, arr_time, arr_delay)
+```
+
+Example 1: Most reasonable
+
+```{r}
+select(flights, -(year), -( month), -(day), -(sched_dep_time), -(sched_arr_time), -(carrier), -(flight), -(tailnum), -(origin), -(dest), -(air_time), -(distance), -(hour), -(minute), -(time_hour))
+```
+
+Example 2: (this one seems excessive)
+
+```{r}
+select(flights, -(carrier:time_hour), -(year:day), -(sched_dep_time), -(sched_arr_time))
+```
+
+Example 3: This was a little better
+
+```{r}
+flights %>% select(starts_with("arr") | starts_with("dep"))
+```
+
+Example 4: Finaly figured out how to use the pipe!
 
 **2:** What happens if you include the name of a variable multiple times in a `select()` call?
 
+```{r}
+flights %>% select(year, year, year, month)
+```
 
+No matter how many times you list the same variable, it will only be returned by select() once. 
 
 **3:** What does the `one_of()` function do? Why might it be helpful in conjunction with this vector?
 
 `vars <- c("year", "month", "day", "dep_delay", "arr_delay")`
+
+```{r}
+vars <- c("year", "month", "day", "dep_delay", "arr_delay")
+```
+
+One_of() selects for a variable that is listed behind it. Even if there are several variables that are not in the data set, it will still return the listed ones. This can be useful to check for a variable if it is not known. This could be done by doing something like this. 
+
+```{r}
+select(flights, one_of(vars))
+```
+
+This code chunk checks for the variables in the "vars" vector, compared to the flights data set. Since there are matches betwenen the variables, it will return all the columns specified by vars within flights. 
 
 
 
@@ -597,4 +666,20 @@ This arranges flights in ascending order of how many miles they traveled.
 
 `select(flights, contains("TIME"))`
 
+```{r}
+select(flights, contains("TIME"))
+```
 
+It appears that the case does not matter, as this code chunk pulls all values with "time" even though they arent capatilized. Using something like ignore.case = FALSE would change this. 
+
+```{r}
+select(flights, contains("TIME", ignore.case = FALSE))
+```
+
+This sets the select to be case sensitive, so in this case it will not select any of the above categories since "TIME" is not in them. If this is changed to lower case it will work however, as shown below. 
+
+```{r}
+select(flights, contains("time", ignore.case = FALSE))
+```
+
+#
