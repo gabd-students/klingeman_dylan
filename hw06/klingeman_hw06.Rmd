@@ -494,25 +494,87 @@ The general rule that I take from this is that, assigning a condition to a varia
 
 ### 5.3 Arrange with `arrange()`
 
+```{r}
+arrange(flights, year, month, day)
+```
+
+This arranges the order of flights so that they are displayed in order of their year, month, and days. 
+
+```{r}
+arrange(flights, desc(dep_delay))
+```
+
+This arranges the flights in order of decreasing departure delay. 
+
+```{r}
+df <- tibble(x = c(5, 2, NA))
+arrange(df, x)
+```
+
+This creates a tibble with 2 numbers out of order. Then the arrange argument is used to enter the numbers in a correct order. 
+
+```{r}
+arrange(df, desc(x))
+```
+
+This takes the above tibble  and lists the numbers in descending order. 
 
 #### 5.3 Questions
 
 **1:** How could you use `arrange()` to sort all missing values to the start? (Hint: use is.na()). **Note:** This one should still have the earliest departure dates after the `NA`s. *Hint:* What does `desc()` do?
 
+```{r}
+arrange(flights, desc(year, month, day,  is.na(year, month,day, dept_time)))
+```
+
+
+    
 
 **2:** Sort flights to find the most delayed flights. Find the flights that left earliest. 
 
 This question is asking for the flights that were most delayed (left latest after scheduled departure time) and least delayed (left ahead of scheduled time).
 
+```{r}
+arrange(flights, desc(dep_delay))
+```
+
+Arranges flights in order of how long they were delayed, with the most at the top. 1301 minutes is over 20 hours!
+
+```{r}
+arrange(flights, -desc(dep_delay))
+```
+
+Arranges flights in order of how long they were delayed, with the least at the top. 43 minutes ahead of schedule is quite alot, I imagine quite a few missed that flight. 
 
 **3:** Sort flights to find the fastest flights. Interpret fastest to mean shortest time in the air.
 
+```{r}
+arrange(flights, -desc(air_time))
+```
+
+Arranges flights in order of how long they took to land. The fastest was 20 minutes. 
 
 *Optional challenge:* fastest flight could refer to fastest air speed. Speed is measured in miles per hour but time is minutes. Arrange the data by fastest air speed.
 
+```{r}
+arrange(flights, desc(distance/air_time))
+```
+
+This arranges flights in order of the highest distance traveled per air_time, which translates to the fastest speed. The top row traveled 762 miles in 65 minutes. Dividing this out and then multiplying by sixty gives over 700 miles per hour! This seems extremely fast. 
 
 **4:** Which flights travelled the longest? Which travelled the shortest?
 
+```{r}
+arrange(flights, desc(distance))
+```
+
+This arranges flights in descending order of how many miles they traveled. 
+
+```{r}
+arrange(flights, -desc(distance))
+```
+
+This arranges flights in ascending order of how many miles they traveled. 
 
 ### 5.4 Select columns with `select()`
 
