@@ -358,6 +358,12 @@ Time to [get small.](https://www.youtube.com/watch?v=GOrdzCHnpw4)
 
 Load the necessary libraries. As usual, type the examples into and run the code chunks.
 
+
+```{r}
+library(nycflights13)
+library(tidyverse)
+```
+
 ### 5.2: Filter rows with `filter()`
 
 Study Figure 5.1 carefully. Once you learn the `&`, `|`, and `!` logic, you will find them to be very powerful tools.
@@ -367,31 +373,121 @@ Study Figure 5.1 carefully. Once you learn the `&`, `|`, and `!` logic, you will
 
 **1.1:** Find all flights with a delay of 2 hours or more.
 
+```{r}
+filter(flights, !(arr_delay <= 120 | dep_delay <= 120))
+```
+
+
+
+This creates a filter that will show only data within "flights" where the arrival or departure delay were greater than 2 hours (120 minutes). The | creates the "or" and the ! says not, which then removes the data it is then told to.  
 
 **1.2:** Flew to Houston (IAH or HOU)
 
+```{r}
+filter(flights, dest == "IAH" | dest == "HOU")
+```
+
+Filters for flights that had a destination of Houston which is "IAH" or "HOU". Backticks are key to looking up word variables. 
 
 **1.3:** Were operated by United (UA), American (AA), or Delta (DL).
 
+```{r}
+filter(flights, carrier %in% c("UA", "AA", "DL"))
+```
+
+Filters for flights that had the above carriers: UA, AA, or DL. Again note the quotation around the names given. Also using the "%in%" argument to search for specific variables. in this case we use it on the three names above. 
 
 **1.4:** Departed in summer (July, August, and September).
 
+```{r}
+filter(flights, month %in% c(7:9))
+```
+
+Filters for flights in July, August and September (7th, 8th, and 9th month of theyear respectively). This is done again usign the %in% and a colon. Originally I thought to list out the numbers, 7, 8, 9, but using the colon saves coding space. 
 
 **1.5:** Arrived more than two hours late, but didn’t leave late.
+
+
+```{r}
+filter(flights, arr_delay >= 120 & dep_delay <= 0)
+```
+
+Filters for flights that had no departure delay, or left early that arrived 2 hours or more late. I had some difficulty getting to work this in a format with the ! like above. 
 
 **1.6:** Were delayed by at least an hour, but made up over 30 minutes in flight. This is a tricky one. Do your best.
 
 
+```{r}
+filter(flights, dep_delay >=60 & (arr_delay - dep_delay) < -30)
+```
+
+Filters for flights that were delayed by at least an hour, as well as made up at least 30 minutes ruing the flight. This is done by subtracting the arrival delay from the departure delay, then filtering by differences of 30 or higher. I initially tried to just show arrival delays that were less than 30 minutes, but this was not able to pick up the flights that had very large initial delays. 
+
 **1.7:** Departed between midnight and 6am (inclusive)
+
+
+```{r}
+filter(flights, dep_time %in% (0:600))
+```
+
+Filters for flights that departed between midnight (000) and 6 am (600). I initially did this b doing a greater than statement, with an & as well as a lesser than. However, doing it like this was much shorter and neater to do the same thing. 
 
 
 **2:** Another useful dplyr filtering helper is `between()`. What does it do? Can you use it to simplify the code needed to answer the previous challenges?
 
+"Between()" is an argument that filters data that is only between two variables. This can be used similarly to the %in% questions above, replacing that argument with a colon. Using the between argument would not be inclusive, but it should otherwise be similar. 
+
+1.4: 
+```{r}
+filter(flights, between(month, 7, 9))
+```
+
+1.7: 
+```{r}
+filter(flights, between (dep_time, 0, 600))
+```
+
 
 **3:** How many flights have a missing dep_time? What other variables are missing? What might these rows represent?
 
+```{r}
+filter(flights, is.na(dep_time))
+```
+
+There are 8,225 flights that are missing their departure times, as well as their: departure delay, arrival times, arrival delay, and air times every single time. The tail number of the plane was also missing sometimes, but rarely. These are most likely flights that were canceled. 
+
 
 **4:** Why is `NA ^ 0` not missing? Why is `NA | TRUE` not missing? Why is `FALSE & NA` not missing? Can you figure out the general rule? (`NA * 0` is a tricky counterexample!)
+
+
+```{r}
+NA^0
+```
+
+This will always produce 1, because anyting to the power of 0 will produce 1. 
+
+```{r}
+NA|TRUE
+```
+
+This returns "TRUE" because it is assignign true to the NA variable. This would do the same thing with anything placed there as below. 
+
+```{r}
+3|TRUE
+```
+ 
+ 
+```{r}
+FALSE & NA
+```
+
+This is similar to the true statement, by assigning the variable to be false it will return NA no matter what you put in there as shown below. 
+
+```{r}
+FALSE & 3
+```
+
+The general rule that I take from this is that, assigning a condition to a variable works on most anything. If needed this can be used to mark something in absolute. Another take from this is that NA is more of an answer to an output than it is a variable. Manipulating it with conditions is easy as shown above, but this is taking it out of context of it's purpose. 
 
 **Note:** For some context, see [this thread](https://blog.revolutionanalytics.com/2016/07/understanding-na-in-r.html)
 
