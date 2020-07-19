@@ -1,0 +1,106 @@
+---
+title: "HW07 Data Importing and Wrangling"
+author: "Dylan Klingeman"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(here)
+```
+
+### Limpets
+
+```{r}
+limpets_data <- read_csv(here("data", "limpets.csv"))
+```
+
+This chunk imports the data from the limpets.csv file. 
+
+# Check if the data is tidy
+
+The limpets data is tidy and arranged in 3 neat columns.  
+
+```{r}
+limpets_data <- read_csv(here("data", "limpets.csv"),col_types = "ncc")
+```
+
+Assigns the column types to numerical, character, character
+
+# Assign order factor
+```{r}
+factor(limpets_data$Site, levels = c("PBL", "KNRM", "VBG", "WP", "PF", "DP", "SIO", "CTZ1", "CTZ2", "CNM"), ordered = TRUE)
+```
+
+Assigns an order level to the sites column. Order: PBL, KNRM, VBG, WP, PF, DP, SIO, CTZ1,  CTZ2, CNM. Ordered = true is necessary for them to be placed in order. levels=c is required for any vector. 
+
+# Boxplot of limpets data
+
+```{r}
+ggplot(data=limpets_data) + 
+  geom_boxplot(mapping = aes(x = Site, y = Length, color = Protected)) + 
+  labs(x = "Site", y = "Length (mm)")
+```
+
+Creates a boxplot of the limpets data. Length is assigned to the x variable, Site is assigned to the y variable, and the protected status is indicated by color. The Length is also specified using a label fucntion to be measured in millimeters. 
+
+There are outliers for two of the sites which are the WP and DP sites. We can see the dots outside of the "whisker" of the boxplot. Its also worth noting that these two are both unprotected sites. Looking at the data the protected sites all have the longest length of limpets. 
+
+### Roseate Terms
+
+```{r}
+roseate_data <- read_tsv(here("data", "roseate_terns.txt"))
+```
+
+Loads the roseate_terns data set. 
+
+# Check if the data is tidy
+
+The data set is not tidy and separated into many differant columns
+
+```{r}
+tidy_roseate <- roseate_data %>% 
+  pivot_longer(c(AR:JC), 
+                names_to = "Site", 
+                values_to = "Population")
+```
+
+Tidies the data so that the variables in the columns were categorized into "Site" and population".
+
+```{r}
+tidy_roseate
+```
+
+# Filter out missing terms
+
+```{r}
+filter(drop_na(tidy_roseate))
+```
+
+Removes incomplete terms from the data set. 
+
+# Line plot of roseate data
+
+```{r}
+ggplot(data = tidy_roseate) + 
+  geom_line(mapping = aes(x = year, y = Population, color = Site)) + 
+  labs(x = "Year")
+```
+
+Creates a lineplot for the roseate terns data set. Year is applied to the x variable and population to the y variable. The site where the measurements were taken is then applied to color. A label is applied to "year" so that it is capitalized in the graph. 
+
+Significant increase: AR,BC 
+Significant decrease: BR, JR
+
+There were some other changes that fluctuated over the years, but these were the most stark changes to me. 
+
+The breaks in the lines are caused by the removed/missing data from earlier in which we removed. 
+
+### Blacklip Abalone
