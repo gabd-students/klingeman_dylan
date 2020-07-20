@@ -104,3 +104,70 @@ There were some other changes that fluctuated over the years, but these were the
 The breaks in the lines are caused by the removed/missing data from earlier in which we removed. 
 
 ### Blacklip Abalone
+
+# Chunk 1: Boxplot
+
+```{r}
+abalone_data <- read_csv(here("data", "abalone.csv"))
+select(abalone_data, -(X1))
+ggplot(data  = abalone_data) + 
+  geom_boxplot(mapping = aes(x = Type, y = Height))
+```
+
+This code chunk: imports the abalone data set, removes it's first column, and then graphs it into a boxplot comapring height and type. Removing the column is done by the -(X1)) argument. 
+
+Note: There are two outliers, one being male and the other female. 
+
+# Chunk 2: Scatterplot
+
+```{r}
+ggplot(data = abalone_data) + 
+  geom_point(mapping = aes(x = Rings, y = Height))
+```
+
+This code chunk creates a scatterplot of the abalone data set, comparing The amount of rings(age), to the height. There are two outliers we can see, which are around the 7th and 10th ring of the data. 
+
+The two outliers are not particularly old trees, as we can see by their ring count. They are in fact young. 
+
+# Chunk 3: Filter and recreate scatterplot
+
+```{r}
+abalone_data_filtered <- filter(abalone_data, Height <= 0.35)
+factor(abalone_data_filtered$Type, levels = c("I", "M", "F"))
+ggplot(data = abalone_data_filtered) + 
+  geom_point(mapping = aes(x = Rings, y = Height, color = Type))
+```
+
+This code chunk filters outliers from the abalone data set, y creating a new data set. This new data set is then factored, and then plotted into a new scatterplot. Height is compared to the amo unt of rings, as well as marked in color the type of the tree. From this we can see some patterns. 
+
+Immature trees usually have less than 12 rings and average around 0.10 height. Female trees appear to be the largest on average, but it is close in this data set. Also to note is that there are immature trees going past 20 rings! Also immature grees are frequently seen surpassing male and female trees in height. 
+
+# Chunk 4: Assinging NA
+
+```{r}
+abalone_data_filtered[abalone_data_filtered$Height == 0, 'Height'] <- NA
+ggplot(data = abalone_data_filtered) + 
+  geom_point(mapping = aes(x = Rings, y = Height, color = Type))
+```
+
+This code chunk removes the two 0 height trees recorded in the abalone data set. A scatterplot is then created comparing the rings, height, and types of trees. 
+The NA step was difficult and took some time messing with console commands to make it work. 
+
+# Chunk 5: Two scatterplots
+
+```{r}
+ggplot(data = abalone_data_filtered) + 
+  geom_point(mapping = aes(x = WholeWeight, y = Height, color = Type))
+```
+
+This code chunk creates a scatterplot comparing the whole weight of a tree to its height, as well as the  type. From this graph we can see that the weight is the lowest on immature trees, as one would expect, and even though female trees tend to be taller, males tend to have a heigher whole weight. 
+
+```{r}
+ggplot(data = abalone_data_filtered) + 
+  geom_point(mapping = aes(x = WholeWeight, y = Diameter, color = Type))
+```
+
+This code chunk creates a scatterplot comparing the whole weight of a tree to its diamater, as wella s displaying the type of the tree. This graph appears visually very much like the above one, as trees with a higher diameter tend to have a higher whole weight. This follows what we would expect, also of note is that the male and female trees seem evenly dispersed in diameter. 
+
+### Darters
+
