@@ -145,13 +145,13 @@ Immature trees usually have less than 12 rings and average around 0.10 height. F
 # Chunk 4: Assinging NA
 
 ```{r}
-abalone_data_filtered[abalone_data_filtered$Height == 0, 'Height'] <- NA
+na_if(abalone_data_filtered$Height, 0)
 ggplot(data = abalone_data_filtered) + 
   geom_point(mapping = aes(x = Rings, y = Height, color = Type))
 ```
 
 This code chunk removes the two 0 height trees recorded in the abalone data set. A scatterplot is then created comparing the rings, height, and types of trees. 
-The NA step was difficult and took some time messing with console commands to make it work. 
+The NA step was difficult and took some time messing with console commands to make it work. *Cleaner one found in public discussions
 
 # Chunk 5: Two scatterplots
 
@@ -171,3 +171,71 @@ This code chunk creates a scatterplot comparing the whole weight of a tree to it
 
 ### Darters
 
+```{r}
+
+darters_data <- read_fwf(here("data", "darter.txt"), fwf_widths(c(3, 11, 1, 1, 1, 3, 4, 4, 4, 3, 3, 2, 2)), comment = '#')
+named_darter <- darters_data %>% 
+  rename(ID = X1, Species = X2, Riffle = X3, Age = X4, Sex = X5, Length = X6, Depth = X7, Velocity = X8, Temperature = X9, Major_Sub = X10, Minor_Sub = X11, Major_Type = X12, Minor_Type = X13)
+```
+
+This code chunk organizes the data. The width of each column is specified by the number given. These are taken from the ranges given in the .txt document. Names are then assigned to each of the columns
+
+```{r}
+named_darter$Riffle <- factor(named_darter$Riffle,levels=c('1','2'))
+named_darter$Major_Type <- factor(named_darter$Major_Type, levels = c("s", "fg", "sg", "lg", "c"), ordered = TRUE)
+```
+
+This code chunk applies factors to the Riffle and Major_type categories. An ordered factor is appleid to the major types, and an order is assigned. For the Riffle an unordered factor is applied. 
+
+```{r}
+named_darter %>% 
+  filter(Species=="blennioides" | Species == "caeruleum" | Species == "spectabile") %>% 
+  rename(Major_Substrate = Major_Sub, Major_Type = Major_Type)
+ arrange(named_darter, ID) 
+ select(named_darter, -(c(Minor_Type, Minor_Sub)))
+```
+
+This code chunk Filters out three of the species in the data set, renames some of the columns, and then arranges by the ID column. The final line of this code chunk supposed to remove the Minor_type and Minor_sub columns. 
+# Plot 1
+
+```{r}
+ggplot(data = named_darter) + 
+  geom_point(mapping = aes(x = Depth, y = Length, color = Species, shape = Species)) + 
+  facet_wrap(~Riffle, nrow =  1)
+```
+
+This code chunk creates a scatterplot for the darter data set. The depth is being compared to the length, with the species being separated by both color and shape. 
+
+When comparing the two riffles the first difference I noticed was in the Blennioides. Blennioides are much more prevalent in the 2nd ripple and are shown to have a significant length difference. Another trend we can see is the depth is much higher on the first riffle. There are no species past 50 in the 2nd riffle, but there is botha   recorded spectabile and caeruleum past 60 in the first riffle. 
+
+# Plot 2
+
+```{r}
+ggplot(data = named_darter) + 
+  geom_boxplot(mapping = aes(x = Species, y = Length)) + 
+  facet_wrap(~Riffle, nrow = 1) +
+  coord_flip()
+```
+
+This code chunk creates a boxplot for the darter data set. The length of each species is compared between two riffles. A facet_wrap is applied to separate out these two riffles, and then a coord_flip is applied to improve visuals of the graph. 
+
+The second riffle has significantly more outliers than the first riffle. 
+
+
+# Plot 3
+
+```{r}
+ggplot(data = named_darter) + 
+  geom_boxplot(mapping = aes(x = Major_Sub, y = Length)) + 
+  facet_grid(Riffle ~ Species)
+```
+
+```{r}
+ggplot(data = named_darter) + 
+  geom_boxplot(mapping = aes(x = Major_Sub, y = Length)) + 
+  facet_grid(Species ~ Riffle)
+```
+
+The word listed first in the facet_grid is what will be on the y axis. For this case, it is much more clear visually if Species is placed on the y axis. 
+
+# 
