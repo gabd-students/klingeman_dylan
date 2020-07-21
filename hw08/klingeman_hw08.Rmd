@@ -1,0 +1,117 @@
+---
+title: "HW 08: More Data Wrangling"
+author: "Dylan Klingeman"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+- Change "your name" in the YAML header above to your name.
+
+- As usual, enter the examples in code chunks and run them, unless told otherwise.
+
+## Chapter 5: Data transformation
+
+Read [R4ds Chapter 5: Data transformation](https://r4ds.had.co.nz/transform.html), sections 5-7.
+
+**You do not answer any of the questions this week.** Just read and run all of the examples as noted below. Pay attention to the code you enter for the examples. You will be applying the information in future assignments.
+
+### Section 5.5: Add new variables with `mutate()`
+
+Type and run all of the examples.
+
+Pay careful attention to the useful creation functions in section 5.5.1. 
+
+# 5.5.Add new variables with mutate()
+
+```{r}
+library(tidyverse)
+library(nycflights13)
+```
+
+Loads tidyverse library + flights library for use in later code chunks.
+
+```{r}
+flights_sml <- select(flights, 
+                      year:day, 
+                      ends_with("delay"), 
+                      distance, 
+                      air_time
+                      )
+mutate(flights_sml, 
+       gain = dep_delay - arr_delay, 
+       speed = distance / air_time * 60
+       )
+```
+
+This code chunk selects the flights data set usign some effficient code to pull the columns wanted. Afterwards the mutate() argument is used to add new columns in using data from previous columns. An example fo this is creating a column for speed, which we previously had to derive the data for manually in a past example. 
+
+```{r}
+mutate(flights_sml, 
+       gain = dep_delay - arr_delay, 
+```
+
+This code chunk again shows the mutate() argument being used to create new columns in the flights data set. This time it creates a gain, hours, and gain_per_hour column. 
+
+```{r}
+transmute(flights, 
+          gain = dep_delay - arr_delay, 
+          hours = air_time / 60, 
+          gain_per_hour = gain / hours
+          )
+```
+
+This code chunk uses the transmute() argument with the flights dataset. This example shows how the transmute argument only shows the newly created columns. In this case we again create columns for gain, hours, and gain_per_hour. 
+
+#
+
+# 5.5.1 Useful creation functions
+
+```{r}
+transmute(flights, 
+          dep_time, 
+          hour = dep_time %/% 100, 
+          minute = dep_time %% 100
+)
+```
+
+This code chunk creates an hour and minute time in the flights dataset by using arithmetic operators. 
+
+```{r}
+(x <- 1:10)
+lag(x)
+lead(x)
+```
+
+This code chunk assigns a range tot he x variable and then applies a lead and lag function to it. THe lag() argument causes the variable to delay by 1, and the lead causes it to move ahead by 1. 
+
+```{r}
+y <-  c(1, 2, 2, NA, 3, 4)
+min_rank(y)
+min_rank(desc(y))
+```
+
+This code chunk assigns values to the variable y and then applies the min_rank() and min_rank(desc()) arguments. The min_rank argument orders the numbers from smallest to largest. The 'desc" in the min_rank causes this to descend, which reverses it. 
+
+```{r}
+row_number(y)
+dense_rank(y)
+percent_rank(y)
+cume_dist(y)
+```
+This code chunk shows more ways to oragnize data within a variable. The row_number orders them by rows. Dense_rank orders them by value. Percent_rank orders the data and shows the percentage that it is from the maximum value. Cume_dist shows the proportion of each value compared to the maximum value. 
+
+#
+
+### Section 5.6: Grouped summaries with `summarise()`
+
+Read and run all of the examples. Pay careful attention to the useful summary functions. Unless you really like baseball, skip the baseball part of 5.6.3.
+
+### Section 5.7: Grouped mutates (and filters)
+
+Read and run all of the examples.
