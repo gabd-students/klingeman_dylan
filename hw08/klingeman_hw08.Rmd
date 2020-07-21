@@ -54,6 +54,9 @@ This code chunk selects the flights data set usign some effficient code to pull 
 ```{r}
 mutate(flights_sml, 
        gain = dep_delay - arr_delay, 
+       hours = air_time / 60,
+       gain_per_hour = gain / hours
+        )
 ```
 
 This code chunk again shows the mutate() argument being used to create new columns in the flights data set. This time it creates a gain, hours, and gain_per_hour column. 
@@ -228,11 +231,143 @@ This code chunk as presented does not work. This code chunk is supposed to show 
 # 5.6.4 Usefual summary functions
 
 ```{r}
+not_cancelled %>% 
+  group_by(year, month, day) %>% 
+  summarise(
+    avg_delay1 = mean(arr_delay), 
+    avg_delay2 = mean(arr_delay[arr_delay > 0])
+  )
+```
+
+This code chunk takes the mean of the arrival delay column in the flights dataset. There is a 1st and 2nd mean taken, one for all values, and one for only values above 0. This means that the 2nd one will filter out times where an arrival was done early. 
+
+```{r}
+not_cancelled %>% 
+  group_by(dest) %>% 
+  summarise(distance_sd = sd(distance)) %>% 
+  arrange(desc(distance_sd))
+```
+
+This code chunk groups and sumamrises the destination column of the not canceled flights in the flights data set. The standard deviation is then taken for this data and arranged descendingly. 
+
+```{r}
+not_cancelled %>% 
+  group_by(year, month, day) %>% 
+  summarise(
+    first = min(dep_time),
+    last = max(dep_time)
+  )
 
 ```
 
+This code chunk finds when teh first and last flight left on each day for the non canceled flights of the flights dataset. 
 
+```{r}
+not_cancelled %>% 
+  group_by(year, month, day) %>% 
+  mutate(r = min_rank(desc(dep_time))) %>% 
+  filter(r %in% range(r))
+```
+
+This code chunk orders the first and last fight on each day into a single column, repeating this for everyday. 
+
+```{r}
+not_cancelled %>% 
+  group_by(dest) %>% 
+  summarise(carriers = n_distinct(carrier)) %>% 
+  arrange(desc(carriers))
+```
+
+This code chunk counts the number of unique variables in the carrier column of the flights data set. This is then ordered by descending values. 
+
+```{r}
+not_cancelled %>% 
+count(dest)
+```
+
+This code chunk applies a count of flights that went to each destination in the flights data set. 
+
+```{r}
+not_cancelled %>% 
+  count(tailnum, wt = distance)
+```
+
+This code chunk coutns the total number of milles that each plane flew in the flights data set. The tailnumer is also listed for each flight. 
+
+```{r}
+not_cancelled %>% 
+  group_by(year, month, day) %>% 
+  summarise(n_early = sum(dep_time < 500))
+```
+
+This code chunk displays how many flights that departed before 5 am within the flights dataset. 
+
+```{r}
+not_cancelled %>% 
+  group_by(year, month, day) %>% 
+  summarise(hour_prop = mean(arr_delay > 60))
+```
+
+This code chunk shows how many flights had a delay of atleast 1 hour on each day of the flights dataset. 
+
+#
+
+# 5.6.5 Grouping by multiple variables
+
+```{r}
+daily <- group_by(flights, year, month, day)
+(per_day <- summarise(daily, flights = n()))
+
+(per_month <- summarise(per_day, flights = sum(flights)))
+
+
+(per_year <- summarise(per_month, flights = sum(flights)))
+```
+
+This code chunk groups the amount of flights per day in the flights dataset, and then lists them out among the year month, and day. Then it removes the day and displays the total for a month, and then the total for an entire year. 
+
+#
+
+# 5.6.6 Ungrouping 
+
+```{r}
+daily %>% 
+  ungroup() %>% 
+  summarise(flights = n())
+```
+
+This code chunk is used to remove the grouping shown in the previous example. 
 
 ### Section 5.7: Grouped mutates (and filters)
 
 Read and run all of the examples.
+
+# 5.7.0 
+
+```{r}
+flights_sml %>% 
+  group_by(year, month, day) %>% 
+  filter(rank(desc(arr_delay)) < 10)
+```
+
+This code chunk filters by arrival delays within the flights dataset, and then lists them in a descending order.
+
+```{r}
+popular_dests <- flights %>% 
+  group_by(dest) %>% 
+  filter(n() > 365)
+popular_dests
+```
+
+Sorts by the most popular destinations that were visited over 365 times. 
+
+```{r}
+popular_dests %>% 
+  filter(arr_delay > 0) %>% 
+  mutate(prop_delay = arr_delay / sum(arr_delay)) %>% 
+  select(year:day, dest, arr_delay, prop_delay)
+```
+
+This code chunk filters for the popular destinations from above, and then filters by those that had an arrival delay. Theyh are then ordered and arranged according to this delay. 
+
+#
