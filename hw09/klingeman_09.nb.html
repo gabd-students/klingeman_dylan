@@ -1782,17 +1782,30 @@ library(smatr)</code></pre>
 <p>This code chunk loads in the darters.csv dataset from the data folder. ***</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGFydGVyc19maWx0ZXJlZCA8LSBkYXJ0ZXJzX2RhdGEgJT4lIFxuICBmaWx0ZXIoc3BlY2llcyA9PSBcImJsZW5uaW9pZGVzXCIgfCBzcGVjaWVzID09IFwiY2FlcnVsZXVtXCIgfCBzcGVjaWVzID09XCJzcGVjdGFiaWxlXCIpXG5gYGAifQ== -->
-<pre class="r"><code>darters_filtered &lt;- darters_data %&gt;% 
-  filter(species == &quot;blennioides&quot; | species == &quot;caeruleum&quot; | species ==&quot;spectabile&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud3JhbmdsZWRfZGFydGVycyA8LSBkYXJ0ZXJzX2RhdGEgJT4lIFxuICBmaWx0ZXIoc3BlY2llcyA9PSBcImJsZW5uaW9pZGVzXCIgfCBzcGVjaWVzID09IFwiY2FlcnVsZXVtXCIgfCBzcGVjaWVzID09XCJzcGVjdGFiaWxlXCJcbiAgKSAlPiUgXG4gIG11dGF0ZShcbiAgICAgIHRvdGFsX3N1YnN0cmF0ZSA9IG1hanN1YiArIG1pbnN1YlxuICAgICAgICkgJT4lIFxubXV0YXRlKHNleCA9IGlmZWxzZShzZXggPT1cImZcIiwgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICBcImZlbWFsZVwiLCBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgIFwibWFsZVwiKSkgJT4lIFxubXV0YXRlKHJpZmZsZSA9IGlmZWxzZShyaWZmbGU9PTEsIFxuICAgICAgICAgICAgICAgICAgICAgICBcIlJpZmZsZSAxXCIsIFxuICAgICAgICAgICAgICAgICAgICAgICBcIlJpZmZsZSAyXCIpKVxuXG53cmFuZ2xlZF9kYXJ0ZXJzXG5gYGAifQ== -->
+<pre class="r"><code>wrangled_darters &lt;- darters_data %&gt;% 
+  filter(species == &quot;blennioides&quot; | species == &quot;caeruleum&quot; | species ==&quot;spectabile&quot;
+  ) %&gt;% 
+  mutate(
+      total_substrate = majsub + minsub
+       ) %&gt;% 
+mutate(sex = ifelse(sex ==&quot;f&quot;, 
+                           &quot;female&quot;, 
+                           &quot;male&quot;)) %&gt;% 
+mutate(riffle = ifelse(riffle==1, 
+                       &quot;Riffle 1&quot;, 
+                       &quot;Riffle 2&quot;))
+
+wrangled_darters</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>This code chunk filters out “tetrazonum” and “zonale” from the darters dataset.</p>
+<p>This code chunk wrangles the filtered darers.csv dataset. The species “tetrazonum” and “zonale” are filtered out from the data set. A new column “total_substrate” is added, which adds majsub + minsub. The sex column is modified so “f” and “m” are changed to “female” and “male”. The Riffle column is changed to list “Riffle 1” or “Riffle 2”. The new data set is then listed.</p>
+<hr />
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkhXIDA5OiBNb3JlIERhdGEgV3JhbmdsaW5nIElJIg0KYXV0aG9yOiAiRHlsYW4gS2xpbmdlbWFuIg0KZGF0ZTogImByIGZvcm1hdChTeXMudGltZSgpLCAnJWQgJUIgJVknKWAiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCmVkaXRvcl9vcHRpb25zOiANCiAgY2h1bmtfb3V0cHV0X3R5cGU6IGlubGluZQ0KLS0tDQoNCmBgYHtyIHNldHVwLCBpbmNsdWRlPUZBTFNFfQ0Ka25pdHI6Om9wdHNfY2h1bmskc2V0KGVjaG8gPSBUUlVFKQ0KYGBgDQoqKioNCiMgTGlicmFyaWVzDQpgYGB7cn0NCmxpYnJhcnkodGlkeXZlcnNlKQ0KbGlicmFyeShoZXJlKQ0KbGlicmFyeShrbml0cikNCmxpYnJhcnkoc21hdHIpDQpgYGANCioqKg0KDQojIERhdGFzZXRzDQpgYGB7cn0NCmRhcnRlcnNfZGF0YSA8LSByZWFkX2NzdihoZXJlKCJkYXRhIiwgImRhcnRlcnMuY3N2IikpDQpgYGANCg0KVGhpcyBjb2RlIGNodW5rIGxvYWRzIGluIHRoZSBkYXJ0ZXJzLmNzdiBkYXRhc2V0IGZyb20gdGhlIGRhdGEgZm9sZGVyLiANCioqKg0KDQpgYGB7cn0NCmRhcnRlcnNfZmlsdGVyZWQgPC0gZGFydGVyc19kYXRhICU+JSANCiAgZmlsdGVyKHNwZWNpZXMgPT0gImJsZW5uaW9pZGVzIiB8IHNwZWNpZXMgPT0gImNhZXJ1bGV1bSIgfCBzcGVjaWVzID09InNwZWN0YWJpbGUiKQ0KYGBgDQoNClRoaXMgY29kZSBjaHVuayBmaWx0ZXJzIG91dCAidGV0cmF6b251bSIgYW5kICJ6b25hbGUiIGZyb20gdGhlIGRhcnRlcnMgZGF0YXNldC4gDQoNCg0KDQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkhXIDA5OiBNb3JlIERhdGEgV3JhbmdsaW5nIElJIg0KYXV0aG9yOiAiRHlsYW4gS2xpbmdlbWFuIg0KZGF0ZTogImByIGZvcm1hdChTeXMudGltZSgpLCAnJWQgJUIgJVknKWAiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCmVkaXRvcl9vcHRpb25zOiANCiAgY2h1bmtfb3V0cHV0X3R5cGU6IGlubGluZQ0KLS0tDQoNCmBgYHtyIHNldHVwLCBpbmNsdWRlPUZBTFNFfQ0Ka25pdHI6Om9wdHNfY2h1bmskc2V0KGVjaG8gPSBUUlVFKQ0KYGBgDQoqKioNCiMgTGlicmFyaWVzDQpgYGB7cn0NCmxpYnJhcnkodGlkeXZlcnNlKQ0KbGlicmFyeShoZXJlKQ0KbGlicmFyeShrbml0cikNCmxpYnJhcnkoc21hdHIpDQpgYGANCioqKg0KDQojIERhdGFzZXRzDQpgYGB7cn0NCmRhcnRlcnNfZGF0YSA8LSByZWFkX2NzdihoZXJlKCJkYXRhIiwgImRhcnRlcnMuY3N2IikpDQpgYGANCg0KVGhpcyBjb2RlIGNodW5rIGxvYWRzIGluIHRoZSBkYXJ0ZXJzLmNzdiBkYXRhc2V0IGZyb20gdGhlIGRhdGEgZm9sZGVyLiANCioqKg0KDQpgYGB7cn0NCndyYW5nbGVkX2RhcnRlcnMgPC0gZGFydGVyc19kYXRhICU+JSANCiAgZmlsdGVyKHNwZWNpZXMgPT0gImJsZW5uaW9pZGVzIiB8IHNwZWNpZXMgPT0gImNhZXJ1bGV1bSIgfCBzcGVjaWVzID09InNwZWN0YWJpbGUiDQogICkgJT4lIA0KICBtdXRhdGUoDQogICAgICB0b3RhbF9zdWJzdHJhdGUgPSBtYWpzdWIgKyBtaW5zdWINCiAgICAgICApICU+JSANCm11dGF0ZShzZXggPSBpZmVsc2Uoc2V4ID09ImYiLCANCiAgICAgICAgICAgICAgICAgICAgICAgICAgICJmZW1hbGUiLCANCiAgICAgICAgICAgICAgICAgICAgICAgICAgICJtYWxlIikpICU+JSANCm11dGF0ZShyaWZmbGUgPSBpZmVsc2UocmlmZmxlPT0xLCANCiAgICAgICAgICAgICAgICAgICAgICAgIlJpZmZsZSAxIiwgDQogICAgICAgICAgICAgICAgICAgICAgICJSaWZmbGUgMiIpKQ0KDQp3cmFuZ2xlZF9kYXJ0ZXJzDQpgYGANCg0KVGhpcyBjb2RlIGNodW5rIHdyYW5nbGVzIHRoZSBmaWx0ZXJlZCBkYXJlcnMuY3N2IGRhdGFzZXQuIFRoZSBzcGVjaWVzICJ0ZXRyYXpvbnVtIiBhbmQgInpvbmFsZSIgYXJlIGZpbHRlcmVkIG91dCBmcm9tIHRoZSBkYXRhIHNldC4gQSBuZXcgY29sdW1uICJ0b3RhbF9zdWJzdHJhdGUiIGlzIGFkZGVkLCB3aGljaCBhZGRzIG1hanN1YiArIG1pbnN1Yi4gVGhlIHNleCBjb2x1bW4gaXMgbW9kaWZpZWQgc28gImYiIGFuZCAibSIgYXJlIGNoYW5nZWQgdG8gImZlbWFsZSIgYW5kICJtYWxlIi4gVGhlIFJpZmZsZSBjb2x1bW4gaXMgY2hhbmdlZCB0byBsaXN0ICJSaWZmbGUgMSIgb3IgIlJpZmZsZSAyIi4gVGhlIG5ldyBkYXRhIHNldCBpcyB0aGVuIGxpc3RlZC4gDQoNCioqKg0K</div>
 
 
 

@@ -29,11 +29,22 @@ This code chunk loads in the darters.csv dataset from the data folder.
 ***
 
 ```{r}
-darters_filtered <- darters_data %>% 
-  filter(species == "blennioides" | species == "caeruleum" | species =="spectabile")
+wrangled_darters <- darters_data %>% 
+  filter(species == "blennioides" | species == "caeruleum" | species =="spectabile"
+  ) %>% 
+  mutate(
+      total_substrate = majsub + minsub
+       ) %>% 
+mutate(sex = ifelse(sex =="f", 
+                           "female", 
+                           "male")) %>% 
+mutate(riffle = ifelse(riffle==1, 
+                       "Riffle 1", 
+                       "Riffle 2"))
+
+wrangled_darters
 ```
 
-This code chunk filters out "tetrazonum" and "zonale" from the darters dataset. 
+This code chunk wrangles the filtered darers.csv dataset. The species "tetrazonum" and "zonale" are filtered out from the data set. A new column "total_substrate" is added, which adds majsub + minsub. The sex column is modified so "f" and "m" are changed to "female" and "male". The Riffle column is changed to list "Riffle 1" or "Riffle 2". The new data set is then listed. 
 
-
-
+***
