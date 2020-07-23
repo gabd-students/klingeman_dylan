@@ -154,11 +154,91 @@ feathers_data = read_csv(here("data", "feathers.csv"), locale = locale(decimal_m
 ## Rename Data
 
 ```{r}
-feathers_data %>% 
+renamed_feathers <- feathers_data %>% 
   rename(capture_date = "Capture Date", day = "Date", site = "Site", urban_score = "Urba Score", cortF = "CortF ng/mg", cortB = "CortF ng/mm", sex = "Sex", smi = "SMI", tarsus = "Tarsus", mass = "Mass", basal_cort = "Bas_Cort", stress_cort = "Stress_Cort")
+renamed_feathers
 ```
 
 # Renames the column names in the feathers_data set to make them easier to manage. 
 
+#
+
 ## Wrangle Data
 
+```{r}
+mean_tarsus <- mean(tarsus)
+```
+
+# Takes the mean of the tarsus data set and creates a vector for it. 
+
+```{r}
+wrangled_feathers <- renamed_feathers %>% 
+ mutate(log_mass = log(mass), 
+        log_tarsus = log(tarsus))
+wrangled_feathers
+```
+
+# Adds new columns for the logs of the mass values and tarsus values within the feathers dataset. 
+
+```{r}
+major_axis <- sma(log_mass ~ log_tarsus, data = wrangled_feathers)
+```
+
+# Calculates the standardized major axis regression for the data set.
+
+```{r}
+summary(major_axis)
+```
+
+# Summarizes the major axis, shows the slope value for estimate. THis needs to be extracted and saved as "b". 
+
+```{r}
+coef(major_axis)
+slope <- coef(major_axis)
+b <- slope['slope']
+b
+```
+
+# extracts the slope of the estimate and stores it as the valeu "b". 
+
+```{r}
+mutated_feathers <- mutate(wrangled_feathers, new_smi=scaled_mass(mass,tarsus,b)) 
+
+select(mutated_feathers, smi, new_smi)
+```
+
+# Creates a new column for the new scaled mass index. This  is then compared to the previous "smi" already in the dataset. The values are identical, with the new_smi having more decimals. 
+
+#
+
+## Summarize Data
+
+```{r}
+mutated_feathers_site <- group_by(mutated_feathers,site)
+feathers_summary<- summarise(mutated_feathers_site,
+    basal_mean =  mean(basal_cort, na.rm = TRUE),
+    stress_mean = mean(stress_cort, na.rm = TRUE),
+    std_err_basal=std_err(basal_cort, na.rm = TRUE),
+    std_err_cort=std_err(stress_cort, na.rm = TRUE), 
+    .groups = 'drop')
+feathers_summary
+
+```
+
+# This code chunk begins by grouping the data by site in the mutated_fethers data set. This data is then summarised, while creating new columns for the "basal_mean", "stress_mean", and the standard error of those two. Removed .groups error with 'drop' argument. 
+
+# Tried standard error on the basal_mean and stress_mean, changed it to basal_cort and stress_cort respectively. 
+
+## Graph Data
+
+# Plot 1
+
+```{r}
+ggplot(data = mutated_feathers) + 
+  geom_boxplot(mapping = aes(x = site, y = new_smi)) + 
+  coord_flip()
+```
+
+# Each site has some overlap within the dataset, but the median for each site differs slightly. The NIORT has a much lower minimum (around ~20), compared to the rest being above 22. The maximum value for each one is also very similar. 
+
+# Plot 2
