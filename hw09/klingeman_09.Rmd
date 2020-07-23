@@ -19,6 +19,10 @@ library(knitr)
 library(smatr)
 ```
 ***
+```{r}
+source(here("scripts", "my_functions.R"))
+```
+
 
 ## Datasets
 ```{r}
@@ -137,5 +141,24 @@ geom_point(data = darter_summary, mapping = aes(x = species, y = mean_length), c
 #
 
 ***
-## Stress and corticosterones in birds
+### Stress and corticosterones in birds
+
+## Import Data
+
+```{r}
+feathers_data = read_csv(here("data", "feathers.csv"), locale = locale(decimal_mark = ","))
+```
+
+# Loads in the feathers_data dataset. The decimal marks are changed from '.' to ','. This is doen by the locale = locale() argument. 
+
+## Rename Data
+
+```{r}
+feathers_data %>% 
+  rename(capture_date = "Capture Date", day = "Date", site = "Site", urban_score = "Urba Score", cortF = "CortF ng/mg", cortB = "CortF ng/mm", sex = "Sex", smi = "SMI", tarsus = "Tarsus", mass = "Mass", basal_cort = "Bas_Cort", stress_cort = "Stress_Cort")
+```
+
+# Renames the column names in the feathers_data set to make them easier to manage. 
+
+## Wrangle Data
 
