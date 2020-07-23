@@ -84,7 +84,9 @@ ggplot(data = darter_summary_data) +
                fun.ymin = min,
                fun.ymax = max, 
                fun.y = median) +
-  geom_point(data = darter_summary, mapping = aes(x = species, y = mean_length), shape = 15, color = 'firebrick') + 
+  geom_point(data = darter_summary, mapping = aes(x = species, y = mean_length),
+             shape = 15,
+             color = 'firebrick') + 
   coord_flip() + 
   facet_wrap(~riffle) + 
   labs(y ="Length(in mm)", x = NULL)
@@ -105,3 +107,35 @@ The blennioides had very similar median, minimum, and mean, but riffle 2 had a m
 ***
 
 # Plot 2
+
+```{r}
+ggplot(data = darter_summary_data) +
+stat_summary(mapping = aes(x = species, y = length), 
+             fun.y = median,
+             fun.ymin = min, 
+             fun.ymax = max, 
+             geom = "point",
+             size = 2.2, 
+             na.rm = TRUE) + 
+  stat_summary( mapping = aes(x = species, y = length),
+               fun.y = mean, 
+               fun.ymin = min, 
+               fun.ymax = max, 
+               size = 3, 
+               color = "maroon", 
+               na.rm = TRUE) + 
+  facet_wrap(~riffle) + 
+  coord_flip() + 
+  labs(y = "Length(in mm)", x = NULL) +
+geom_point(data = darter_summary, mapping = aes(x = species, y = mean_length), color = "grey60") 
+```
+
+# This code chunk creates a data summary comparing the length differences between 3 species in 2 different riffles. This graph uses teh same data as the one above, but features new aesthetic changes to improve clarity. Of note is the color argument and the point size argument. 
+
+# geom_point has to be placed at the bottom to be visible on the graph. 
+
+#
+
+***
+## Stress and corticosterones in birds
+
