@@ -30,7 +30,7 @@ darters_data <- read_csv(here("data", "darters.csv"))
 ```
 
 #This code chunk loads in the darters.csv dataset from the data folder. 
-***
+*
 ## Wrangling Data
 ```{r}
 wrangled_darters <- darters_data %>% 
@@ -52,7 +52,7 @@ wrangled_darters
 
 #This code chunk wrangles the filtered darers.csv dataset. The species "tetrazonum" and "zonale" are filtered out from the data set. A new column "total_substrate" is added, which adds majsub + minsub. The sex column is modified so "f" and "m" are changed to "female" and "male". The Riffle column is changed to list "Riffle 1" or "Riffle 2". The new data set is then listed. 
 
-***
+*
 
 ## Summary
 
@@ -228,7 +228,7 @@ feathers_summary
 # This code chunk begins by grouping the data by site in the mutated_fethers data set. This data is then summarised, while creating new columns for the "basal_mean", "stress_mean", and the standard error of those two. Removed .groups error with 'drop' argument. 
 
 # Tried standard error on the basal_mean and stress_mean, changed it to basal_cort and stress_cort respectively. 
-
+***
 ## Graph Data
 
 # Plot 1
@@ -242,3 +242,27 @@ ggplot(data = mutated_feathers) +
 # Each site has some overlap within the dataset, but the median for each site differs slightly. The NIORT has a much lower minimum (around ~20), compared to the rest being above 22. The maximum value for each one is also very similar. 
 
 # Plot 2
+
+```{r}
+ggplot(data = feathers_summary) + 
+  geom_point(mapping = aes(x = site, y = std_err_basal)) + 
+  geom_errorbar(mapping = aes(x = site, ymin = std_err_basal -1, ymax = std_err_basal + 1)) + 
+  coord_flip()
+```
+
+# Makes an errorbar for the std_err_basal. This is graphed onto a point chart, and then deviations are marked by the ymin and ymax. 
+
+# Plot 3
+
+```{r}
+ggplot(data = feathers_summary) + 
+  geom_point(mapping = aes(x = site, y = std_err_cort)) + 
+  geom_linerange(mapping = aes(x = site, ymin = std_err_cort-1, ymax = std_err_cort+1)) + 
+  coord_flip()
+```
+
+# This code chunk is similar to the one above. The data is changed from teh std_err_basal to the std_err_cort. The geom_errorbar is traded out for geom_linerange, this removes the long bar at the end of the max/min and instead just adds "whiskers' to the points. 
+
+#
+
+***
