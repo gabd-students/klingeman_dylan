@@ -11,7 +11,7 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 ***
-# Libraries
+## Libraries
 ```{r}
 library(tidyverse)
 library(here)
@@ -20,14 +20,14 @@ library(smatr)
 ```
 ***
 
-# Datasets
+## Datasets
 ```{r}
 darters_data <- read_csv(here("data", "darters.csv"))
 ```
 
-This code chunk loads in the darters.csv dataset from the data folder. 
+#This code chunk loads in the darters.csv dataset from the data folder. 
 ***
-
+## Wrangling Data
 ```{r}
 wrangled_darters <- darters_data %>% 
   filter(species == "blennioides" | species == "caeruleum" | species =="spectabile"
@@ -40,11 +40,35 @@ mutate(sex = ifelse(sex =="f",
                            "male")) %>% 
 mutate(riffle = ifelse(riffle==1, 
                        "Riffle 1", 
-                       "Riffle 2"))
+                       "Riffle 2")) %>% 
+mutate(length = length*10)
 
 wrangled_darters
 ```
 
-This code chunk wrangles the filtered darers.csv dataset. The species "tetrazonum" and "zonale" are filtered out from the data set. A new column "total_substrate" is added, which adds majsub + minsub. The sex column is modified so "f" and "m" are changed to "female" and "male". The Riffle column is changed to list "Riffle 1" or "Riffle 2". The new data set is then listed. 
+#This code chunk wrangles the filtered darers.csv dataset. The species "tetrazonum" and "zonale" are filtered out from the data set. A new column "total_substrate" is added, which adds majsub + minsub. The sex column is modified so "f" and "m" are changed to "female" and "male". The Riffle column is changed to list "Riffle 1" or "Riffle 2". The new data set is then listed. 
 
 ***
+
+## Summary
+
+```{r}
+darter_summary_data <- group_by(wrangled_darters, species, riffle)
+darter_summary <- summarise(darter_summary_data, 
+                            mean_length = mean(length),
+                            mean_velocity = mean(velocity),
+                            mean_depth = mean(depth), 
+                            .groups = 'drop')
+darter_summary
+```
+
+#This code chunk was very difficult. First the wrangled_darters data froma bove is grouped by just the species and riffle. Then this is summarised and used to gather a mean value for: length, velocity, and depth. The issues were in having to look up the ".groups" argument and figuring out what it was interacting with the species. 
+
+#error message from above: "`summarise()` regrouping output by 'species' (override with `.groups` argument)"
+
+# Kable
+
+```{r}
+kable(darter_summary)
+```
+

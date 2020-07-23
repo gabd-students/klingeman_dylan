@@ -1756,33 +1756,72 @@ summary {
 <!-- rnb-text-end -->
 <!-- rnb-text-begin -->
 <hr />
-<div id="libraries" class="section level1">
-<h1>Libraries</h1>
+<div id="libraries" class="section level2">
+<h2>Libraries</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5saWJyYXJ5KGhlcmUpXG5saWJyYXJ5KGtuaXRyKVxubGlicmFyeShzbWF0cilcbmBgYCJ9 -->
-<pre class="r"><code>library(tidyverse)
-library(here)
-library(knitr)
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGAifQ== -->
+<pre class="r"><code>library(tidyverse)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUmVnaXN0ZXJlZCBTMyBtZXRob2RzIG92ZXJ3cml0dGVuIGJ5ICdkYnBseXInOlxuICBtZXRob2QgICAgICAgICBmcm9tXG4gIHByaW50LnRibF9sYXp5ICAgICBcbiAgcHJpbnQudGJsX3NxbCAgICAgIFxuLS0gQXR0YWNoaW5nIHBhY2thZ2VzIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSB0aWR5dmVyc2UgMS4zLjAgLS1cbnYgZ2dwbG90MiAzLjMuMiAgICAgdiBwdXJyciAgIDAuMy40XG52IHRpYmJsZSAgMy4wLjMgICAgIHYgZHBseXIgICAxLjAuMFxudiB0aWR5ciAgIDEuMS4wICAgICB2IHN0cmluZ3IgMS40LjBcbnYgcmVhZHIgICAxLjMuMSAgICAgdiBmb3JjYXRzIDAuNS4wXG4tLSBDb25mbGljdHMgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tIHRpZHl2ZXJzZV9jb25mbGljdHMoKSAtLVxueCBkcGx5cjo6ZmlsdGVyKCkgbWFza3Mgc3RhdHM6OmZpbHRlcigpXG54IGRwbHlyOjpsYWcoKSAgICBtYXNrcyBzdGF0czo6bGFnKClcbiJ9 -->
+<pre><code>Registered S3 methods overwritten by &#39;dbplyr&#39;:
+  method         from
+  print.tbl_lazy     
+  print.tbl_sql      
+-- Attaching packages --------------------------------------- tidyverse 1.3.0 --
+v ggplot2 3.3.2     v purrr   0.3.4
+v tibble  3.0.3     v dplyr   1.0.0
+v tidyr   1.1.0     v stringr 1.4.0
+v readr   1.3.1     v forcats 0.5.0
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShoZXJlKVxuYGBgIn0= -->
+<pre class="r"><code>library(here)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiaGVyZSgpIHN0YXJ0cyBhdCBDOi9Vc2Vycy9EeWxhbi9Eb2N1bWVudHMvQkk0ODUva2xpbmdlbWFuX2R5bGFuXG4ifQ== -->
+<pre><code>here() starts at C:/Users/Dylan/Documents/BI485/klingeman_dylan</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShrbml0cilcbmxpYnJhcnkoc21hdHIpXG5gYGAifQ== -->
+<pre class="r"><code>library(knitr)
 library(smatr)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <hr />
 </div>
-<div id="datasets" class="section level1">
-<h1>Datasets</h1>
+<div id="datasets" class="section level2">
+<h2>Datasets</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGFydGVyc19kYXRhIDwtIHJlYWRfY3N2KGhlcmUoXCJkYXRhXCIsIFwiZGFydGVycy5jc3ZcIikpXG5gYGAifQ== -->
 <pre class="r"><code>darters_data &lt;- read_csv(here(&quot;data&quot;, &quot;darters.csv&quot;))</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUGFyc2VkIHdpdGggY29sdW1uIHNwZWNpZmljYXRpb246XG5jb2xzKFxuICBpZCA9IGNvbF9kb3VibGUoKSxcbiAgc3BlY2llcyA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgcmlmZmxlID0gY29sX2RvdWJsZSgpLFxuICBhZ2UgPSBjb2xfZG91YmxlKCksXG4gIHNleCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgbGVuZ3RoID0gY29sX2RvdWJsZSgpLFxuICBkZXB0aCA9IGNvbF9kb3VibGUoKSxcbiAgdmVsb2NpdHkgPSBjb2xfZG91YmxlKCksXG4gIHRlbXBlcmF0dXJlID0gY29sX2RvdWJsZSgpLFxuICBtYWpzdWIgPSBjb2xfZG91YmxlKCksXG4gIG1pbnN1YiA9IGNvbF9kb3VibGUoKSxcbiAgbWFqdHlwZSA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgbWludHlwZSA9IGNvbF9jaGFyYWN0ZXIoKVxuKVxuIn0= -->
+<pre><code>Parsed with column specification:
+cols(
+  id = col_double(),
+  species = col_character(),
+  riffle = col_double(),
+  age = col_double(),
+  sex = col_character(),
+  length = col_double(),
+  depth = col_double(),
+  velocity = col_double(),
+  temperature = col_double(),
+  majsub = col_double(),
+  minsub = col_double(),
+  majtype = col_character(),
+  mintype = col_character()
+)</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>This code chunk loads in the darters.csv dataset from the data folder. ***</p>
+<p>#This code chunk loads in the darters.csv dataset from the data folder. *** ## Wrangling Data</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud3JhbmdsZWRfZGFydGVycyA8LSBkYXJ0ZXJzX2RhdGEgJT4lIFxuICBmaWx0ZXIoc3BlY2llcyA9PSBcImJsZW5uaW9pZGVzXCIgfCBzcGVjaWVzID09IFwiY2FlcnVsZXVtXCIgfCBzcGVjaWVzID09XCJzcGVjdGFiaWxlXCJcbiAgKSAlPiUgXG4gIG11dGF0ZShcbiAgICAgIHRvdGFsX3N1YnN0cmF0ZSA9IG1hanN1YiArIG1pbnN1YlxuICAgICAgICkgJT4lIFxubXV0YXRlKHNleCA9IGlmZWxzZShzZXggPT1cImZcIiwgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICBcImZlbWFsZVwiLCBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgIFwibWFsZVwiKSkgJT4lIFxubXV0YXRlKHJpZmZsZSA9IGlmZWxzZShyaWZmbGU9PTEsIFxuICAgICAgICAgICAgICAgICAgICAgICBcIlJpZmZsZSAxXCIsIFxuICAgICAgICAgICAgICAgICAgICAgICBcIlJpZmZsZSAyXCIpKVxuXG53cmFuZ2xlZF9kYXJ0ZXJzXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud3JhbmdsZWRfZGFydGVycyA8LSBkYXJ0ZXJzX2RhdGEgJT4lIFxuICBmaWx0ZXIoc3BlY2llcyA9PSBcImJsZW5uaW9pZGVzXCIgfCBzcGVjaWVzID09IFwiY2FlcnVsZXVtXCIgfCBzcGVjaWVzID09XCJzcGVjdGFiaWxlXCJcbiAgKSAlPiUgXG4gIG11dGF0ZShcbiAgICAgIHRvdGFsX3N1YnN0cmF0ZSA9IG1hanN1YiArIG1pbnN1YlxuICAgICAgICkgJT4lIFxubXV0YXRlKHNleCA9IGlmZWxzZShzZXggPT1cImZcIiwgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICBcImZlbWFsZVwiLCBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgIFwibWFsZVwiKSkgJT4lIFxubXV0YXRlKHJpZmZsZSA9IGlmZWxzZShyaWZmbGU9PTEsIFxuICAgICAgICAgICAgICAgICAgICAgICBcIlJpZmZsZSAxXCIsIFxuICAgICAgICAgICAgICAgICAgICAgICBcIlJpZmZsZSAyXCIpKSAlPiUgXG5tdXRhdGUobGVuZ3RoID0gbGVuZ3RoKjEwKVxuXG53cmFuZ2xlZF9kYXJ0ZXJzXG5gYGAifQ== -->
 <pre class="r"><code>wrangled_darters &lt;- darters_data %&gt;% 
   filter(species == &quot;blennioides&quot; | species == &quot;caeruleum&quot; | species ==&quot;spectabile&quot;
   ) %&gt;% 
@@ -1794,18 +1833,47 @@ mutate(sex = ifelse(sex ==&quot;f&quot;,
                            &quot;male&quot;)) %&gt;% 
 mutate(riffle = ifelse(riffle==1, 
                        &quot;Riffle 1&quot;, 
-                       &quot;Riffle 2&quot;))
+                       &quot;Riffle 2&quot;)) %&gt;% 
+mutate(length = length*10)
 
 wrangled_darters</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>This code chunk wrangles the filtered darers.csv dataset. The species “tetrazonum” and “zonale” are filtered out from the data set. A new column “total_substrate” is added, which adds majsub + minsub. The sex column is modified so “f” and “m” are changed to “female” and “male”. The Riffle column is changed to list “Riffle 1” or “Riffle 2”. The new data set is then listed.</p>
+<p>#This code chunk wrangles the filtered darers.csv dataset. The species “tetrazonum” and “zonale” are filtered out from the data set. A new column “total_substrate” is added, which adds majsub + minsub. The sex column is modified so “f” and “m” are changed to “female” and “male”. The Riffle column is changed to list “Riffle 1” or “Riffle 2”. The new data set is then listed.</p>
 <hr />
+</div>
+<div id="summary" class="section level2">
+<h2>Summary</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGFydGVyX3N1bW1hcnlfZGF0YSA8LSBncm91cF9ieSh3cmFuZ2xlZF9kYXJ0ZXJzLCBzcGVjaWVzLCByaWZmbGUpXG5kYXJ0ZXJfc3VtbWFyeSA8LSBzdW1tYXJpc2UoZGFydGVyX3N1bW1hcnlfZGF0YSwgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgbWVhbl9sZW5ndGggPSBtZWFuKGxlbmd0aCksXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgbWVhbl92ZWxvY2l0eSA9IG1lYW4odmVsb2NpdHkpLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIG1lYW5fZGVwdGggPSBtZWFuKGRlcHRoKSwgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgLmdyb3VwcyA9ICdkcm9wJylcbmRhcnRlcl9zdW1tYXJ5XG5gYGAifQ== -->
+<pre class="r"><code>darter_summary_data &lt;- group_by(wrangled_darters, species, riffle)
+darter_summary &lt;- summarise(darter_summary_data, 
+                            mean_length = mean(length),
+                            mean_velocity = mean(velocity),
+                            mean_depth = mean(depth), 
+                            .groups = &#39;drop&#39;)
+darter_summary</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>#This code chunk was very difficult. First the wrangled_darters data froma bove is grouped by just the species and riffle. Then this is summarised and used to gather a mean value for: length, velocity, and depth. The issues were in having to look up the “.groups” argument and figuring out what it was interacting with the species.</p>
+<p>#error message from above: “<code>summarise()</code> regrouping output by ‘species’ (override with <code>.groups</code> argument)”</p>
+</div>
+<div id="kable" class="section level1">
+<h1>Kable</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxua2FibGUoZGFydGVyX3N1bW1hcnkpXG5gYGAifQ== -->
+<pre class="r"><code>kable(darter_summary)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkhXIDA5OiBNb3JlIERhdGEgV3JhbmdsaW5nIElJIg0KYXV0aG9yOiAiRHlsYW4gS2xpbmdlbWFuIg0KZGF0ZTogImByIGZvcm1hdChTeXMudGltZSgpLCAnJWQgJUIgJVknKWAiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCmVkaXRvcl9vcHRpb25zOiANCiAgY2h1bmtfb3V0cHV0X3R5cGU6IGlubGluZQ0KLS0tDQoNCmBgYHtyIHNldHVwLCBpbmNsdWRlPUZBTFNFfQ0Ka25pdHI6Om9wdHNfY2h1bmskc2V0KGVjaG8gPSBUUlVFKQ0KYGBgDQoqKioNCiMgTGlicmFyaWVzDQpgYGB7cn0NCmxpYnJhcnkodGlkeXZlcnNlKQ0KbGlicmFyeShoZXJlKQ0KbGlicmFyeShrbml0cikNCmxpYnJhcnkoc21hdHIpDQpgYGANCioqKg0KDQojIERhdGFzZXRzDQpgYGB7cn0NCmRhcnRlcnNfZGF0YSA8LSByZWFkX2NzdihoZXJlKCJkYXRhIiwgImRhcnRlcnMuY3N2IikpDQpgYGANCg0KVGhpcyBjb2RlIGNodW5rIGxvYWRzIGluIHRoZSBkYXJ0ZXJzLmNzdiBkYXRhc2V0IGZyb20gdGhlIGRhdGEgZm9sZGVyLiANCioqKg0KDQpgYGB7cn0NCndyYW5nbGVkX2RhcnRlcnMgPC0gZGFydGVyc19kYXRhICU+JSANCiAgZmlsdGVyKHNwZWNpZXMgPT0gImJsZW5uaW9pZGVzIiB8IHNwZWNpZXMgPT0gImNhZXJ1bGV1bSIgfCBzcGVjaWVzID09InNwZWN0YWJpbGUiDQogICkgJT4lIA0KICBtdXRhdGUoDQogICAgICB0b3RhbF9zdWJzdHJhdGUgPSBtYWpzdWIgKyBtaW5zdWINCiAgICAgICApICU+JSANCm11dGF0ZShzZXggPSBpZmVsc2Uoc2V4ID09ImYiLCANCiAgICAgICAgICAgICAgICAgICAgICAgICAgICJmZW1hbGUiLCANCiAgICAgICAgICAgICAgICAgICAgICAgICAgICJtYWxlIikpICU+JSANCm11dGF0ZShyaWZmbGUgPSBpZmVsc2UocmlmZmxlPT0xLCANCiAgICAgICAgICAgICAgICAgICAgICAgIlJpZmZsZSAxIiwgDQogICAgICAgICAgICAgICAgICAgICAgICJSaWZmbGUgMiIpKQ0KDQp3cmFuZ2xlZF9kYXJ0ZXJzDQpgYGANCg0KVGhpcyBjb2RlIGNodW5rIHdyYW5nbGVzIHRoZSBmaWx0ZXJlZCBkYXJlcnMuY3N2IGRhdGFzZXQuIFRoZSBzcGVjaWVzICJ0ZXRyYXpvbnVtIiBhbmQgInpvbmFsZSIgYXJlIGZpbHRlcmVkIG91dCBmcm9tIHRoZSBkYXRhIHNldC4gQSBuZXcgY29sdW1uICJ0b3RhbF9zdWJzdHJhdGUiIGlzIGFkZGVkLCB3aGljaCBhZGRzIG1hanN1YiArIG1pbnN1Yi4gVGhlIHNleCBjb2x1bW4gaXMgbW9kaWZpZWQgc28gImYiIGFuZCAibSIgYXJlIGNoYW5nZWQgdG8gImZlbWFsZSIgYW5kICJtYWxlIi4gVGhlIFJpZmZsZSBjb2x1bW4gaXMgY2hhbmdlZCB0byBsaXN0ICJSaWZmbGUgMSIgb3IgIlJpZmZsZSAyIi4gVGhlIG5ldyBkYXRhIHNldCBpcyB0aGVuIGxpc3RlZC4gDQoNCioqKg0K</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkhXIDA5OiBNb3JlIERhdGEgV3JhbmdsaW5nIElJIg0KYXV0aG9yOiAiRHlsYW4gS2xpbmdlbWFuIg0KZGF0ZTogImByIGZvcm1hdChTeXMudGltZSgpLCAnJWQgJUIgJVknKWAiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCmVkaXRvcl9vcHRpb25zOiANCiAgY2h1bmtfb3V0cHV0X3R5cGU6IGlubGluZQ0KLS0tDQoNCmBgYHtyIHNldHVwLCBpbmNsdWRlPUZBTFNFfQ0Ka25pdHI6Om9wdHNfY2h1bmskc2V0KGVjaG8gPSBUUlVFKQ0KYGBgDQoqKioNCiMjIExpYnJhcmllcw0KYGBge3J9DQpsaWJyYXJ5KHRpZHl2ZXJzZSkNCmxpYnJhcnkoaGVyZSkNCmxpYnJhcnkoa25pdHIpDQpsaWJyYXJ5KHNtYXRyKQ0KYGBgDQoqKioNCg0KIyMgRGF0YXNldHMNCmBgYHtyfQ0KZGFydGVyc19kYXRhIDwtIHJlYWRfY3N2KGhlcmUoImRhdGEiLCAiZGFydGVycy5jc3YiKSkNCmBgYA0KDQojVGhpcyBjb2RlIGNodW5rIGxvYWRzIGluIHRoZSBkYXJ0ZXJzLmNzdiBkYXRhc2V0IGZyb20gdGhlIGRhdGEgZm9sZGVyLiANCioqKg0KIyMgV3JhbmdsaW5nIERhdGENCmBgYHtyfQ0Kd3JhbmdsZWRfZGFydGVycyA8LSBkYXJ0ZXJzX2RhdGEgJT4lIA0KICBmaWx0ZXIoc3BlY2llcyA9PSAiYmxlbm5pb2lkZXMiIHwgc3BlY2llcyA9PSAiY2FlcnVsZXVtIiB8IHNwZWNpZXMgPT0ic3BlY3RhYmlsZSINCiAgKSAlPiUgDQogIG11dGF0ZSgNCiAgICAgIHRvdGFsX3N1YnN0cmF0ZSA9IG1hanN1YiArIG1pbnN1Yg0KICAgICAgICkgJT4lIA0KbXV0YXRlKHNleCA9IGlmZWxzZShzZXggPT0iZiIsIA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgImZlbWFsZSIsIA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIm1hbGUiKSkgJT4lIA0KbXV0YXRlKHJpZmZsZSA9IGlmZWxzZShyaWZmbGU9PTEsIA0KICAgICAgICAgICAgICAgICAgICAgICAiUmlmZmxlIDEiLCANCiAgICAgICAgICAgICAgICAgICAgICAgIlJpZmZsZSAyIikpICU+JSANCm11dGF0ZShsZW5ndGggPSBsZW5ndGgqMTApDQoNCndyYW5nbGVkX2RhcnRlcnMNCmBgYA0KDQojVGhpcyBjb2RlIGNodW5rIHdyYW5nbGVzIHRoZSBmaWx0ZXJlZCBkYXJlcnMuY3N2IGRhdGFzZXQuIFRoZSBzcGVjaWVzICJ0ZXRyYXpvbnVtIiBhbmQgInpvbmFsZSIgYXJlIGZpbHRlcmVkIG91dCBmcm9tIHRoZSBkYXRhIHNldC4gQSBuZXcgY29sdW1uICJ0b3RhbF9zdWJzdHJhdGUiIGlzIGFkZGVkLCB3aGljaCBhZGRzIG1hanN1YiArIG1pbnN1Yi4gVGhlIHNleCBjb2x1bW4gaXMgbW9kaWZpZWQgc28gImYiIGFuZCAibSIgYXJlIGNoYW5nZWQgdG8gImZlbWFsZSIgYW5kICJtYWxlIi4gVGhlIFJpZmZsZSBjb2x1bW4gaXMgY2hhbmdlZCB0byBsaXN0ICJSaWZmbGUgMSIgb3IgIlJpZmZsZSAyIi4gVGhlIG5ldyBkYXRhIHNldCBpcyB0aGVuIGxpc3RlZC4gDQoNCioqKg0KDQojIyBTdW1tYXJ5DQoNCmBgYHtyfQ0KZGFydGVyX3N1bW1hcnlfZGF0YSA8LSBncm91cF9ieSh3cmFuZ2xlZF9kYXJ0ZXJzLCBzcGVjaWVzLCByaWZmbGUpDQpkYXJ0ZXJfc3VtbWFyeSA8LSBzdW1tYXJpc2UoZGFydGVyX3N1bW1hcnlfZGF0YSwgDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgbWVhbl9sZW5ndGggPSBtZWFuKGxlbmd0aCksDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgbWVhbl92ZWxvY2l0eSA9IG1lYW4odmVsb2NpdHkpLA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIG1lYW5fZGVwdGggPSBtZWFuKGRlcHRoKSwgDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgLmdyb3VwcyA9ICdkcm9wJykNCmRhcnRlcl9zdW1tYXJ5DQpgYGANCg0KI1RoaXMgY29kZSBjaHVuayB3YXMgdmVyeSBkaWZmaWN1bHQuIEZpcnN0IHRoZSB3cmFuZ2xlZF9kYXJ0ZXJzIGRhdGEgZnJvbWEgYm92ZSBpcyBncm91cGVkIGJ5IGp1c3QgdGhlIHNwZWNpZXMgYW5kIHJpZmZsZS4gVGhlbiB0aGlzIGlzIHN1bW1hcmlzZWQgYW5kIHVzZWQgdG8gZ2F0aGVyIGEgbWVhbiB2YWx1ZSBmb3I6IGxlbmd0aCwgdmVsb2NpdHksIGFuZCBkZXB0aC4gVGhlIGlzc3VlcyB3ZXJlIGluIGhhdmluZyB0byBsb29rIHVwIHRoZSAiLmdyb3VwcyIgYXJndW1lbnQgYW5kIGZpZ3VyaW5nIG91dCB3aGF0IGl0IHdhcyBpbnRlcmFjdGluZyB3aXRoIHRoZSBzcGVjaWVzLiANCg0KI2Vycm9yIG1lc3NhZ2UgZnJvbSBhYm92ZTogImBzdW1tYXJpc2UoKWAgcmVncm91cGluZyBvdXRwdXQgYnkgJ3NwZWNpZXMnIChvdmVycmlkZSB3aXRoIGAuZ3JvdXBzYCBhcmd1bWVudCkiDQoNCiMgS2FibGUNCg0KYGBge3J9DQprYWJsZShkYXJ0ZXJfc3VtbWFyeSkNCmBgYA0KDQo=</div>
 
 
 
