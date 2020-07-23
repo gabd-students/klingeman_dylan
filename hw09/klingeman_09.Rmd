@@ -55,9 +55,9 @@ wrangled_darters
 ```{r}
 darter_summary_data <- group_by(wrangled_darters, species, riffle)
 darter_summary <- summarise(darter_summary_data, 
-                            mean_length = mean(length),
-                            mean_velocity = mean(velocity),
-                            mean_depth = mean(depth), 
+                            mean_length = mean(length, na.rm = TRUE),
+                            mean_velocity = mean(velocity, na.rm = TRUE),
+                            mean_depth = mean(depth, na.rm = TRUE), 
                             .groups = 'drop')
 darter_summary
 ```
@@ -66,9 +66,42 @@ darter_summary
 
 #error message from above: "`summarise()` regrouping output by 'species' (override with `.groups` argument)"
 
-# Kable
+# Added na.rm = TRUE to remove NA values. (necessary for graph below)
+
+## Kable
 
 ```{r}
 kable(darter_summary)
 ```
+#
+***
+## Graph Data
+# Plot 1
 
+```{r}
+ggplot(data = darter_summary_data) + 
+  stat_summary(mapping = aes(x = species, y = length), 
+               fun.ymin = min,
+               fun.ymax = max, 
+               fun.y = median) +
+  geom_point(data = darter_summary, mapping = aes(x = species, y = mean_length), shape = 15, color = 'firebrick') + 
+  coord_flip() + 
+  facet_wrap(~riffle) + 
+  labs(y ="Length(in mm)", x = NULL)
+```
+
+#This code chunk creates a summary graph for the darter_summary from above. This shows the median, minimum, and maximum data points for each of the species. The mean+length is also shown as the colored square in red on each of the lines. A facet_wrap is also applied that separates the graph by the two riffles. The values are coord_flipped to better space out the names of the species. The y is relabeled from length to "Length (in mm).
+
+# Riffle 1 did not have the mean length appear for blennioides, this was because NA values were not removed. 
+
+
+Looking at each of the species we can see some large differences between the riffles. For the spectabile group, it has a very close minimum and maximum between riffles, but its median and mean are much higher in riffle 1 than riffle 2. 
+
+The Caeruleum species is very similar, but the riffle 1 has a higher maximum of ~46, compraed to riffle 2's ~41. The mean for riffle 1 is also around ~36, compared to riffle 2's ~28. 
+
+The blennioides had very similar median, minimum, and mean, but riffle 2 had a much larger maximum at ~56, compared to riffle 1's ~38. 
+
+# 
+***
+
+# Plot 2
