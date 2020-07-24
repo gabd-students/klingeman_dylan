@@ -171,3 +171,13 @@ h1 + h2
 ***
 
 # Figure 10: Relationships
+
+```{r}
+sparrows %>% ggscatmat(columns = 1:7)
+```
+
+# If only we coula make graphs this easily for everything else!
+
+#
+***
+
