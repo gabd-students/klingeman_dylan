@@ -11,11 +11,65 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 ***
-
+## Libraries
 ```{r}
 library(tidyverse)
 library(here)
 library(GGally)
 library(patchwork)
 ```
+
+```{r}
+source(here("scripts", "my_functions.R"))
+```
+
+
+## Datasets
+```{r}
+sparrows_raw <- read_tsv(here("data", "sparrows.txt"))
+```
+
+```{r}
+sparrows <- sparrows_raw %>% 
+  mutate(box_group = "Sparrows", 
+         row_order = 1:nrow(.))
+sparrows
+```
+
+#This code chunk adds two new columns, "box_group" and "row_order". 
+
+### Figure 2: Outliers
+
+```{r}
+plot_box <- sparrows %>% 
+  ggplot(aes(x = box_group, 
+             y = wingcrd)) + 
+  geom_boxplot(width = 0.25) + 
+  labs( x = NULL, 
+        y = "Wing length (mm)")
+```
+
+# This code chunk creates the boxplot seen in figure 2. 
+
+```{r}
+plot_cleveland <- sparrows %>% 
+  ggplot(aes(x = wingcrd, 
+             y = row_order)) + 
+  geom_point() + 
+  labs(x = "wing Length (mm)", 
+       y = "Order of the data")
+```
+
+# This code chunk takes the above graph and instead plots the data on a cleveland plot to visualize the data points. This is to visualize the outlier points shown on the whisker graph above. Looking at the outliers there is only one that is really outside of the trend.  
+
+```{r}
+plot_box + plot_cleveland + coord_flip()
+```
+
+# This code chunk takes our previous two graphs and places them side by side. This is useful for comparing trends across multiple graphs. This is now used to see where the outliers sit between the rest of the data. Using a coord_flip() lets us line up the data for a better visual. 
+
+#
+***
+
+### Figure 3: Outliers
 

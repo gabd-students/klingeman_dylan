@@ -1756,47 +1756,103 @@ summary {
 <!-- rnb-text-end -->
 <!-- rnb-text-begin -->
 <hr />
+<div id="libraries" class="section level2">
+<h2>Libraries</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGAifQ== -->
-<pre class="r"><code>library(tidyverse)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUmVnaXN0ZXJlZCBTMyBtZXRob2RzIG92ZXJ3cml0dGVuIGJ5ICdkYnBseXInOlxuICBtZXRob2QgICAgICAgICBmcm9tXG4gIHByaW50LnRibF9sYXp5ICAgICBcbiAgcHJpbnQudGJsX3NxbCAgICAgIFxuLS0gQXR0YWNoaW5nIHBhY2thZ2VzIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSB0aWR5dmVyc2UgMS4zLjAgLS1cbnYgZ2dwbG90MiAzLjMuMiAgICAgdiBwdXJyciAgIDAuMy40XG52IHRpYmJsZSAgMy4wLjMgICAgIHYgZHBseXIgICAxLjAuMFxudiB0aWR5ciAgIDEuMS4wICAgICB2IHN0cmluZ3IgMS40LjBcbnYgcmVhZHIgICAxLjMuMSAgICAgdiBmb3JjYXRzIDAuNS4wXG4tLSBDb25mbGljdHMgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tIHRpZHl2ZXJzZV9jb25mbGljdHMoKSAtLVxueCBkcGx5cjo6ZmlsdGVyKCkgbWFza3Mgc3RhdHM6OmZpbHRlcigpXG54IGRwbHlyOjpsYWcoKSAgICBtYXNrcyBzdGF0czo6bGFnKClcbiJ9 -->
-<pre><code>Registered S3 methods overwritten by &#39;dbplyr&#39;:
-  method         from
-  print.tbl_lazy     
-  print.tbl_sql      
--- Attaching packages --------------------------------------- tidyverse 1.3.0 --
-v ggplot2 3.3.2     v purrr   0.3.4
-v tibble  3.0.3     v dplyr   1.0.0
-v tidyr   1.1.0     v stringr 1.4.0
-v readr   1.3.1     v forcats 0.5.0
--- Conflicts ------------------------------------------ tidyverse_conflicts() --
-x dplyr::filter() masks stats::filter()
-x dplyr::lag()    masks stats::lag()</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShoZXJlKVxuYGBgIn0= -->
-<pre class="r"><code>library(here)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiaGVyZSgpIHN0YXJ0cyBhdCBDOi9Vc2Vycy9EeWxhbi9Eb2N1bWVudHMvQkk0ODUva2xpbmdlbWFuX2R5bGFuXG4ifQ== -->
-<pre><code>here() starts at C:/Users/Dylan/Documents/BI485/klingeman_dylan</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShHR2FsbHkpXG5gYGAifQ== -->
-<pre class="r"><code>library(GGally)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUmVnaXN0ZXJlZCBTMyBtZXRob2Qgb3ZlcndyaXR0ZW4gYnkgJ0dHYWxseSc6XG4gIG1ldGhvZCBmcm9tICAgXG4gICsuZ2cgICBnZ3Bsb3QyXG4ifQ== -->
-<pre><code>Registered S3 method overwritten by &#39;GGally&#39;:
-  method from   
-  +.gg   ggplot2</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShwYXRjaHdvcmspXG5gYGAifQ== -->
-<pre class="r"><code>library(patchwork)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5saWJyYXJ5KGhlcmUpXG5saWJyYXJ5KEdHYWxseSlcbmxpYnJhcnkocGF0Y2h3b3JrKVxuYGBgIn0= -->
+<pre class="r"><code>library(tidyverse)
+library(here)
+library(GGally)
+library(patchwork)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc291cmNlKGhlcmUoXCJzY3JpcHRzXCIsIFwibXlfZnVuY3Rpb25zLlJcIikpXG5gYGAifQ== -->
+<pre class="r"><code>source(here(&quot;scripts&quot;, &quot;my_functions.R&quot;))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="datasets" class="section level2">
+<h2>Datasets</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3BhcnJvd3NfcmF3IDwtIHJlYWRfdHN2KGhlcmUoXCJkYXRhXCIsIFwic3BhcnJvd3MudHh0XCIpKVxuYGBgIn0= -->
+<pre class="r"><code>sparrows_raw &lt;- read_tsv(here(&quot;data&quot;, &quot;sparrows.txt&quot;))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3BhcnJvd3MgPC0gc3BhcnJvd3NfcmF3ICU+JSBcbiAgbXV0YXRlKGJveF9ncm91cCA9IFwiU3BhcnJvd3NcIiwgXG4gICAgICAgICByb3dfb3JkZXIgPSAxOm5yb3coLikpXG5zcGFycm93c1xuYGBgIn0= -->
+<pre class="r"><code>sparrows &lt;- sparrows_raw %&gt;% 
+  mutate(box_group = &quot;Sparrows&quot;, 
+         row_order = 1:nrow(.))
+sparrows</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>#This code chunk adds two new columns, “box_group” and “row_order”.</p>
+<div id="figure-2-outliers" class="section level3">
+<h3>Figure 2: Outliers</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGxvdF9ib3ggPC0gc3BhcnJvd3MgJT4lIFxuICBnZ3Bsb3QoYWVzKHggPSBib3hfZ3JvdXAsIFxuICAgICAgICAgICAgIHkgPSB3aW5nY3JkKSkgKyBcbiAgZ2VvbV9ib3hwbG90KHdpZHRoID0gMC4yNSkgKyBcbiAgbGFicyggeCA9IE5VTEwsIFxuICAgICAgICB5ID0gXCJXaW5nIGxlbmd0aCAobW0pXCIpXG5gYGAifQ== -->
+<pre class="r"><code>plot_box &lt;- sparrows %&gt;% 
+  ggplot(aes(x = box_group, 
+             y = wingcrd)) + 
+  geom_boxplot(width = 0.25) + 
+  labs( x = NULL, 
+        y = &quot;Wing length (mm)&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+</div>
+<div id="this-code-chunk-creates-the-boxplot-seen-in-figure-2." class="section level1">
+<h1>This code chunk creates the boxplot seen in figure 2.</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGxvdF9jbGV2ZWxhbmQgPC0gc3BhcnJvd3MgJT4lIFxuICBnZ3Bsb3QoYWVzKHggPSB3aW5nY3JkLCBcbiAgICAgICAgICAgICB5ID0gcm93X29yZGVyKSkgKyBcbiAgZ2VvbV9wb2ludCgpICsgXG4gIGxhYnMoeCA9IFwid2luZyBMZW5ndGggKG1tKVwiLCBcbiAgICAgICB5ID0gXCJPcmRlciBvZiB0aGUgZGF0YVwiKVxuYGBgIn0= -->
+<pre class="r"><code>plot_cleveland &lt;- sparrows %&gt;% 
+  ggplot(aes(x = wingcrd, 
+             y = row_order)) + 
+  geom_point() + 
+  labs(x = &quot;wing Length (mm)&quot;, 
+       y = &quot;Order of the data&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="this-code-chunk-takes-the-above-graph-and-instead-plots-the-data-on-a-cleveland-plot-to-visualize-the-data-points.-this-is-to-visualize-the-outlier-points-shown-on-the-whisker-graph-above.-looking-at-the-outliers-there-is-only-one-that-is-really-outside-of-the-trend." class="section level1">
+<h1>This code chunk takes the above graph and instead plots the data on a cleveland plot to visualize the data points. This is to visualize the outlier points shown on the whisker graph above. Looking at the outliers there is only one that is really outside of the trend.</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGxvdF9ib3ggKyBwbG90X2NsZXZlbGFuZCArIGNvb3JkX2ZsaXAoKVxuYGBgIn0= -->
+<pre class="r"><code>plot_box + plot_cleveland + coord_flip()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-plot-begin eyJoZWlnaHQiOjM3MC44MjgyLCJ3aWR0aCI6NjAwLCJzaXplX2JlaGF2aW9yIjowLCJjb25kaXRpb25zIjpbXX0= -->
+<p><img src="data:image/png;base64,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" /></p>
+<!-- rnb-plot-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="this-code-chunk-takes-our-previous-two-graphs-and-places-them-side-by-side.-this-is-useful-for-comparing-trends-across-multiple-graphs.-this-is-now-used-to-see-where-the-outliers-sit-between-the-rest-of-the-data.-using-a-coord_flip-lets-us-line-up-the-data-for-a-better-visual." class="section level1">
+<h1>This code chunk takes our previous two graphs and places them side by side. This is useful for comparing trends across multiple graphs. This is now used to see where the outliers sit between the rest of the data. Using a coord_flip() lets us line up the data for a better visual.</h1>
+</div>
+<div id="section" class="section level1">
+<h1></h1>
+<hr />
+<div id="figure-3-outliers" class="section level3">
+<h3>Figure 3: Outliers</h3>
+<!-- rnb-text-end -->
+</div>
+</div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkhXIDEwOiBEYXRhIFZpc3VhbGl6YXRpb24gMSINCmF1dGhvcjogIkR5bGFuIEtsaW5nZW1hbiINCmRhdGU6ICJgciBmb3JtYXQoU3lzLnRpbWUoKSwgJyVkICVCICVZJylgIg0Kb3V0cHV0OiBodG1sX25vdGVib29rDQplZGl0b3Jfb3B0aW9uczogDQogIGNodW5rX291dHB1dF90eXBlOiBpbmxpbmUNCi0tLQ0KDQpgYGB7ciBzZXR1cCwgaW5jbHVkZT1GQUxTRX0NCmtuaXRyOjpvcHRzX2NodW5rJHNldChlY2hvID0gVFJVRSkNCmBgYA0KKioqDQoNCmBgYHtyfQ0KbGlicmFyeSh0aWR5dmVyc2UpDQpsaWJyYXJ5KGhlcmUpDQpsaWJyYXJ5KEdHYWxseSkNCmxpYnJhcnkocGF0Y2h3b3JrKQ0KYGBgDQoNCg==</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkhXIDEwOiBEYXRhIFZpc3VhbGl6YXRpb24gMSINCmF1dGhvcjogIkR5bGFuIEtsaW5nZW1hbiINCmRhdGU6ICJgciBmb3JtYXQoU3lzLnRpbWUoKSwgJyVkICVCICVZJylgIg0Kb3V0cHV0OiBodG1sX25vdGVib29rDQplZGl0b3Jfb3B0aW9uczogDQogIGNodW5rX291dHB1dF90eXBlOiBpbmxpbmUNCi0tLQ0KDQpgYGB7ciBzZXR1cCwgaW5jbHVkZT1GQUxTRX0NCmtuaXRyOjpvcHRzX2NodW5rJHNldChlY2hvID0gVFJVRSkNCmBgYA0KKioqDQojIyBMaWJyYXJpZXMNCmBgYHtyfQ0KbGlicmFyeSh0aWR5dmVyc2UpDQpsaWJyYXJ5KGhlcmUpDQpsaWJyYXJ5KEdHYWxseSkNCmxpYnJhcnkocGF0Y2h3b3JrKQ0KYGBgDQoNCmBgYHtyfQ0Kc291cmNlKGhlcmUoInNjcmlwdHMiLCAibXlfZnVuY3Rpb25zLlIiKSkNCmBgYA0KDQoNCiMjIERhdGFzZXRzDQpgYGB7cn0NCnNwYXJyb3dzX3JhdyA8LSByZWFkX3RzdihoZXJlKCJkYXRhIiwgInNwYXJyb3dzLnR4dCIpKQ0KYGBgDQoNCmBgYHtyfQ0Kc3BhcnJvd3MgPC0gc3BhcnJvd3NfcmF3ICU+JSANCiAgbXV0YXRlKGJveF9ncm91cCA9ICJTcGFycm93cyIsIA0KICAgICAgICAgcm93X29yZGVyID0gMTpucm93KC4pKQ0Kc3BhcnJvd3MNCmBgYA0KDQojVGhpcyBjb2RlIGNodW5rIGFkZHMgdHdvIG5ldyBjb2x1bW5zLCAiYm94X2dyb3VwIiBhbmQgInJvd19vcmRlciIuIA0KDQojIyMgRmlndXJlIDI6IE91dGxpZXJzDQoNCmBgYHtyfQ0KcGxvdF9ib3ggPC0gc3BhcnJvd3MgJT4lIA0KICBnZ3Bsb3QoYWVzKHggPSBib3hfZ3JvdXAsIA0KICAgICAgICAgICAgIHkgPSB3aW5nY3JkKSkgKyANCiAgZ2VvbV9ib3hwbG90KHdpZHRoID0gMC4yNSkgKyANCiAgbGFicyggeCA9IE5VTEwsIA0KICAgICAgICB5ID0gIldpbmcgbGVuZ3RoIChtbSkiKQ0KYGBgDQoNCiMgVGhpcyBjb2RlIGNodW5rIGNyZWF0ZXMgdGhlIGJveHBsb3Qgc2VlbiBpbiBmaWd1cmUgMi4gDQoNCmBgYHtyfQ0KcGxvdF9jbGV2ZWxhbmQgPC0gc3BhcnJvd3MgJT4lIA0KICBnZ3Bsb3QoYWVzKHggPSB3aW5nY3JkLCANCiAgICAgICAgICAgICB5ID0gcm93X29yZGVyKSkgKyANCiAgZ2VvbV9wb2ludCgpICsgDQogIGxhYnMoeCA9ICJ3aW5nIExlbmd0aCAobW0pIiwgDQogICAgICAgeSA9ICJPcmRlciBvZiB0aGUgZGF0YSIpDQpgYGANCg0KIyBUaGlzIGNvZGUgY2h1bmsgdGFrZXMgdGhlIGFib3ZlIGdyYXBoIGFuZCBpbnN0ZWFkIHBsb3RzIHRoZSBkYXRhIG9uIGEgY2xldmVsYW5kIHBsb3QgdG8gdmlzdWFsaXplIHRoZSBkYXRhIHBvaW50cy4gVGhpcyBpcyB0byB2aXN1YWxpemUgdGhlIG91dGxpZXIgcG9pbnRzIHNob3duIG9uIHRoZSB3aGlza2VyIGdyYXBoIGFib3ZlLiBMb29raW5nIGF0IHRoZSBvdXRsaWVycyB0aGVyZSBpcyBvbmx5IG9uZSB0aGF0IGlzIHJlYWxseSBvdXRzaWRlIG9mIHRoZSB0cmVuZC4gIA0KDQpgYGB7cn0NCnBsb3RfYm94ICsgcGxvdF9jbGV2ZWxhbmQgKyBjb29yZF9mbGlwKCkNCmBgYA0KDQojIFRoaXMgY29kZSBjaHVuayB0YWtlcyBvdXIgcHJldmlvdXMgdHdvIGdyYXBocyBhbmQgcGxhY2VzIHRoZW0gc2lkZSBieSBzaWRlLiBUaGlzIGlzIHVzZWZ1bCBmb3IgY29tcGFyaW5nIHRyZW5kcyBhY3Jvc3MgbXVsdGlwbGUgZ3JhcGhzLiBUaGlzIGlzIG5vdyB1c2VkIHRvIHNlZSB3aGVyZSB0aGUgb3V0bGllcnMgc2l0IGJldHdlZW4gdGhlIHJlc3Qgb2YgdGhlIGRhdGEuIFVzaW5nIGEgY29vcmRfZmxpcCgpIGxldHMgdXMgbGluZSB1cCB0aGUgZGF0YSBmb3IgYSBiZXR0ZXIgdmlzdWFsLiANCg0KIw0KKioqDQoNCiMjIyBGaWd1cmUgMzogT3V0bGllcnMNCg0K</div>
 
 
 
