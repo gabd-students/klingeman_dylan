@@ -1,0 +1,21 @@
+---
+title: "HW 10: Data Visualization 1"
+author: "Dylan Klingeman"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+***
+
+```{r}
+library(tidyverse)
+library(here)
+library(GGally)
+library(patchwork)
+```
+
