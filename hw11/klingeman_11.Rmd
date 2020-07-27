@@ -27,3 +27,101 @@ library(patchwork)
 source(here("scripts", "my_functions.R"))
 ```
 
+## Data
+# Import
+```{r}
+crabs_raw <- read_csv(here("data", "aegla_crabs.csv"))
+```
+
+# Wrangle
+
+```{r}
+wrangled_crabs <- crabs_raw %>% 
+  select(!c("Site", "AT", "WT", "Crab", "Shrimp", "Aeglam", "AeglaFe", "AeglaFo")) %>% 
+  drop_na() %>% 
+  mutate(row_order = 1:nrow(.))
+wrangled_crabs
+```
+
+```{r}
+view(wrangled_crabs)
+```
+
+## Finding outliers in data
+
+Looking through the columns, the most obvious ones to me that could potentially be outliers are: depth (5.0), phos (0.880), cond (75+), 
+
+## Graphs
+
+# Cleveland plots
+
+```{r}
+p_cond <- wrangled_crabs %>% 
+  ggplot(aes(y = row_order)) + 
+  geom_point(aes(x =Cond)) + 
+  theme(axis.title.y = element_blank(), 
+        axis.text.y = element_blank(), 
+        axis.ticks.y = element_blank())
+
+p_phos <- wrangled_crabs %>% 
+  ggplot(aes(y = row_order)) + 
+  geom_point(aes(x = Phos)) + 
+  theme(axis.title.y = element_blank(), 
+        axis.text.y = element_blank(), 
+        axis.ticks.y = element_blank())
+
+p_depth <- wrangled_crabs %>% 
+  ggplot(aes(y = row_order)) + 
+  geom_point(aes(x = Depth)) + 
+  theme(axis.title.y = element_blank(), 
+        axis.text.y = element_blank(), 
+        axis.ticks.y = element_blank())
+
+p_tds <- wrangled_crabs %>% 
+  ggplot(aes(y = row_order)) + 
+  geom_point(aes(x = TDS)) + 
+  theme(axis.title.y = element_blank(), 
+        axis.text.y = element_blank(), 
+        axis.ticks.y = element_blank())
+
+p_cond + p_phos + p_depth + p_tds
+```
+
+# Looking at the cleveland plot we can seee that there are four points outside the bound of the cond data. These are not extremely out of order, and look to be within a standard range. 
+
+# For the Phos cleveland plot we can see one point FAR outside of the range of the other points. Most of the points are below values of ~0.125, but there is a point beyond 0.8. This would be extremelyf ar outside of standard error. 
+
+# For the Depth plot we can see 1 point that is at 5, whereas most points are bound by 2. This is seems significant eno ugh to be an outlier, but is not as far as the phosphorous point. 
+
+# For TDS tere are four points out in the top right corner, similar to the COnd graph. These values are large, but not singificant enought o be an outlier. 
+
+
+
+```{r}
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
