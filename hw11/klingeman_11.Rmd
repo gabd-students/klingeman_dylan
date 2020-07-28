@@ -95,7 +95,9 @@ p_cond + p_phos + p_depth + p_tds
 
 # For TDS tere are four points out in the top right corner, similar to the COnd graph. These values are large, but not singificant enought o be an outlier. 
 
-# Histograms
+#
+
+## Histograms
 
 ```{r}
 h_width <- wrangled_crabs %>% 
@@ -130,10 +132,27 @@ h_ca + h_width + h_ph
 
 # There are a few data points that are out of the average, one high and one low, but nothing special. All of the data seeems to be within a quartile range of each other. 
 
+#
 
+## Density Plots
 
+```{r}
+d_width <- wrangled_crabs %>% 
+  ggplot()+ 
+  geom_density(aes(x = Width))
 
+d_ph <- wrangled_crabs %>% 
+  ggplot()+
+  geom_density(aes(x = pH))
 
+d_ca <- wrangled_crabs %>% 
+  ggplot()+ 
+  geom_density(aes(x = Ca))
+
+d_width + d_ph + d_ca
+```
+
+# The density plots look very similar to the histograms. These give us a more clear view of the trends of the data points. Looking at this we can for sure see that non eof these data points are that far out of the average range. 
 
 
 
