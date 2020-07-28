@@ -154,15 +154,25 @@ d_width + d_ph + d_ca
 
 # The density plots look very similar to the histograms. These give us a more clear view of the trends of the data points. Looking at this we can for sure see that non eof these data points are that far out of the average range. 
 
+#
 
+## Patchwork: Histogram + Density Plot
 
+```{r}
+h_ca + d_ca + h_ph + d_ph + h_width + d_width + plot_layout(ncol = 2, nrow = 3)
+```
 
+# The pathwork provides a clear comparison between the histograms and density plots. This helps to compare the two side by side, but the data within it is still the same as what could be extrapolated above. 
 
+#
 
+## GGpairs
 
+```{r}
+ggpairs(wrangled_crabs) 
+```
 
+# The ggpairs argument is interesting in how it shows us the correlation between different vairables. We can see a few trends such as the highcorrelation between Cond and TDS, as well as Width to Depth. 
 
-
-
-
+#
 
