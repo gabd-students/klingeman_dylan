@@ -95,18 +95,40 @@ p_cond + p_phos + p_depth + p_tds
 
 # For TDS tere are four points out in the top right corner, similar to the COnd graph. These values are large, but not singificant enought o be an outlier. 
 
-
+# Histograms
 
 ```{r}
+h_width <- wrangled_crabs %>% 
+  ggplot() + 
+  geom_histogram(aes(x = Width), 
+                 binwidth = 1, 
+                 boundary = 0, 
+                 closed = "right", 
+                 color = "black") 
 
+h_ph <- wrangled_crabs %>% 
+  ggplot()+
+  geom_histogram(aes(x=pH),
+                 binwidth = 0.25,
+                 boundary=0,
+                 closed="right",
+                 color="black")
+
+h_ca <- wrangled_crabs %>% 
+  ggplot()+
+  geom_histogram(aes(x=Ca),
+                 binwidth = 1,
+                 boundary=0,
+                 closed="right",
+                 color="black")
+h_ca + h_width + h_ph
 ```
 
+# For the Ca graph there is nothing notable, all the data is within a very close range. There are a few smaller values between 3.5 and 4, but nowere close to being an outlier. 
 
+# On the width column there is one point of ~11 that could potentially be an outlier. There are values of 9 as well, so it is not very far out. Compared to some of the other data columns, this is not significant enough to be an outlier. 
 
-
-
-
-
+# There are a few data points that are out of the average, one high and one low, but nothing special. All of the data seeems to be within a quartile range of each other. 
 
 
 
