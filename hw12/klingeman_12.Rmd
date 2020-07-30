@@ -59,7 +59,7 @@ mlk_birth <- "1/15/29"
 mlk_dream <- "1963 August 28"
 ```
 
-## 1: Convert each date to POSIXct format, using libridate function, saving each to a unique variable. Print each result. 
+## 1: 
 
 ```{r}
 my_birth_date <- mdy(birth_date)
@@ -93,3 +93,70 @@ mlk_dream_date <- ymd(mlk_dream)
 mlk_dream_date
 ```
 
+# This code chunk inserts all of the birthdays from some important figures, as well as the i have a dream speech. 
+
+#
+
+## 2. 
+
+# Fixed the MLK birth date above. 
+
+#
+
+## 3. 
+```{r}
+wday(my_birth_date, label = TRUE, abbr = FALSE)
+```
+
+#
+
+## 4. 
+
+```{r}
+updated_my_birthday <- update(my_birth_date$year == 'Y')
+```
+
+# I cannot find this one even by googling it, will come back to it. 
+
+## 5. 
+
+```{r}
+updated_my_birthday <- update(my_birth_date, year=2525, month = 4, day = 03)
+wday(updated_my_birthday, label = TRUE, abbr = TRUE)
+
+year(updated_my_birthday) - year(my_birth_date)
+
+```
+
+# 
+
+## 6. 
+
+```{r}
+day(ball_birth_date) - day(anderson_birth_date) 
+```
+
+# This code chunk subtracts the birthdates between ball and anderson. 
+
+#
+
+## 7. 
+
+```{r}
+(mlk_dream_date - mlk_birth_date)
+```
+
+# 8. 
+
+```{r}
+birth_dates <- c(my_birth_date, anderson_birth_date, anning_birth_date, ball_birth_date, earle_birth_date, franklin_birth_date, lederberg_birth_date, mcclintock_birth_date, mlk_birth_date)
+names(dates) <- c('Klingeman', 'Anderson', 'Anning', 'Ball', 'Earle', 'Franklin', 'Lederberg', 'McClintock', 'King')
+
+leap_year(birth_dates)
+
+birth_dates - my_birth_date
+```
+
+#
+
+### Part 2: Wrangling and plotting with dates

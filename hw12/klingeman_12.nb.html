@@ -1828,86 +1828,165 @@ mlk_dream &lt;- &quot;1963 August 28&quot;</code></pre>
 <!-- rnb-text-begin -->
 </div>
 </div>
-<div id="convert-each-date-to-posixct-format-using-libridate-function-saving-each-to-a-unique-variable.-print-each-result." class="section level2">
-<h2>1: Convert each date to POSIXct format, using libridate function, saving each to a unique variable. Print each result.</h2>
+<div id="section" class="section level2">
+<h2>1:</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubXlfYmlydGhfZGF0ZSA8LSBtZHkoYmlydGhfZGF0ZSlcbm15X2JpcnRoX2RhdGVcbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubXlfYmlydGhfZGF0ZSA8LSBtZHkoYmlydGhfZGF0ZSlcbm15X2JpcnRoX2RhdGVcblxuYW5kZXJzb25fYmlydGhfZGF0ZSA8LSBkbXkoYW5kZXJzb24pXG5hbmRlcnNvbl9iaXJ0aF9kYXRlXG5cbmFubmluZ19iaXJ0aF9kYXRlIDwtIHltZChhbm5pbmcpXG5hbm5pbmdfYmlydGhfZGF0ZVxuXG5iYWxsX2JpcnRoX2RhdGUgPC0gbWR5KGJhbGwpXG5iYWxsX2JpcnRoX2RhdGVcblxuZWFybGVfYmlydGhfZGF0ZSA8LSBtZHkoZWFybGUpXG5lYXJsZV9iaXJ0aF9kYXRlXG5cbmZyYW5rbGluX2JpcnRoX2RhdGUgPC0gZG15KGZyYW5rbGluKVxuZnJhbmtsaW5fYmlydGhfZGF0ZVxuXG5sZWRlcmJlcmdfYmlydGhfZGF0ZSA8LSBtZHkobGVkZXJiZXJnKVxubGVkZXJiZXJnX2JpcnRoX2RhdGVcblxubWNjbGludG9ja19iaXJ0aF9kYXRlIDwtIGRteShtY2NsaW50b2NrKVxubWNjbGludG9ja19iaXJ0aF9kYXRlXG5cbm1sa19iaXJ0aF9kYXRlIDwtIG1keShcIjAxLzE1LzE5MjlcIilcbm1sa19iaXJ0aF9kYXRlXG5cbm1sa19kcmVhbV9kYXRlIDwtIHltZChtbGtfZHJlYW0pXG5tbGtfZHJlYW1fZGF0ZVxuYGBgIn0= -->
 <pre class="r"><code>my_birth_date &lt;- mdy(birth_date)
-my_birth_date</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiMTk5Ni0wNC0wM1wiXG4ifQ== -->
-<pre><code>[1] &quot;1996-04-03&quot;</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYW5kZXJzb25fYmlydGhfZGF0ZSA8LSBkbXkoYW5kZXJzb24pXG5hbmRlcnNvbl9iaXJ0aF9kYXRlXG5gYGAifQ== -->
-<pre class="r"><code>anderson_birth_date &lt;- dmy(anderson)
-anderson_birth_date</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiMTgzNi0wNi0wOVwiXG4ifQ== -->
-<pre><code>[1] &quot;1836-06-09&quot;</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYW5uaW5nX2JpcnRoX2RhdGUgPC0geW1kKGFubmluZylcbmFubmluZ19iaXJ0aF9kYXRlXG5gYGAifQ== -->
-<pre class="r"><code>anning_birth_date &lt;- ymd(anning)
-anning_birth_date</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiMTc5OS0wNS0yMVwiXG4ifQ== -->
-<pre><code>[1] &quot;1799-05-21&quot;</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYmFsbF9iaXJ0aF9kYXRlIDwtIG1keShiYWxsKVxuYmFsbF9iaXJ0aF9kYXRlXG5gYGAifQ== -->
-<pre class="r"><code>ball_birth_date &lt;- mdy(ball)
-ball_birth_date</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiMTg5Mi0wNy0yNFwiXG4ifQ== -->
-<pre><code>[1] &quot;1892-07-24&quot;</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZWFybGVfYmlydGhfZGF0ZSA8LSBtZHkoZWFybGUpXG5lYXJsZV9iaXJ0aF9kYXRlXG5gYGAifQ== -->
-<pre class="r"><code>earle_birth_date &lt;- mdy(earle)
-earle_birth_date</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiMTkzNS0wOC0zMFwiXG4ifQ== -->
-<pre><code>[1] &quot;1935-08-30&quot;</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZnJhbmtsaW5fYmlydGhfZGF0ZSA8LSBkbXkoZnJhbmtsaW4pXG5mcmFua2xpbl9iaXJ0aF9kYXRlXG5gYGAifQ== -->
-<pre class="r"><code>franklin_birth_date &lt;- dmy(franklin)
-franklin_birth_date</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiMTkyMC0wNy0yNVwiXG4ifQ== -->
-<pre><code>[1] &quot;1920-07-25&quot;</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGVkZXJiZXJnX2JpcnRoX2RhdGUgPC0gbWR5KGxlZGVyYmVyZylcbmxlZGVyYmVyZ19iaXJ0aF9kYXRlXG5gYGAifQ== -->
-<pre class="r"><code>lederberg_birth_date &lt;- mdy(lederberg)
-lederberg_birth_date</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiMTkyMi0xMi0xOFwiXG4ifQ== -->
-<pre><code>[1] &quot;1922-12-18&quot;</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWNjbGludG9ja19iaXJ0aF9kYXRlIDwtIGRteShtY2NsaW50b2NrKVxubWNjbGludG9ja19iaXJ0aF9kYXRlXG5gYGAifQ== -->
-<pre class="r"><code>mcclintock_birth_date &lt;- dmy(mcclintock)
-mcclintock_birth_date</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiMTkwMi0wNi0xNlwiXG4ifQ== -->
-<pre><code>[1] &quot;1902-06-16&quot;</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWxrX2JpcnRoX2RhdGUgPC0gbWR5KFwiMDEvMTUvMTkyOVwiKVxubWxrX2JpcnRoX2RhdGVcbmBgYCJ9 -->
-<pre class="r"><code>mlk_birth_date &lt;- mdy(&quot;01/15/1929&quot;)
-mlk_birth_date</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiMTkyOS0wMS0xNVwiXG4ifQ== -->
-<pre><code>[1] &quot;1929-01-15&quot;</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWxrX2RyZWFtX2RhdGUgPC0geW1kKG1sa19kcmVhbSlcbm1sa19kcmVhbV9kYXRlXG5gYGAifQ== -->
-<pre class="r"><code>mlk_dream_date &lt;- ymd(mlk_dream)
+my_birth_date
+
+anderson_birth_date &lt;- dmy(anderson)
+anderson_birth_date
+
+anning_birth_date &lt;- ymd(anning)
+anning_birth_date
+
+ball_birth_date &lt;- mdy(ball)
+ball_birth_date
+
+earle_birth_date &lt;- mdy(earle)
+earle_birth_date
+
+franklin_birth_date &lt;- dmy(franklin)
+franklin_birth_date
+
+lederberg_birth_date &lt;- mdy(lederberg)
+lederberg_birth_date
+
+mcclintock_birth_date &lt;- dmy(mcclintock)
+mcclintock_birth_date
+
+mlk_birth_date &lt;- mdy(&quot;01/15/1929&quot;)
+mlk_birth_date
+
+mlk_dream_date &lt;- ymd(mlk_dream)
 mlk_dream_date</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiMTk2My0wOC0yOFwiXG4ifQ== -->
-<pre><code>[1] &quot;1963-08-28&quot;</code></pre>
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="this-code-chunk-inserts-all-of-the-birthdays-from-some-important-figures-as-well-as-the-i-have-a-dream-speech." class="section level1">
+<h1>This code chunk inserts all of the birthdays from some important figures, as well as the i have a dream speech.</h1>
+</div>
+<div id="section-1" class="section level1">
+<h1></h1>
+<div id="section-2" class="section level2">
+<h2>2.</h2>
+</div>
+</div>
+<div id="fixed-the-mlk-birth-date-above." class="section level1">
+<h1>Fixed the MLK birth date above.</h1>
+</div>
+<div id="section-3" class="section level1">
+<h1></h1>
+<div id="section-4" class="section level2">
+<h2>3.</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud2RheShteV9iaXJ0aF9kYXRlLCBsYWJlbCA9IFRSVUUsIGFiYnIgPSBGQUxTRSlcbmBgYCJ9 -->
+<pre class="r"><code>wday(my_birth_date, label = TRUE, abbr = FALSE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+</div>
+<div id="section-5" class="section level1">
+<h1></h1>
+<div id="section-6" class="section level2">
+<h2>4.</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudXBkYXRlZF9teV9iaXJ0aGRheSA8LSB1cGRhdGUobXlfYmlydGhfZGF0ZSR5ZWFyID09ICdZJylcbmBgYCJ9 -->
+<pre class="r"><code>updated_my_birthday &lt;- update(my_birth_date$year == &#39;Y&#39;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gbXlfYmlydGhfZGF0ZSR5ZWFyIDogJCBvcGVyYXRvciBpcyBpbnZhbGlkIGZvciBhdG9taWMgdmVjdG9yc1xuIn0= -->
+<pre><code>Error in my_birth_date$year : $ operator is invalid for atomic vectors</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+</div>
+</div>
+<div id="i-cannot-find-this-one-even-by-googling-it-will-come-back-to-it." class="section level1">
+<h1>I cannot find this one even by googling it, will come back to it.</h1>
+<div id="section-7" class="section level2">
+<h2>5.</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudXBkYXRlZF9teV9iaXJ0aGRheSA8LSB1cGRhdGUobXlfYmlydGhfZGF0ZSwgeWVhcj0yNTI1LCBtb250aCA9IDQsIGRheSA9IDAzKVxud2RheSh1cGRhdGVkX215X2JpcnRoZGF5LCBsYWJlbCA9IFRSVUUsIGFiYnIgPSBUUlVFKVxuYGBgIn0= -->
+<pre class="r"><code>updated_my_birthday &lt;- update(my_birth_date, year=2525, month = 4, day = 03)
+wday(updated_my_birthday, label = TRUE, abbr = TRUE)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFR1ZVxuTGV2ZWxzOiBTdW4gPCBNb24gPCBUdWUgPCBXZWQgPCBUaHUgPCBGcmkgPCBTYXRcbiJ9 -->
+<pre><code>[1] Tue
+Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueWVhcih1cGRhdGVkX215X2JpcnRoZGF5KSAtIHllYXIobXlfYmlydGhfZGF0ZSlcbmBgYCJ9 -->
+<pre class="r"><code>year(updated_my_birthday) - year(my_birth_date)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDUyOVxuIn0= -->
+<pre><code>[1] 529</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+</div>
+<div id="section-8" class="section level1">
+<h1></h1>
+<div id="section-9" class="section level2">
+<h2>6.</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF5KGJhbGxfYmlydGhfZGF0ZSkgLSBkYXkoYW5kZXJzb25fYmlydGhfZGF0ZSkgXG5gYGAifQ== -->
+<pre class="r"><code>day(ball_birth_date) - day(anderson_birth_date) </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDE1XG4ifQ== -->
+<pre><code>[1] 15</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+</div>
+<div id="this-code-chunk-subtracts-the-birthdates-between-ball-and-anderson." class="section level1">
+<h1>This code chunk subtracts the birthdates between ball and anderson.</h1>
+</div>
+<div id="section-10" class="section level1">
+<h1></h1>
+<div id="section-11" class="section level2">
+<h2>7.</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuKG1sa19kcmVhbV9kYXRlIC0gbWxrX2JpcnRoX2RhdGUpXG5gYGAifQ== -->
+<pre class="r"><code>(mlk_dream_date - mlk_birth_date)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+</div>
+<div id="section-12" class="section level1">
+<h1>8.</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYmlydGhfZGF0ZXMgPC0gYyhteV9iaXJ0aF9kYXRlLCBhbmRlcnNvbl9iaXJ0aF9kYXRlLCBhbm5pbmdfYmlydGhfZGF0ZSwgYmFsbF9iaXJ0aF9kYXRlLCBlYXJsZV9iaXJ0aF9kYXRlLCBmcmFua2xpbl9iaXJ0aF9kYXRlLCBsZWRlcmJlcmdfYmlydGhfZGF0ZSwgbWNjbGludG9ja19iaXJ0aF9kYXRlLCBtbGtfYmlydGhfZGF0ZSlcbm5hbWVzKGRhdGVzKSA8LSBjKCdLbGluZ2VtYW4nLCAnQW5kZXJzb24nLCAnQW5uaW5nJywgJ0JhbGwnLCAnRWFybGUnLCAnRnJhbmtsaW4nLCAnTGVkZXJiZXJnJywgJ01jQ2xpbnRvY2snLCAnS2luZycpXG5cbmxlYXBfeWVhcihiaXJ0aF9kYXRlcylcblxuYmlydGhfZGF0ZXMgLSBteV9iaXJ0aF9kYXRlXG5gYGAifQ== -->
+<pre class="r"><code>birth_dates &lt;- c(my_birth_date, anderson_birth_date, anning_birth_date, ball_birth_date, earle_birth_date, franklin_birth_date, lederberg_birth_date, mcclintock_birth_date, mlk_birth_date)
+names(dates) &lt;- c(&#39;Klingeman&#39;, &#39;Anderson&#39;, &#39;Anning&#39;, &#39;Ball&#39;, &#39;Earle&#39;, &#39;Franklin&#39;, &#39;Lederberg&#39;, &#39;McClintock&#39;, &#39;King&#39;)
+
+leap_year(birth_dates)
+
+birth_dates - my_birth_date</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="section-13" class="section level1">
+<h1></h1>
+<div id="part-2-wrangling-and-plotting-with-dates" class="section level3">
+<h3>Part 2: Wrangling and plotting with dates</h3>
 <!-- rnb-text-end -->
 </div>
+</div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkhXIDEyOiBEYXRlcyINCmF1dGhvcjogIkR5bGFuIEtsaW5nZW1hbiINCmRhdGU6ICJgciBmb3JtYXQoU3lzLnRpbWUoKSwgJyVkICVCICVZJylgIg0Kb3V0cHV0OiBodG1sX25vdGVib29rDQplZGl0b3Jfb3B0aW9uczogDQogIGNodW5rX291dHB1dF90eXBlOiBpbmxpbmUNCi0tLQ0KDQpgYGB7ciBzZXR1cCwgaW5jbHVkZT1GQUxTRX0NCmtuaXRyOjpvcHRzX2NodW5rJHNldChlY2hvID0gVFJVRSkNCmBgYA0KDQoqKioNCiMjIExpYnJhcmllcw0KYGBge3J9DQpsaWJyYXJ5KHRpZHl2ZXJzZSkNCmxpYnJhcnkoaGVyZSkNCmxpYnJhcnkobHVicmlkYXRlKQ0KYGBgDQoNCmBgYHtyfQ0Kc291cmNlKGhlcmUoInNjcmlwdHMiLCAibXlfZnVuY3Rpb25zLlIiKSkNCmBgYA0KDQojIyMgUGFydCAxOiBQbGF5IERhdGUNCg0KYGBge3J9DQpiaXJ0aF9kYXRlIDwtICIwNC8wMy8xOTk2Ig0KDQojIEVsaXphYmV0aCBHYXJyZXQgQW5kZXJzb24gd2FzIHRoZSBmaXJzdCBmZW1hbGUgcGh5c2ljaWFuDQphbmRlcnNvbiA8LSAiOSBKdW5lIDE4MzYiDQoNCiMgTWFyeSBBbm5pbmcgZGlzY292ZXJlZCB0aGUgZmlyc3QgY29tcGxldGUgUGxlc2lvc2F1ciBmb3NzaWwsIA0KIyBhbmQgb3RoZXIgaW1wb3J0YW50IEp1cmFzc2ljIGZvc3NpbHMNCmFubmluZyA8LSAgIjE3OTkvMDUvMjEiDQoNCiMgQWxpY2UgQXVndXN0YSBCYWxsIHdhcyBhIGNoZW1pc3Qgd2hvIGRldmVsb3BlZCB0aGUNCiMgZmlyc3QgaW5qZWN0YWJsZSB0cmVhdG1lbnQgZm9yIGxlcHJvc3kuDQpiYWxsIDwtICJKdWx5IDI0LCAxODkyIg0KDQojIFN5bHZpYSBFYXJsZSB3YXMgdGhlIGZpcnN0IGNoaWVmdCBzY2llbnRpc3QgYXQgTk9BQQ0KZWFybGUgPC0gIkF1Z3VzdCwgMzAgKDE5MzUpIg0KDQojIFJvc2FsaW5kIEZyYW5rbGluIHVzZWQgeC1yYXkgZGlmZnJhY3Rpb24gdG8gDQojIGRpc2NvdmVyIEROQSBzdHJ1Y3R1cmUuIFdhdHNvbiBhbmQgQ3JpY2sgY2xhaW1lZCBjcmVkaXQuDQpmcmFua2xpbiA8LSAiMjV0aCBvZiBKdWx5LCAxOTIwIg0KDQojIEVzdGVyIExlZGVyYmVyZyB3YXMgdGhlIGZpcnN0IHRvIGRpc2NvdmVyIHRoYXQgdmlydXNlcyANCiMgaW5mZWN0IGJhY3RlcmlhLiBMZWQgdG8gZGlzY292ZXJ5IG9mIGxhbWJkYSBiYWN0ZXJpb3BoYWdlDQpsZWRlcmJlcmcgPC0gIkRlY2VtYmVyIDE4LCAxOTIyIg0KDQojIEJhcmJhcmEgTWNDbGludG9jayBkaXNjb3ZlcmVkIHRyYW5zcG9zYWJsZSBlbGVtZW50cyAoanVtcGluZyBnZW5lcyksDQojIGFuZCBkZXZlbG9wZWQgc3RhaW5pbmcgdGVjaG5pcXVlcyB0byBzdHVkeSBjaHJvbW9zb21lcw0KbWNjbGludG9jayA8LSAiMTYwNjE5MDIiDQoNCiMgTGV0J3MgYWxzbyByZW1lbWJlciBhIGRyZWFtDQptbGtfYmlydGggPC0gIjEvMTUvMjkiDQptbGtfZHJlYW0gPC0gIjE5NjMgQXVndXN0IDI4Ig0KYGBgDQoNCiMjIDE6IENvbnZlcnQgZWFjaCBkYXRlIHRvIFBPU0lYY3QgZm9ybWF0LCB1c2luZyBsaWJyaWRhdGUgZnVuY3Rpb24sIHNhdmluZyBlYWNoIHRvIGEgdW5pcXVlIHZhcmlhYmxlLiBQcmludCBlYWNoIHJlc3VsdC4gDQoNCmBgYHtyfQ0KbXlfYmlydGhfZGF0ZSA8LSBtZHkoYmlydGhfZGF0ZSkNCm15X2JpcnRoX2RhdGUNCg0KYW5kZXJzb25fYmlydGhfZGF0ZSA8LSBkbXkoYW5kZXJzb24pDQphbmRlcnNvbl9iaXJ0aF9kYXRlDQoNCmFubmluZ19iaXJ0aF9kYXRlIDwtIHltZChhbm5pbmcpDQphbm5pbmdfYmlydGhfZGF0ZQ0KDQpiYWxsX2JpcnRoX2RhdGUgPC0gbWR5KGJhbGwpDQpiYWxsX2JpcnRoX2RhdGUNCg0KZWFybGVfYmlydGhfZGF0ZSA8LSBtZHkoZWFybGUpDQplYXJsZV9iaXJ0aF9kYXRlDQoNCmZyYW5rbGluX2JpcnRoX2RhdGUgPC0gZG15KGZyYW5rbGluKQ0KZnJhbmtsaW5fYmlydGhfZGF0ZQ0KDQpsZWRlcmJlcmdfYmlydGhfZGF0ZSA8LSBtZHkobGVkZXJiZXJnKQ0KbGVkZXJiZXJnX2JpcnRoX2RhdGUNCg0KbWNjbGludG9ja19iaXJ0aF9kYXRlIDwtIGRteShtY2NsaW50b2NrKQ0KbWNjbGludG9ja19iaXJ0aF9kYXRlDQoNCm1sa19iaXJ0aF9kYXRlIDwtIG1keSgiMDEvMTUvMTkyOSIpDQptbGtfYmlydGhfZGF0ZQ0KDQptbGtfZHJlYW1fZGF0ZSA8LSB5bWQobWxrX2RyZWFtKQ0KbWxrX2RyZWFtX2RhdGUNCmBgYA0KDQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkhXIDEyOiBEYXRlcyINCmF1dGhvcjogIkR5bGFuIEtsaW5nZW1hbiINCmRhdGU6ICJgciBmb3JtYXQoU3lzLnRpbWUoKSwgJyVkICVCICVZJylgIg0Kb3V0cHV0OiBodG1sX25vdGVib29rDQplZGl0b3Jfb3B0aW9uczogDQogIGNodW5rX291dHB1dF90eXBlOiBpbmxpbmUNCi0tLQ0KDQpgYGB7ciBzZXR1cCwgaW5jbHVkZT1GQUxTRX0NCmtuaXRyOjpvcHRzX2NodW5rJHNldChlY2hvID0gVFJVRSkNCmBgYA0KDQoqKioNCiMjIExpYnJhcmllcw0KYGBge3J9DQpsaWJyYXJ5KHRpZHl2ZXJzZSkNCmxpYnJhcnkoaGVyZSkNCmxpYnJhcnkobHVicmlkYXRlKQ0KYGBgDQoNCmBgYHtyfQ0Kc291cmNlKGhlcmUoInNjcmlwdHMiLCAibXlfZnVuY3Rpb25zLlIiKSkNCmBgYA0KDQojIyMgUGFydCAxOiBQbGF5IERhdGUNCg0KYGBge3J9DQpiaXJ0aF9kYXRlIDwtICIwNC8wMy8xOTk2Ig0KDQojIEVsaXphYmV0aCBHYXJyZXQgQW5kZXJzb24gd2FzIHRoZSBmaXJzdCBmZW1hbGUgcGh5c2ljaWFuDQphbmRlcnNvbiA8LSAiOSBKdW5lIDE4MzYiDQoNCiMgTWFyeSBBbm5pbmcgZGlzY292ZXJlZCB0aGUgZmlyc3QgY29tcGxldGUgUGxlc2lvc2F1ciBmb3NzaWwsIA0KIyBhbmQgb3RoZXIgaW1wb3J0YW50IEp1cmFzc2ljIGZvc3NpbHMNCmFubmluZyA8LSAgIjE3OTkvMDUvMjEiDQoNCiMgQWxpY2UgQXVndXN0YSBCYWxsIHdhcyBhIGNoZW1pc3Qgd2hvIGRldmVsb3BlZCB0aGUNCiMgZmlyc3QgaW5qZWN0YWJsZSB0cmVhdG1lbnQgZm9yIGxlcHJvc3kuDQpiYWxsIDwtICJKdWx5IDI0LCAxODkyIg0KDQojIFN5bHZpYSBFYXJsZSB3YXMgdGhlIGZpcnN0IGNoaWVmdCBzY2llbnRpc3QgYXQgTk9BQQ0KZWFybGUgPC0gIkF1Z3VzdCwgMzAgKDE5MzUpIg0KDQojIFJvc2FsaW5kIEZyYW5rbGluIHVzZWQgeC1yYXkgZGlmZnJhY3Rpb24gdG8gDQojIGRpc2NvdmVyIEROQSBzdHJ1Y3R1cmUuIFdhdHNvbiBhbmQgQ3JpY2sgY2xhaW1lZCBjcmVkaXQuDQpmcmFua2xpbiA8LSAiMjV0aCBvZiBKdWx5LCAxOTIwIg0KDQojIEVzdGVyIExlZGVyYmVyZyB3YXMgdGhlIGZpcnN0IHRvIGRpc2NvdmVyIHRoYXQgdmlydXNlcyANCiMgaW5mZWN0IGJhY3RlcmlhLiBMZWQgdG8gZGlzY292ZXJ5IG9mIGxhbWJkYSBiYWN0ZXJpb3BoYWdlDQpsZWRlcmJlcmcgPC0gIkRlY2VtYmVyIDE4LCAxOTIyIg0KDQojIEJhcmJhcmEgTWNDbGludG9jayBkaXNjb3ZlcmVkIHRyYW5zcG9zYWJsZSBlbGVtZW50cyAoanVtcGluZyBnZW5lcyksDQojIGFuZCBkZXZlbG9wZWQgc3RhaW5pbmcgdGVjaG5pcXVlcyB0byBzdHVkeSBjaHJvbW9zb21lcw0KbWNjbGludG9jayA8LSAiMTYwNjE5MDIiDQoNCiMgTGV0J3MgYWxzbyByZW1lbWJlciBhIGRyZWFtDQptbGtfYmlydGggPC0gIjEvMTUvMjkiDQptbGtfZHJlYW0gPC0gIjE5NjMgQXVndXN0IDI4Ig0KYGBgDQoNCiMjIDE6IA0KDQpgYGB7cn0NCm15X2JpcnRoX2RhdGUgPC0gbWR5KGJpcnRoX2RhdGUpDQpteV9iaXJ0aF9kYXRlDQoNCmFuZGVyc29uX2JpcnRoX2RhdGUgPC0gZG15KGFuZGVyc29uKQ0KYW5kZXJzb25fYmlydGhfZGF0ZQ0KDQphbm5pbmdfYmlydGhfZGF0ZSA8LSB5bWQoYW5uaW5nKQ0KYW5uaW5nX2JpcnRoX2RhdGUNCg0KYmFsbF9iaXJ0aF9kYXRlIDwtIG1keShiYWxsKQ0KYmFsbF9iaXJ0aF9kYXRlDQoNCmVhcmxlX2JpcnRoX2RhdGUgPC0gbWR5KGVhcmxlKQ0KZWFybGVfYmlydGhfZGF0ZQ0KDQpmcmFua2xpbl9iaXJ0aF9kYXRlIDwtIGRteShmcmFua2xpbikNCmZyYW5rbGluX2JpcnRoX2RhdGUNCg0KbGVkZXJiZXJnX2JpcnRoX2RhdGUgPC0gbWR5KGxlZGVyYmVyZykNCmxlZGVyYmVyZ19iaXJ0aF9kYXRlDQoNCm1jY2xpbnRvY2tfYmlydGhfZGF0ZSA8LSBkbXkobWNjbGludG9jaykNCm1jY2xpbnRvY2tfYmlydGhfZGF0ZQ0KDQptbGtfYmlydGhfZGF0ZSA8LSBtZHkoIjAxLzE1LzE5MjkiKQ0KbWxrX2JpcnRoX2RhdGUNCg0KbWxrX2RyZWFtX2RhdGUgPC0geW1kKG1sa19kcmVhbSkNCm1sa19kcmVhbV9kYXRlDQpgYGANCg0KIyBUaGlzIGNvZGUgY2h1bmsgaW5zZXJ0cyBhbGwgb2YgdGhlIGJpcnRoZGF5cyBmcm9tIHNvbWUgaW1wb3J0YW50IGZpZ3VyZXMsIGFzIHdlbGwgYXMgdGhlIGkgaGF2ZSBhIGRyZWFtIHNwZWVjaC4gDQoNCiMNCg0KIyMgMi4gDQoNCiMgRml4ZWQgdGhlIE1MSyBiaXJ0aCBkYXRlIGFib3ZlLiANCg0KIw0KDQojIyAzLiANCmBgYHtyfQ0Kd2RheShteV9iaXJ0aF9kYXRlLCBsYWJlbCA9IFRSVUUsIGFiYnIgPSBGQUxTRSkNCmBgYA0KDQojDQoNCiMjIDQuIA0KDQpgYGB7cn0NCnVwZGF0ZWRfbXlfYmlydGhkYXkgPC0gdXBkYXRlKG15X2JpcnRoX2RhdGUkeWVhciA9PSAnWScpDQpgYGANCg0KIyBJIGNhbm5vdCBmaW5kIHRoaXMgb25lIGV2ZW4gYnkgZ29vZ2xpbmcgaXQsIHdpbGwgY29tZSBiYWNrIHRvIGl0LiANCg0KIyMgNS4gDQoNCmBgYHtyfQ0KdXBkYXRlZF9teV9iaXJ0aGRheSA8LSB1cGRhdGUobXlfYmlydGhfZGF0ZSwgeWVhcj0yNTI1LCBtb250aCA9IDQsIGRheSA9IDAzKQ0Kd2RheSh1cGRhdGVkX215X2JpcnRoZGF5LCBsYWJlbCA9IFRSVUUsIGFiYnIgPSBUUlVFKQ0KDQp5ZWFyKHVwZGF0ZWRfbXlfYmlydGhkYXkpIC0geWVhcihteV9iaXJ0aF9kYXRlKQ0KDQpgYGANCg0KIyANCg0KIyMgNi4gDQoNCmBgYHtyfQ0KZGF5KGJhbGxfYmlydGhfZGF0ZSkgLSBkYXkoYW5kZXJzb25fYmlydGhfZGF0ZSkgDQpgYGANCg0KIyBUaGlzIGNvZGUgY2h1bmsgc3VidHJhY3RzIHRoZSBiaXJ0aGRhdGVzIGJldHdlZW4gYmFsbCBhbmQgYW5kZXJzb24uIA0KDQojDQoNCiMjIDcuIA0KDQpgYGB7cn0NCihtbGtfZHJlYW1fZGF0ZSAtIG1sa19iaXJ0aF9kYXRlKQ0KYGBgDQoNCiMgOC4gDQoNCmBgYHtyfQ0KYmlydGhfZGF0ZXMgPC0gYyhteV9iaXJ0aF9kYXRlLCBhbmRlcnNvbl9iaXJ0aF9kYXRlLCBhbm5pbmdfYmlydGhfZGF0ZSwgYmFsbF9iaXJ0aF9kYXRlLCBlYXJsZV9iaXJ0aF9kYXRlLCBmcmFua2xpbl9iaXJ0aF9kYXRlLCBsZWRlcmJlcmdfYmlydGhfZGF0ZSwgbWNjbGludG9ja19iaXJ0aF9kYXRlLCBtbGtfYmlydGhfZGF0ZSkNCm5hbWVzKGRhdGVzKSA8LSBjKCdLbGluZ2VtYW4nLCAnQW5kZXJzb24nLCAnQW5uaW5nJywgJ0JhbGwnLCAnRWFybGUnLCAnRnJhbmtsaW4nLCAnTGVkZXJiZXJnJywgJ01jQ2xpbnRvY2snLCAnS2luZycpDQoNCmxlYXBfeWVhcihiaXJ0aF9kYXRlcykNCg0KYmlydGhfZGF0ZXMgLSBteV9iaXJ0aF9kYXRlDQpgYGANCg0KIw0KDQojIyMgUGFydCAyOiBXcmFuZ2xpbmcgYW5kIHBsb3R0aW5nIHdpdGggZGF0ZXM=</div>
 
 
 
