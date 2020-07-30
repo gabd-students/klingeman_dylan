@@ -203,3 +203,67 @@ wrangled_ice %>%
 
 ## 2.2 Soil Carbon Dioxide. 
 
+```{r}
+soil_data <- read_tsv(here::here("data","soil_co2.txt"))
+```
+
+# Imports the soil_co2 dataset. 
+
+```{r}
+soil_date <- dmy(01012006)
+soil_date
+```
+
+# Adds the date 01/01/2006 to a vector. 
+
+```{r}
+renamed_soil <- soil_data %>% 
+  rename("day" = "DayN[]", "datecode" = "Datecode[]", "min" = "Min[]", "veg" = "Veg[]", "plot" = "Plot[]", "group" = "Group[]", "corrco2" = "CorrCO2[]", "soilt" = "SoilT[]") %>% 
+  mutate(date = soil_date + day, 
+         year = year(date), 
+         month = month(date, label =TRUE))
+renamed_soil
+```
+
+# This code chunk wrangles the soil_data datset. The names are changed to a shorthand that are more coding friendly, then adds three new columns: date, year, and month. 
+
+```{r}
+wrangled_soil <- group_by(renamed_soil, year, month)
+wrangled_soil
+```
+
+# Organizes data by the month and year
+
+```{r}
+soil_summary <- summarise(wrangled_soil, meanco2=mean(corrco2, na.rm = TRUE),std_err_co2 = std_err(corrco2, na.rm = TRUE), .groups = 'drop')  
+soil_summary
+```
+
+# Summarises the data into only year, month, the std error of the mean, and the mean co2 value. 
+
+```{r}
+ggplot(data = soil_summary) + 
+  geom_col(mapping = aes(x = month, y = meanco2)) + 
+  geom_errorbar(aes(x = month, ymin = meanco2 - std_err_co2, ymax = meanco2 + std_err_co2), width = 0.65) + 
+  facet_wrap(~year) + 
+  labs (x = "Month", y = "mean_co2")
+```
+
+# Creates the first set of charts as seen in the example. I opted to use the errrorbar and set it to 0.65 width, this seemed to be easy to see but not invasive of other points. 
+
+# The graph was originally showing numbers instead of the months. Fixed this by goign back a few steps and adding label = TRUE argument to the months. 
+
+```{r}
+ggplot(data = soil_summary) + 
+  geom_point(mapping = aes(x = month, y = meanco2)) + 
+  geom_linerange(aes(x = month, ymin = meanco2 - std_err_co2, ymax = meanco2 + std_err_co2)) + 
+  facet_wrap(~year) + 
+  labs (x = "Month", y = "mean_co2")
+```
+
+# Makes a graph similar to the above but changes it to a line range graph with points instead of columns. 
+
+#
+
+## 2.3 Mississippi River Discharge. 
+
