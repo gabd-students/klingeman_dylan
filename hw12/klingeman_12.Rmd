@@ -113,7 +113,8 @@ wday(my_birth_date, label = TRUE, abbr = FALSE)
 ## 1.4
 
 ```{r}
-updated_my_birthday <- update(my_birth_date$year == 'Y')
+updated_my_birthday <- update(my_birth_date, year=2020)
+weekdays(updated_my_birthday)
 ```
 
 # I cannot find this one even by googling it, will come back to it. 
@@ -209,12 +210,16 @@ soil_data <- read_tsv(here::here("data","soil_co2.txt"))
 
 # Imports the soil_co2 dataset. 
 
+#
+
 ```{r}
 soil_date <- dmy(01012006)
 soil_date
 ```
 
 # Adds the date 01/01/2006 to a vector. 
+
+#
 
 ```{r}
 renamed_soil <- soil_data %>% 
@@ -227,6 +232,8 @@ renamed_soil
 
 # This code chunk wrangles the soil_data datset. The names are changed to a shorthand that are more coding friendly, then adds three new columns: date, year, and month. 
 
+#
+
 ```{r}
 wrangled_soil <- group_by(renamed_soil, year, month)
 wrangled_soil
@@ -234,12 +241,16 @@ wrangled_soil
 
 # Organizes data by the month and year
 
+#
+
 ```{r}
 soil_summary <- summarise(wrangled_soil, meanco2=mean(corrco2, na.rm = TRUE),std_err_co2 = std_err(corrco2, na.rm = TRUE), .groups = 'drop')  
 soil_summary
 ```
 
 # Summarises the data into only year, month, the std error of the mean, and the mean co2 value. 
+
+#
 
 ```{r}
 ggplot(data = soil_summary) + 
@@ -252,6 +263,8 @@ ggplot(data = soil_summary) +
 # Creates the first set of charts as seen in the example. I opted to use the errrorbar and set it to 0.65 width, this seemed to be easy to see but not invasive of other points. 
 
 # The graph was originally showing numbers instead of the months. Fixed this by goign back a few steps and adding label = TRUE argument to the months. 
+
+#
 
 ```{r}
 ggplot(data = soil_summary) + 
@@ -267,3 +280,69 @@ ggplot(data = soil_summary) +
 
 ## 2.3 Mississippi River Discharge. 
 
+```{r}
+thebes_data <- read_csv(here::here("data","thebes_discharge.csv"))
+```
+
+# Imports thebes_discharge.csv dataset
+
+#
+
+```{r}
+wrangled_thebes <- pivot_longer(thebes_data, "1988":"2018", names_to = "year", values_to = "discharge") %>% 
+  mutate(discharge = discharge/1000) %>% 
+  group_by(year, Month)
+wrangled_thebes
+```
+
+# Wrangles the dataset, collapses the columns from 1988 to 2018 into one column called "year" and these values are transferred to another column titled "discharge'. This value is then divided by 1000 for unit conversions. The data is then sorted by year and month. 
+
+#
+
+```{r}
+thebes_summary <- summarise(wrangled_thebes, mean_discharge = mean(discharge, na.rm = TRUE),.groups = 'drop')
+thebes_summary
+```
+
+# This code chunk calculates the mean discharge for each month of the dataset. 
+
+#
+
+```{r}
+thebes_named <- thebes_summary %>% 
+  mutate(event = case_when(
+    year==1993 | year==2011 ~ "Flood", 
+    year==1988 | year==2012 ~ "Drought", 
+    TRUE ~ "Normal")) %>% 
+    mutate(Month = month(Month, label = TRUE))
+thebes_named
+```
+
+# This code chunk creates another column labeled as event. This tracks when there was a drought or when there was a flood changing the system. If there was not a drought or flood that year, then it is labeled as "normal". The TRUE statement is needed for the non specified years. 
+
+#
+
+```{r}
+thebes_events <- thebes_named %>% 
+  filter(year%in%c("1988", "1993", "2011", "2012"))
+thebes_events
+```
+
+# Filters only years where there was a year or a drought. I was able to get this to work with "==" without the %in%, but after going back and looking at chapter 5.2.2 i was able to make the %in% argument work. 
+
+#
+
+```{r}
+ggplot(data = thebes_named) +
+geom_line(mapping = aes(x = Month, y = mean_discharge, group = year), size = 0.3, color = 'gray70') +
+geom_line(data = thebes_events, mapping = aes( x = Month, y = mean_discharge, group = year, color = event)) + 
+  labs(x = NULL, y = "Discharge(cf * s^-1, thousands)")
+  
+  
+```
+
+# Creates the graph for the thebes dataset. The month is plotted to x, while the discharge is plotted to y. The normal years are plotted in size 0.3 lines and have their color changed to gray70. The other drought/flood lines have their color changed and are larger. The axes have their names changed to better match the graph seen in the dataset. 
+
+# The lines were not showing separately until i placed in group = year. 
+
+#
