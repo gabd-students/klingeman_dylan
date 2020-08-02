@@ -136,4 +136,38 @@ writeLines(x)
 str_view(x, "\\\\")
 ```
 
-# 14.3.2 Anchors-
+# 14.3.2 Anchors
+
+```{r}
+x <- c("apple", "banana", "pear")
+str_view(x, "^a")
+```
+
+# ^ = start of statement
+
+```{r}
+str_view(x, "a$")
+```
+
+$ = end of statement
+
+```{r}
+x <-  c("apple pie", "apple", "apple cake")
+str_view(x, "apple")
+```
+
+```{r}
+str_view(x, "^apple$")
+```
+
+# 14.3.3 Character classes and alternatives
+
+```{r}
+str_view(c("abc", "a.c", "a*c", "a c"), "a[.]c")
+```
+
+
+
+
+
+

@@ -20,3 +20,22 @@ library(gghighlight)
 
 ### Part 1: DNA strings
 
+```{r}
+gliadin_data <- read_lines(here("data", "beta_gliadin.txt"), skip = 1)
+gliadin_data
+```
+
+# Imports the beta gliadin dataset and removes the first line. 
+
+```{r}
+gliadin_wrangled <- str_replace_all(gliadin_data, c("\\d" = "", "\\s" = "")) 
+gliadin_wrangled
+```
+
+# Removes all digits (numbers), and then all of the spaces within the above dataset. 
+
+```{r}
+str_c(gliadin_wrangled, collapse = "")
+```
+
+# Collapses the strings into a single string. 
