@@ -73,10 +73,61 @@ str_length(caat_seqs_all) # sequence 1 is 139, sequence 2 is 148.
 
 str_which(caat_seqs_all, tata_seq) # sequence1 contains the tata sequence. 
 
-promoter <- str_subset(caat_seqs_all, tata_seq) # prints the entire string 1.
-promoter
+promotor <- str_subset(caat_seqs_all, tata_seq) # prints the entire string 1.
+promotor
 ```
 
 # 
 
 ### Part 2: Ants
+
+```{r}
+ant_data <- read_csv(here("data", "ants.csv"))
+head(ant_data)
+```
+
+# imports the data and shows first couple lines. 
+
+```{r}
+ant_wrangled <- ant_data %>%
+   pivot_longer(names_to = "species", # Moves names to species
+                values_to = "abundance", # Move value to abundance column
+                matches("[A-Z].+\\.[a-z]+", # Checks that names are in uppercase then lowercase format. 
+                        ignore.case = FALSE)) %>% # Case sensitive. 
+  select(year, species, abundance) %>% 
+   mutate(species = str_replace(species,
+                                "(.{4}).*\\.(.{4}).*",
+                                "\\1\\2"))  %>% 
+  mutate(year = factor(year, ordered = TRUE, levels = c(2010, 2011))) %>% 
+  group_by(year, species) %>% 
+  summarise(total_abundance = sum(abundance))
+ant_wrangled
+
+```
+
+# had to mess around with the "." after the "a-z" to make it work
+
+# "(.{4}).*\\.(.{4}).*" Captures the first 4 letters of the first word, spaces to the ext word, and then captures 4 letters. 
+
+# the two parts separated by the \\ can be back referenced with 1 and 2 respectivelyh. 
+
+## Was stuck until i removed ang_wrangled from the summarise argument. Was adding all of the totals together and making very large numbers. 
+
+```{r}
+ggplot(ant_wrangled, aes(x = reorder(species, total_abundance), y = total_abundance), group = species) + 
+  geom_line() + 
+  geom_point(aes(shape = year), size = 2) + 
+  coord_flip() + 
+  labs(x = NULL, y = "Total Abundance", shape = "Year") + 
+  theme_minimal()
+  
+```
+
+# 
+
+### Part 3: Featuring Phlox flowers. 
+
+```{r}
+flower_data <- read_csv(here("data", "flower_size.csv"))
+```
+
