@@ -49,6 +49,34 @@ str_count(gliadin_wrangled, "TGA|TAA") # 99 matches
 
 # Counts totals, had to use only one set of quotations to make the final line work. 
 
+```{r}
+caat_box <- "CCAAT"
+tata_box <- "CTATAA"
 
+str_count(gliadin_wrangled, caat_box) # 4 matches
+str_count(gliadin_wrangled, tata_box) # 1 match
 
+caat_seq <- "CCAAT.{100,150}ATG" # like in 14.3.4
+str_count(gliadin_wrangled, caat_seq) # 2 matches
 
+tata_seq <- "CTATAA.{50,100}ATG" # 1 match
+str_count(gliadin_wrangled, tata_seq)
+```
+
+# tata seq was returning 0 matches, fixed typo from "CATATAA" -> "CTATAA"
+
+```{r}
+caat_seqs_all <- str_extract_all(gliadin_wrangled, caat_seq, simplify = TRUE) # saves all caat sequences
+
+caat_seqs_all
+str_length(caat_seqs_all) # sequence 1 is 139, sequence 2 is 148. 
+
+str_which(caat_seqs_all, tata_seq) # sequence1 contains the tata sequence. 
+
+promoter <- str_subset(caat_seqs_all, tata_seq) # prints the entire string 1.
+promoter
+```
+
+# 
+
+### Part 2: Ants

@@ -1829,9 +1829,85 @@ str_length(gliadin_wrangled) # measures string length</code></pre>
 <div id="counts-totals-had-to-use-only-one-set-of-quotations-to-make-the-final-line-work." class="section level1">
 <h1>Counts totals, had to use only one set of quotations to make the final line work.</h1>
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2FhdF9ib3ggPC0gXCJDQ0FBVFwiXG50YXRhX2JveCA8LSBcIkNUQVRBQVwiXG5cbnN0cl9jb3VudChnbGlhZGluX3dyYW5nbGVkLCBjYWF0X2JveCkgIyA0IG1hdGNoZXNcbmBgYCJ9 -->
+<pre class="r"><code>caat_box &lt;- &quot;CCAAT&quot;
+tata_box &lt;- &quot;CTATAA&quot;
+
+str_count(gliadin_wrangled, caat_box) # 4 matches</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDRcbiJ9 -->
+<pre><code>[1] 4</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyX2NvdW50KGdsaWFkaW5fd3JhbmdsZWQsIHRhdGFfYm94KSAjIDEgbWF0Y2hcbmBgYCJ9 -->
+<pre class="r"><code>str_count(gliadin_wrangled, tata_box) # 1 match</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDFcbiJ9 -->
+<pre><code>[1] 1</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2FhdF9zZXEgPC0gXCJDQ0FBVC57MTAwLDE1MH1BVEdcIiAjIGxpa2UgaW4gMTQuMy40XG5zdHJfY291bnQoZ2xpYWRpbl93cmFuZ2xlZCwgY2FhdF9zZXEpICMgMiBtYXRjaGVzXG5gYGAifQ== -->
+<pre class="r"><code>caat_seq &lt;- &quot;CCAAT.{100,150}ATG&quot; # like in 14.3.4
+str_count(gliadin_wrangled, caat_seq) # 2 matches</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDJcbiJ9 -->
+<pre><code>[1] 2</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGF0YV9zZXEgPC0gXCJDVEFUQUEuezUwLDEwMH1BVEdcIlxuc3RyX2NvdW50KGdsaWFkaW5fd3JhbmdsZWQsIHRhdGFfc2VxKVxuYGBgIn0= -->
+<pre class="r"><code>tata_seq &lt;- &quot;CTATAA.{50,100}ATG&quot;
+str_count(gliadin_wrangled, tata_seq)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDFcbiJ9 -->
+<pre><code>[1] 1</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="tata-seq-was-returning-0-matches-fixed-typo-from-catataa---ctataa" class="section level1">
+<h1>tata seq was returning 0 matches, fixed typo from “CATATAA” -&gt; “CTATAA”</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2FhdF9zZXFzX2FsbCA8LSBzdHJfZXh0cmFjdF9hbGwoZ2xpYWRpbl93cmFuZ2xlZCwgY2FhdF9zZXEsIHNpbXBsaWZ5ID0gVFJVRSkgIyBzYXZlcyBhbGwgY2FhdCBzZXF1ZW5jZXNcblxuY2FhdF9zZXFzX2FsbFxuYGBgIn0= -->
+<pre class="r"><code>caat_seqs_all &lt;- str_extract_all(gliadin_wrangled, caat_seq, simplify = TRUE) # saves all caat sequences
+
+caat_seqs_all</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICBbLDFdICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcblsxLF0gXCJDQ0FBVFRHVEdBQUFHQUdBVENBVEdDQ0FUR0FDQUdDVEFUQUFBVEFHR0NDQ0dDQVRDR0FUR0FUR0FUQ0FUQ0NUVENDVENBVENDQVRDQVRUQ1RDQVRBQUdUQUdBR1RHQ0FUQ0FUVENBQUdHQ0FBR0NBQUdDQUdUR0dUQ0FBVEFDQUFBVENDQVRDQVRHXCJcbiAgICAgWywyXSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG5bMSxdIFwiQ0NBQVRUVENHQ0FHQ0FBQ0FBR0NBQ0FBQ0FBQ0FBQ0FBQ0FBQ0FBQ0FBQ0FBQ0FBQ0FBQ0FBQ0FBQ0FBQ0FBQ0FBQ0FBQ0FBQVRDQ1RUQ0FBQ0FBQVRUVFRHQ0FBQ0FBQ0FBQ1RHQVRUQ0NBVEdDQUdHR0FUR1RUR1RDVFRHQ0FBQ0FBQ0FDQUFDQVRBR0NHQ0FUR1wiXG4ifQ== -->
+<pre><code>     [,1]                                                                                                                                         
+[1,] &quot;CCAATTGTGAAAGAGATCATGCCATGACAGCTATAAATAGGCCCGCATCGATGATGATCATCCTTCCTCATCCATCATTCTCATAAGTAGAGTGCATCATTCAAGGCAAGCAAGCAGTGGTCAATACAAATCCATCATG&quot;
+     [,2]                                                                                                                                                  
+[1,] &quot;CCAATTTCGCAGCAACAAGCACAACAACAACAACAACAACAACAACAACAACAACAACAACAACAACAACAAATCCTTCAACAAATTTTGCAACAACAACTGATTCCATGCAGGGATGTTGTCTTGCAACAACACAACATAGCGCATG&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyX2xlbmd0aChjYWF0X3NlcXNfYWxsKSAjIHNlcXVlbmNlIDEgaXMgMTM5LCBzZXF1ZW5jZSAyIGlzIDE0OC4gXG5gYGAifQ== -->
+<pre class="r"><code>str_length(caat_seqs_all) # sequence 1 is 139, sequence 2 is 148. </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDEzOSAxNDhcbiJ9 -->
+<pre><code>[1] 139 148</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyX3doaWNoKGNhYXRfc2Vxc19hbGwsIHRhdGFfc2VxKSAjIHNlcXVlbmNlMSBjb250YWlucyB0aGUgdGF0YSBzZXF1ZW5jZS4gXG5gYGAifQ== -->
+<pre class="r"><code>str_which(caat_seqs_all, tata_seq) # sequence1 contains the tata sequence. </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDFcbiJ9 -->
+<pre><code>[1] 1</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucHJvbW90ZXIgPC0gc3RyX3N1YnNldChjYWF0X3NlcXNfYWxsLCB0YXRhX3NlcSlcbnByb21vdGVyXG5gYGAifQ== -->
+<pre class="r"><code>promoter &lt;- str_subset(caat_seqs_all, tata_seq)
+promoter</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiQ0NBQVRUR1RHQUFBR0FHQVRDQVRHQ0NBVEdBQ0FHQ1RBVEFBQVRBR0dDQ0NHQ0FUQ0dBVEdBVEdBVENBVENDVFRDQ1RDQVRDQ0FUQ0FUVENUQ0FUQUFHVEFHQUdUR0NBVENBVFRDQUFHR0NBQUdDQUFHQ0FHVEdHVENBQVRBQ0FBQVRDQ0FUQ0FUR1wiXG4ifQ== -->
+<pre><code>[1] &quot;CCAATTGTGAAAGAGATCATGCCATGACAGCTATAAATAGGCCCGCATCGATGATGATCATCCTTCCTCATCCATCATTCTCATAAGTAGAGTGCATCATTCAAGGCAAGCAAGCAGTGGTCAATACAAATCCATCATG&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="section" class="section level1">
+<h1></h1>
+<div id="part-2-ants" class="section level3">
+<h3>Part 2: Ants</h3>
+<!-- rnb-text-end -->
+</div>
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkhXIDEzOiBTdHJpbmdzIGFuZCB0aGluZ3MiDQphdXRob3I6ICJEeWxhbiBLbGluZ2VtYW4iDQpkYXRlOiAiYHIgZm9ybWF0KFN5cy50aW1lKCksICclZCAlQiAlWScpYCINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KZWRpdG9yX29wdGlvbnM6IA0KICBjaHVua19vdXRwdXRfdHlwZTogaW5saW5lDQotLS0NCg0KYGBge3Igc2V0dXAsIGluY2x1ZGU9RkFMU0V9DQprbml0cjo6b3B0c19jaHVuayRzZXQoZWNobyA9IFRSVUUpDQpgYGANCg0KYGBge3J9DQpsaWJyYXJ5KHRpZHl2ZXJzZSkNCmxpYnJhcnkoaGVyZSkNCmxpYnJhcnkoZ2d0aGVtZXMpDQpsaWJyYXJ5KGdnaGlnaGxpZ2h0KQ0KYGBgDQoNCiMjIyBQYXJ0IDE6IEROQSBzdHJpbmdzDQoNCmBgYHtyfQ0KZ2xpYWRpbl9kYXRhIDwtIHJlYWRfbGluZXMoaGVyZSgiZGF0YSIsICJiZXRhX2dsaWFkaW4udHh0IiksIHNraXAgPSAxKQ0KZ2xpYWRpbl9kYXRhDQpgYGANCg0KIyBJbXBvcnRzIHRoZSBiZXRhIGdsaWFkaW4gZGF0YXNldCBhbmQgcmVtb3ZlcyB0aGUgZmlyc3QgbGluZS4gDQoNCmBgYHtyfQ0KZ2xpYWRpbl93cmFuZ2xlZCA8LSBzdHJfcmVwbGFjZV9hbGwoZ2xpYWRpbl9kYXRhLCBjKCJcXGQiID0gIiIsICJcXHMiID0gIiIpKSAlPiUgICMgcmVtb3ZlcyBhbGwgZGlnaXRzIGFuZCBzcGFjZXMNCiAgDQpzdHJfYyhjb2xsYXBzZSA9ICIiKSAlPiUgIyBjb2xsYXBzZXMgaW50byBhIHNpbmdsZSBzdHJpbmcNCg0Kc3RyX3RvX3VwcGVyKCkgIyBjb252ZXJ0cyB0byB1cHBlcmNhc2UgbGV0dGVycw0KDQpzdHJfbGVuZ3RoKGdsaWFkaW5fd3JhbmdsZWQpICMgbWVhc3VyZXMgc3RyaW5nIGxlbmd0aA0KDQpnbGlhZGluX3dyYW5nbGVkDQpgYGANCg0KIyBQdXQgYWxsIHRoZSBzdGVwcyBpbnRvIG9uZSBibG9jayB0byBzYXZlIHNwYWNlLiBXaWxsIHRyeSB0byBkbyB0aGlzIGFzIG11Y2ggYXMgcG9zc2libGUgZ29pbmcgZm9yd2FyZC4gDQoNCmBgYHtyfQ0Kc3RyX2NvdW50KGdsaWFkaW5fd3JhbmdsZWQsICJbQS5DLlQuR10iKSAgICMgQWxsIGFyZSBBLCBDLCBULCBHDQpzdHJfY291bnQoZ2xpYWRpbl93cmFuZ2xlZCwgIkFURyIpICMgNjYgbWF0Y2hlcw0Kc3RyX2NvdW50KGdsaWFkaW5fd3JhbmdsZWQsICJUR0F8VEFBIikgIyA5OSBtYXRjaGVzDQpgYGANCg0KIyBDb3VudHMgdG90YWxzLCBoYWQgdG8gdXNlIG9ubHkgb25lIHNldCBvZiBxdW90YXRpb25zIHRvIG1ha2UgdGhlIGZpbmFsIGxpbmUgd29yay4gDQoNCg0KDQoNCg==</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkhXIDEzOiBTdHJpbmdzIGFuZCB0aGluZ3MiDQphdXRob3I6ICJEeWxhbiBLbGluZ2VtYW4iDQpkYXRlOiAiYHIgZm9ybWF0KFN5cy50aW1lKCksICclZCAlQiAlWScpYCINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KZWRpdG9yX29wdGlvbnM6IA0KICBjaHVua19vdXRwdXRfdHlwZTogaW5saW5lDQotLS0NCg0KYGBge3Igc2V0dXAsIGluY2x1ZGU9RkFMU0V9DQprbml0cjo6b3B0c19jaHVuayRzZXQoZWNobyA9IFRSVUUpDQpgYGANCg0KYGBge3J9DQpsaWJyYXJ5KHRpZHl2ZXJzZSkNCmxpYnJhcnkoaGVyZSkNCmxpYnJhcnkoZ2d0aGVtZXMpDQpsaWJyYXJ5KGdnaGlnaGxpZ2h0KQ0KYGBgDQoNCiMjIyBQYXJ0IDE6IEROQSBzdHJpbmdzDQoNCmBgYHtyfQ0KZ2xpYWRpbl9kYXRhIDwtIHJlYWRfbGluZXMoaGVyZSgiZGF0YSIsICJiZXRhX2dsaWFkaW4udHh0IiksIHNraXAgPSAxKQ0KZ2xpYWRpbl9kYXRhDQpgYGANCg0KIyBJbXBvcnRzIHRoZSBiZXRhIGdsaWFkaW4gZGF0YXNldCBhbmQgcmVtb3ZlcyB0aGUgZmlyc3QgbGluZS4gDQoNCmBgYHtyfQ0KZ2xpYWRpbl93cmFuZ2xlZCA8LSBzdHJfcmVwbGFjZV9hbGwoZ2xpYWRpbl9kYXRhLCBjKCJcXGQiID0gIiIsICJcXHMiID0gIiIpKSAlPiUgICMgcmVtb3ZlcyBhbGwgZGlnaXRzIGFuZCBzcGFjZXMNCiAgDQpzdHJfYyhjb2xsYXBzZSA9ICIiKSAlPiUgIyBjb2xsYXBzZXMgaW50byBhIHNpbmdsZSBzdHJpbmcNCg0Kc3RyX3RvX3VwcGVyKCkgIyBjb252ZXJ0cyB0byB1cHBlcmNhc2UgbGV0dGVycw0KDQpzdHJfbGVuZ3RoKGdsaWFkaW5fd3JhbmdsZWQpICMgbWVhc3VyZXMgc3RyaW5nIGxlbmd0aA0KDQpnbGlhZGluX3dyYW5nbGVkDQpgYGANCg0KIyBQdXQgYWxsIHRoZSBzdGVwcyBpbnRvIG9uZSBibG9jayB0byBzYXZlIHNwYWNlLiBXaWxsIHRyeSB0byBkbyB0aGlzIGFzIG11Y2ggYXMgcG9zc2libGUgZ29pbmcgZm9yd2FyZC4gDQoNCmBgYHtyfQ0Kc3RyX2NvdW50KGdsaWFkaW5fd3JhbmdsZWQsICJbQS5DLlQuR10iKSAgICMgQWxsIGFyZSBBLCBDLCBULCBHDQpzdHJfY291bnQoZ2xpYWRpbl93cmFuZ2xlZCwgIkFURyIpICMgNjYgbWF0Y2hlcw0Kc3RyX2NvdW50KGdsaWFkaW5fd3JhbmdsZWQsICJUR0F8VEFBIikgIyA5OSBtYXRjaGVzDQpgYGANCg0KIyBDb3VudHMgdG90YWxzLCBoYWQgdG8gdXNlIG9ubHkgb25lIHNldCBvZiBxdW90YXRpb25zIHRvIG1ha2UgdGhlIGZpbmFsIGxpbmUgd29yay4gDQoNCmBgYHtyfQ0KY2FhdF9ib3ggPC0gIkNDQUFUIg0KdGF0YV9ib3ggPC0gIkNUQVRBQSINCg0Kc3RyX2NvdW50KGdsaWFkaW5fd3JhbmdsZWQsIGNhYXRfYm94KSAjIDQgbWF0Y2hlcw0Kc3RyX2NvdW50KGdsaWFkaW5fd3JhbmdsZWQsIHRhdGFfYm94KSAjIDEgbWF0Y2gNCg0KY2FhdF9zZXEgPC0gIkNDQUFULnsxMDAsMTUwfUFURyIgIyBsaWtlIGluIDE0LjMuNA0Kc3RyX2NvdW50KGdsaWFkaW5fd3JhbmdsZWQsIGNhYXRfc2VxKSAjIDIgbWF0Y2hlcw0KDQp0YXRhX3NlcSA8LSAiQ1RBVEFBLns1MCwxMDB9QVRHIiAjIDEgbWF0Y2gNCnN0cl9jb3VudChnbGlhZGluX3dyYW5nbGVkLCB0YXRhX3NlcSkNCmBgYA0KDQojIHRhdGEgc2VxIHdhcyByZXR1cm5pbmcgMCBtYXRjaGVzLCBmaXhlZCB0eXBvIGZyb20gIkNBVEFUQUEiIC0+ICJDVEFUQUEiDQoNCmBgYHtyfQ0KY2FhdF9zZXFzX2FsbCA8LSBzdHJfZXh0cmFjdF9hbGwoZ2xpYWRpbl93cmFuZ2xlZCwgY2FhdF9zZXEsIHNpbXBsaWZ5ID0gVFJVRSkgIyBzYXZlcyBhbGwgY2FhdCBzZXF1ZW5jZXMNCg0KY2FhdF9zZXFzX2FsbA0Kc3RyX2xlbmd0aChjYWF0X3NlcXNfYWxsKSAjIHNlcXVlbmNlIDEgaXMgMTM5LCBzZXF1ZW5jZSAyIGlzIDE0OC4gDQoNCnN0cl93aGljaChjYWF0X3NlcXNfYWxsLCB0YXRhX3NlcSkgIyBzZXF1ZW5jZTEgY29udGFpbnMgdGhlIHRhdGEgc2VxdWVuY2UuIA0KDQpwcm9tb3RlciA8LSBzdHJfc3Vic2V0KGNhYXRfc2Vxc19hbGwsIHRhdGFfc2VxKSAjIHByaW50cyB0aGUgZW50aXJlIHN0cmluZyAxLg0KcHJvbW90ZXINCmBgYA0KDQojIA0KDQojIyMgUGFydCAyOiBBbnRzDQo=</div>
 
 
 
