@@ -28,14 +28,27 @@ gliadin_data
 # Imports the beta gliadin dataset and removes the first line. 
 
 ```{r}
-gliadin_wrangled <- str_replace_all(gliadin_data, c("\\d" = "", "\\s" = "")) 
+gliadin_wrangled <- str_replace_all(gliadin_data, c("\\d" = "", "\\s" = "")) %>%  # removes all digits and spaces
+  
+str_c(collapse = "") %>% # collapses into a single string
+
+str_to_upper() # converts to uppercase letters
+
+str_length(gliadin_wrangled) # measures string length
+
 gliadin_wrangled
 ```
 
-# Removes all digits (numbers), and then all of the spaces within the above dataset. 
+# Put all the steps into one block to save space. Will try to do this as much as possible going forward. 
 
 ```{r}
-str_c(gliadin_wrangled, collapse = "")
+str_count(gliadin_wrangled, "[A.C.T.G]")   # All are A, C, T, G
+str_count(gliadin_wrangled, "ATG") # 66 matches
+str_count(gliadin_wrangled, "TGA|TAA") # 99 matches
 ```
 
-# Collapses the strings into a single string. 
+# Counts totals, had to use only one set of quotations to make the final line work. 
+
+
+
+
