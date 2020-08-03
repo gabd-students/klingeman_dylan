@@ -123,26 +123,50 @@ ggplot(ant_wrangled, aes(x = reorder(species, total_abundance), y = total_abunda
   
 ```
 
-# 
+#
 
 ### Part 3: Featuring Phlox flowers. 
 
+# First data set
+
 ```{r}
 flower_data <- read_csv(here("data", "flower_size.csv"))
+flower_data
 ```
 
 ```{r}
 wrangled_flower_data <- flower_data %>% 
   filter(!is.na("Flower number")) %>% # keeps na values
-  select(species = "Species",cor_length =  `Corolla length  (cm)`,throat_width =  `Corolla width throat (cm)`) %>% # renames columns
+  select(species = "Species",cor_length =  'Corolla length (cm)',throat_width =  `Corolla width throat (cm)`) %>% # renames columns
 separate(species, into = c("genus", "species"), extra = "drop") %>% 
   group_by(genus, species) %>% 
   summarise(mean_length = mean(cor_length, na.rm = TRUE), # mean length
             mean_width = mean(throat_width, na.rm = TRUE), # mean width
-            max_length = max(cor_length), # max length
-            max_width = max(throat_width) # max width
+            max_length = max(cor_length, na.rm = TRUE), # max length
+            max_width = max(throat_width, na.rm = TRUE) # max width
             , .groups = 'drop') # fixes group argument
 
 wrangled_flower_data
+```
+
+# Second data set
+
+```{r}
+pollinators_raw <- read_csv(here("data", "flower_pollinators.csv"))
+```
+
+```{r}
+pollinators <- pollinators_raw %>% 
+   select(-c(starts_with("Source"), Color)) %>%
+  filter(!is.na(Pollinator)) %>% 
+  separate(Species, into = c("genus", "species"), extra = "drop") %>% 
+  separate(Pollinator, into = "Syndrome", sep = " ")
+  
+pollinators
+```
+
+```{r}
+phlox <- inner_join(wrangled_flower_data, pollinators)
+phlox
 ```
 
