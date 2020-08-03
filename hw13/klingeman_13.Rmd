@@ -170,3 +170,62 @@ phlox <- inner_join(wrangled_flower_data, pollinators)
 phlox
 ```
 
+```{r}
+ggplot(data = phlox) + 
+  geom_point(aes( x = mean_length, y = mean_width, color = Syndrome)) 
+```
+
+```{r}
+phlox_mutated <- phlox %>% 
+  mutate(Syndrome = str_replace(Syndrome, "(^be.*e$)", "\\1s"),
+   Syndrome = str_replace(Syndrome, ".+l.?es", "other insects"))
+```
+# groups bee/beetle into bees/beetles respectively. 
+
+# Removes Beetles and flies, but replaces them with other insects. 
+
+```{r}
+ggplot(data = phlox_mutated) + 
+  geom_point(aes( x = mean_length, y = mean_width, color = Syndrome)) + 
+  labs(x = "Mean length", y = "Mean width")
+```
+
+# graph with bees/beetles. 
+
+```{r}
+phlox %>% 
+  group_by(Syndrome) %>% 
+  count(Syndrome)
+```
+
+
+```{r}
+phlox_other <- phlox_mutated %>% 
+  mutate(Syndrome = str_replace(Syndrome,".+1.?es", "other insects"))
+phlox_other %>% 
+  ggplot() + 
+  geom_point(aes(x = mean_length, y = mean_width, color = Syndrome)) + 
+  labs(x = "Mean length", y = "Mean width")
+```
+
+# Graph With other insects from above. 
+
+```{r}
+(phlox_categorised <- phlox %>%
+  mutate(Syndrome = str_replace(Syndrome, "(^be.*e$)", "\\1s"),
+         Syndrome = str_replace(Syndrome, ".+l.?es", "other insects"),
+         syndrome_group = case_when(
+           Syndrome == "autogamous" ~ "Autogamous",
+          Syndrome == "bat" ~ "Mammal",
+          Syndrome == "hummingbird" ~ "Bird",
+          TRUE ~ "Insect"
+         )))
+
+ggplot(data = phlox_syndrome) + 
+  geom_point(aes(x = mean_length, y = mean_width, color = syndrome_group)) + 
+  labs(x = "Mean length", y = "Mean width", color = "Syndrome group") + 
+  gghighlight(syndrome_group == "Mammal" | syndrome_group == "Bird", use_direct_label = FALSE)
+```
+
+# Cuts down to 4 groups on the legend. 
+
