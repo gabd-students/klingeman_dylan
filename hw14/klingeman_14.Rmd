@@ -1,0 +1,40 @@
+---
+title: "HW 14: Maps"
+author: "Dylan Klingeman"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(here)
+library(raster)
+library(sf)
+library(tidyverse)
+library(ggthemes)
+library(patchwork)
+library(maptools)
+library(ggmap)
+library(marmap)
+```
+
+### Part 1: Outline maps
+
+## US map
+
+```{r}
+usa <- map_data(map = "state") # loads data for us map
+
+us_missouri <- map_data(map = "state", 
+                        region = "missouri") # loads missouri data. 
+us_other <- subset(x = usa, subset = region %in% c("alabama", 
+                                                   "florida", 
+                                                   "mississippi", 
+                                                   "north carolina"))
+```
+
