@@ -229,3 +229,49 @@ ggplot(data = phlox_syndrome) +
 
 # Cuts down to 4 groups on the legend. 
 
+### Part 4: Customize your plots
+
+# Plot 1
+
+```{r}
+phlox_categorised %>% 
+  ggplot() + 
+  geom_point(aes(x = max_length, y = max_width, shape = syndrome_group, color = syndrome_group)) + 
+  labs( x = "Max length", y = "Max width", color = "Syndrome", shape = "Syndrome") + 
+  scale_color_brewer(type = "qual", palette = "Accent")
+```
+
+# Plot 2 
+
+```{r}
+phlox_categorised %>% 
+  ggplot() + 
+  geom_point(aes(x = max_length, y = max_width, shape = syndrome_group, color = syndrome_group), size = 1.5) + 
+  labs( x = "Max length", y = "Max width", color = "Syndrome", shape = "Syndrome") + 
+  scale_color_brewer(type = "Diverging", palette = "BrBG")
+```
+
+# Plot 3 
+
+```{r}
+phlox_categorised %>% 
+  ggplot() + 
+  geom_point(aes(x = max_length, y = max_width, shape = syndrome_group, fill = syndrome_group), size = 2) + 
+  labs( x = "Max length", y = "Max width", shape = "Syndrome", fill = "Syndrome") + 
+  scale_fill_viridis_d(option = "cividis") + 
+    scale_shape_manual(values = c(22:25)) +
+  theme_classic()
+```
+
+# Plot 4
+
+```{r}
+phlox_categorised %>% 
+  ggplot() + 
+  geom_point(aes(x = max_length, y = max_width, shape = syndrome_group, fill = syndrome_group), size = 2) + 
+  labs( x = "Max length", y = "Max width", shape = "Syndrome", fill = "Syndrome") + 
+  scale_fill_viridis_d(option = "viridis") + 
+    scale_shape_manual(values = c(22:25)) +
+  theme_bw()
+```
+
