@@ -251,10 +251,41 @@ ggplot(states_df) + geom_sf(aes(fill = relative_mort)) +
 ## Choropleth map: your turn. 
 
 ```{r}
-raw_lyme_disease<- read_csv(here::here("data", "lyme_disease.csv")) 
+raw_lyme_disease<- read_csv(here::here("data", "lyme_disease.csv"), 
+                            skip = 1, 
+                            na = c("-"))
+raw_lyme_disease
 ```
 
+```{r}
+wrangled_lyme_disease <- raw_lyme_disease %>% 
+ mutate(`2017` = `2017_Confirmed` + `2017_Probable`) %>% 
+  select(State: "2016", "2017") %>% 
+  pivot_longer("2007":"2017", names_to = "year", values_to = "cases")%>% 
+  group_by(State) %>% 
+  summarise(mean_cases = mean(cases), 
+            log_mean = log10(mean_cases), 
+            .groups = "drop")
+```
 
+# wrangles the lyme disease dataset, collapsing some columns and combining others .
+
+```{r}
+lyme_disease_adj <- left_join(wrangled_lyme_disease, fips)
+
+lyme_disease_df <- left_join(states_df, wrangled_lyme_disease)
+```
+# leftjoins the datasets together for graphing. 
+
+```{r}
+ggplot(lyme_disease_df) + 
+  geom_sf(aes(fill = log_mean)) + 
+  scale_fill_viridis_c(name = "Lyme Disease, \nCases in State", 
+                       option = "cividis", labels = c("<1", "10", "100", "1000", "5000")) +
+  coord_sf(crs = st_crs(5070)) + 
+  theme_bw() + 
+  theme(legend.position = "bottom")
+```
 
 
 #
