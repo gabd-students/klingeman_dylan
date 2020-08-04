@@ -583,6 +583,58 @@ base_map +
 ## Bathymetry: now you try it
 
 ```{r}
+min_long <- -90
+max_long <- -58
+min_lat <- 8
+max_lat <- 28
 
+earthquakes <- quakes %>% 
+  mutate(depth = depth * 3280.84) # km to feet conversion. 
 ```
+
+# sets the longitudes and latitude values. 
+
+```{r}
+blennies <- read_csv(here::here("data", "blennies.csv")) 
+```
+
+# loads in blennies dataset. 
+
+```{r}
+carib_sea <- getNOAA.bathy(lon1 = min_long,
+                      lon2 = max_long,
+                      lat1 = min_lat,
+                      lat2 = max_lat,
+                      antimeridian = FALSE,
+                      keep = TRUE)
+```
+
+# got the same error as in the above, have to fix this to continue. 
+
+```{r}
+base_map <- autoplot(carib_sea, 
+         geom = c("raster","contour"),
+         size = 0.1,
+         na.rm = TRUE) +
+scale_fill_etopo(guide = FALSE) +  
+  labs(x = "Longitude",
+       y = "Latitude") +
+  theme(axis.title.y = element_text(angle = 0, 
+                                    vjust = 0.5))
+```
+
+```{r}
+base_map + 
+  geom_point(data = blennies,
+             aes(x = long,
+                 y = lat, shape = name), size = 3.3, fill = "firebrick1") + 
+  scale_shape_manual(values = c(21,22,23)) +
+  theme(legend.position = "bottom") +
+  theme(legend.text = element_text(face = "italic"))
+ labs(shape = "Species")
+```
+
+# Finished map. Took the longest to figure out how to do the individual colors. When changing the shapes, they had the color on the outline of the shape but not the inside. had to remember to use the "fill" argument to color in the shapes. 
+
+#
 
