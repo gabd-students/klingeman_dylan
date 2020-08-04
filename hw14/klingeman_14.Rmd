@@ -386,3 +386,203 @@ base + geom_point(data = both_species,
 
 ## Distribution map: your turn
 
+```{r}
+min_long <- -126
+max_long <- -104
+min_lat <-  31
+max_lat <- 50
+
+set.seed(1732180)
+```
+
+# seed set to so number. 
+
+```{r}
+bigfoot2 <- read_csv(here::here("data", "bigfoot.csv"))
+
+bigfoot2 <- bigfoot2 %>% 
+  filter(long >=min_long & long <= max_long, 
+         lat >= min_lat & lat <= max_lat) %>% 
+  sample_n(300) %>% 
+  mutate(name = "Gigantopithecus") %>% 
+  dplyr::select(name, long, lat)
+```
+
+```{r}
+bears2 <- read_csv(here::here("data", "bears.csv"))
+
+both_species2 <- bind_rows(bigfoot2, bears2)
+
+head(both_species2)
+```
+
+# head dataset of both species. 
+
+```{r}
+tail(both_species2)
+```
+
+# tail data of both species
+
+```{r}
+base2 = get_stamenmap(bbox = c(min_long, 
+                              min_lat, 
+                              max_long, 
+                              max_lat), 
+                     zoom = 4, 
+                     maptype = "terrain-background")
+
+ggmap(base2)
+```
+
+# Plots a map of the western US. showing forest ranges and land with different color schemes. 
+
+```{r}
+base2 <- ggmap(base2)
+
+base2 + geom_point(data = bigfoot2, 
+                  aes(x = long, 
+                      y = lat))
+```
+
+# Bigfoot data map
+
+```{r}
+base + geom_point(data = bears2, 
+                  aes(x = long, 
+                      y = lat))
+```
+
+# Black bear map
+
+```{r}
+base + geom_point(data = both_species2,
+                  aes(x = long,
+                      y = lat,
+                      shape = name,
+                      fill = name),
+                  size = 2) +
+  scale_shape_manual(values = c(22:23)) +
+  labs(x = "Longitude",
+       y = "Latitude",
+       fill = "Species",
+       shape = "Species")
+```
+
+
+#My distribution map. Some of the points seem to overlap witht he first one, but after comparing the two i was able to find some points isolated on either graph.
+
+#
+
+## Part 4: Bathymetry
+
+```{r}
+library(tidyverse)
+library(marmap)
+```
+
+
+
+```{r}
+min_long <- -170
+max_long <- 164
+min_lat <- -42
+max_lat <- -8
+
+earthquakes <- quakes %>% 
+  mutate(depth = depth * 3280.84) # km to feet conversion. 
+```
+
+```{r}
+fiji <- getNOAA.bathy(lon1 = min_long,
+                      lon2 = max_long,
+                      lat1 = min_lat,
+                      lat2 = max_lat,
+                      antimeridian = TRUE,
+                      keep = TRUE)
+```
+
+# Get an error message here, can't create the datset needed for other steps. 
+```{r}
+autoplot.bathy(fiji, 
+               geom = c("raster", "countour"), 
+               size = 0.1, 
+               na.rm = TRUE)
+```
+
+# creates a chart of the fiji dataset witha  lgend showing dpeth in feet. 
+
+```{r}
+autoplot(fiji, 
+         geom = c("raster","contour"),
+         size = 0.1,
+         na.rm = TRUE) +
+  scale_fill_gradient2(low = "dodgerblue4", 
+                       mid = "gainsboro", 
+                       high = "darkgreen",
+                       name = "Depth (ft)") +
+  labs(x = "Longitude",
+       y = "Latitude") +
+  theme(axis.title.y = element_text(angle = 0, 
+                                    vjust = 0.5))
+```
+
+# adjsts the above chart, adding in labels to the legend, axes, and changing the coloring of the map for clarity. 
+
+```{r}
+base_map <- autoplot(fiji, 
+                     geom = c("raster","contour"),
+                     size = 0.1,
+                     na.rm = TRUE) +
+  scale_fill_gradient2(low = "dodgerblue4", 
+                       mid = "gainsboro", 
+                       high = "darkgreen",
+                       name = "Depth (ft)") +
+  labs(x = "Longitude",
+       y = "Latitude") +
+  theme(axis.title.y = element_text(angle = 0, 
+                                    vjust = 0.5))
+```
+
+# 
+
+```{r}
+base_map + 
+  geom_point(data = earthquakes,
+             aes(x = long,
+                 y = lat))
+```
+
+# adds the earthquakes to the above map as data points. 
+
+```{r}
+base_map + 
+  geom_point(data = earthquakes,
+             aes(x = long,
+                 y = lat,
+                 size = mag),
+             alpha = 0.4)
+```
+
+# adds transparency to the points to increase clarity. Darker shades imply higher magnitudes. 
+
+```{r}
+base_map + 
+  geom_point(data = earthquakes,
+             aes(x = long,
+                 y = lat,
+                 size = mag),
+             alpha = 0.4) +
+  scale_size_continuous(range = c(0.5,3), name = "Magnitude")
+```
+
+# scales down the size of the points and adjusts name of legend. 
+
+#
+
+## Bathymetry: now you try it
+
+```{r}
+
+```
+
