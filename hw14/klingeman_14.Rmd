@@ -244,3 +244,114 @@ ggplot(states_df) + geom_sf(aes(fill = relative_mort)) +
   theme(legend.position = "bottom")
 ```
 
+# Makes a map graph with a gradient to skin cancer mortality by state. The color scheme is set to the "inferno" viridis setting. 
+
+#
+
+## Choropleth map: your turn. 
+
+```{r}
+raw_lyme_disease<- read_csv(here::here("data", "lyme_disease.csv")) 
+```
+
+
+
+
+#
+
+## Part 3: Dot distribution maps
+
+```{r}
+library(raster)
+library(tidyverse)
+library(ggthemes)
+library(ggmap)
+```
+
+```{r}
+min_long <- -126
+max_long <- -104
+min_lat <-  31
+max_lat <- 50
+
+set.seed(9618973)
+```
+
+# sets the seed so all fhte values are consistent, and then sets guidelines for some variables. 
+
+```{r}
+bigfoot <- read_csv(here::here("data", "bigfoot.csv"))
+
+bigfoot <- bigfoot %>% 
+  filter(long >=min_long & long <= max_long, 
+         lat >= min_lat & lat <= max_lat) %>% 
+  sample_n(300) %>% 
+  mutate(name = "Gigantopithecus") %>% 
+  dplyr::select(name, long, lat)
+```
+
+```{r}
+bears <- read_csv(here::here("data", "bears.csv"))
+
+both_species <- bind_rows(bigfoot, bears)
+
+head(both_species)
+```
+
+# loads in the bears dataset, then binds the bigfoot and bears together. Compares the first couple rows of data. 
+
+```{r}
+tail(both_species)
+```
+
+# compares the last couple rows of data between the two species. 
+
+```{r}
+base = get_stamenmap(bbox = c(min_long, 
+                              min_lat, 
+                              max_long, 
+                              max_lat), 
+                     zoom = 4, 
+                     maptype = "terrain-background")
+
+ggmap(base)
+```
+
+# Plots a map of the western US. showing forest ranges and land with different color schemes. 
+
+```{r}
+base <- ggmap(base)
+
+base + geom_point(data = bigfoot, 
+                  aes(x = long, 
+                      y = lat))
+```
+
+# plots the 300 bigfoot data points from the earlier seed. 
+
+```{r}
+base + geom_point(data = bears, 
+                  aes(x = long, 
+                      y = lat))
+```
+
+# plots the black bear data points, to show as a comparison tot he bigfoot data. 
+
+```{r}
+base + geom_point(data = both_species,
+                  aes(x = long,
+                      y = lat,
+                      shape = name,
+                      fill = name),
+                  size = 2) +
+  scale_shape_manual(values = c(22:23)) +
+  labs(x = "Longitude",
+       y = "Latitude",
+       fill = "Species",
+       shape = "Species")
+```
+
+# Combines the two datasets and assigns themr espective colors to a legend. 
+
+## Distribution map: your turn
+
